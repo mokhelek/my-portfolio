@@ -1,0 +1,73 @@
+{% extends 'main_app/base.html'  %}
+
+{% block content %}
+
+  
+    <section class="project py-5" id="project" style="background-color: #00000C;border-top: 1px solid #ffc200;">
+        <div class="container-fluid project-container" >
+          <div>
+          <div class="d-flex justify-content-center">  
+            <div class="" style="border-left: 3px solid #ffc200;margin:0cm">
+              <h4 style="margin-left: 5px;color: white;margin-top: 0cm;margin-bottom: 0cm;">Projects</h4>
+              <h5 style="margin-left: 5px;color:rgb(230, 230, 230);margin-top: 0cm;margin-bottom: 3px;font-weight: 500;">Some of my past projects</h5>
+            </div>
+        </div>
+        <br><br>
+                <div class="row">
+                  {% for project in projects %}
+                  <div class="col-md-6"> 
+                    <div class="img-wrapper">  
+                      <img src="{{project.thumbnail.url}}" class="img-fluid" alt="project image">
+                  </div>
+                    <div class="justify-content-center d-flex" style="position: relative;top: -30px;"> 
+                      <div class="card" style="width:90% !important; background-color: #00000A; border-radius: 4px;box-shadow: 0 0 6px rgb(178, 180, 255);">
+                        <div style="height: 160px;overflow: hidden;">   
+                          <h5 style="margin-left: 20px;margin-top:12px;color:white">{{project.title}}</h5>
+                          <p style="margin-left: 20px;margin-right: 20px;margin-bottom: 8px;color:rgb(206, 206, 206); font-size: 1rem;" class="lead">
+                      
+                          {{project.description}}
+                        </p>
+                      </div>
+                        <div class="d-flex" style="margin-top: 0cm;margin-bottom: 10px;">
+
+                            <div class="col-1 " >
+                              <div class="rounded-circle" style="background-color: #ffc50717;height: 35px;width: 35px;border:#ffc200 solid 1px">
+                                <a href="{{project.github}}">  
+                                  <div  style="padding-left: 5.5px;padding-top: 3.2px !important;">  
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-github text-warning" viewBox="0 0 16 16">
+                                      <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                                    </svg>
+                                  </div>
+                              </a>
+                              </div>
+                            </div>
+                            &nbsp;&nbsp;
+
+                          <div class="col-1" >
+                            <div class="rounded-circle" style="background-color: rgba(187, 187, 187, 0.15);height: 35px;width: 35px;border:#eaeaea solid 1px">
+                             
+                              <a href="{{project.live}}"> 
+                                <div style="padding-left: 9px;padding-top: 3px;">  
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-box-arrow-up-right text-light" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                                    <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+                                  </svg>
+                                </div>
+                              </a>
+
+                            </div>
+                          </div>
+
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
+            
+                 </div>
+        </div>
+    </section>
+
+{% endblock content %}
