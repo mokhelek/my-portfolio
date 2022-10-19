@@ -24,7 +24,7 @@ class Tag(models.Model):
 class Article(models.Model):
     title = models.CharField(max_length=80)
     subtitle = models.CharField(max_length=500)
-    thumbnail = models.ImageField(upload_to="./main_app/static/images/blog")
+    thumbnail = models.ImageField(upload_to="blog")
     body = QuillField()
     date_posted = models.DateTimeField(auto_now_add=True)
     featured_article = models.BooleanField(default=False)

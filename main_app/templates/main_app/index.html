@@ -21,9 +21,6 @@
 </style>
 
 
-
-
-
     <!-- ABOUT -->
     <section class="about full-screen d-lg-flex justify-content-center align-items-center"  style="background-color: #00000C;height:550px; overflow: hidden;">
         <div class="container-fluid " style="width: 92%;"> 
@@ -263,15 +260,16 @@
                   </div>
                     <div class="justify-content-center d-flex" style="position: relative;top: -30px;"> 
                       <div class="card" style="width:90% !important; background-color: #00000A; border-radius: 4px;box-shadow: 0 0 6px rgb(178, 180, 255);">
-                        <div style="height: 160px;overflow: hidden;">   
+                        <div style="min-height: 170px;overflow: hidden;">   
                           <h5 style="margin-left: 20px;margin-top:12px;color:white">{{project.title}}</h5>
                           <p style="margin-left: 20px;margin-right: 20px;margin-bottom: 8px;color:rgb(206, 206, 206); font-size: 1rem;" class="lead">
                       
                           {{project.description}}
                         </p>
+                      
                       </div>
                         <div class="d-flex" style="margin-top: 0cm;margin-bottom: 10px;">
-
+                          <br>
                             <div class="col-1 " >
                               <div class="rounded-circle" style="background-color: #ffc50717;height: 35px;width: 35px;border:#ffc200 solid 1px">
                                 <a href="{{project.github}}">  
@@ -309,7 +307,7 @@
                 </div>
 
 
-                <div class="container-fluid" style="margin-top: 30px;width: 90%;">
+                <div class="container-fluid" style="margin-top: 30px;">
                   <a href="{% url 'projects_app:all_projects' %}" style="color:#000000 !important;" class="btn btn-warning rounded-pill">See More
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
                       <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
@@ -377,7 +375,7 @@
     </div>
 
 
-    <div class="container-fluid" style="margin-top: 30px;width: 76%;">
+    <div class="container-fluid" style="margin-top: 30px;width: 85%;">
       <a href="{% url 'blog_app:all_articles' %}" style="color:#000000 !important;" class="btn btn-warning rounded-pill">See More
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
           <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>

@@ -5,7 +5,7 @@ from django.db import models
 class Project(models.Model):
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=250)
-    thumbnail = models.ImageField(upload_to="./main_app/static/images/project")
+    thumbnail = models.ImageField(upload_to="project")
     github = models.URLField(null=True , blank=True)
     live = models.URLField(null=True, blank=True)
     featured = models.BooleanField(default=False)
