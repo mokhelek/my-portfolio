@@ -14,8 +14,59 @@
   .about-text{
     font-size: 1rem;
   }
+  .animated-item{
+    font-size: 22px;
+  } 
+  .animated-text{
+    font-size: 25px !important;
+  }
 }
 
+
+@media screen and (max-width: 550px) {
+  .img-wrapper img{
+    width:100%;
+    height: auto !important;
+  }
+  .project-container{
+    width:100%
+  }
+}
+
+@media screen and (min-width: 551px) {
+  .img-wrapper img{
+    width:100%;
+    height: auto !important;
+  }
+  .project-container{
+    width:85% !important;
+  }
+}
+
+
+@media screen and (min-width: 767px) {
+  .img-wrapper img{
+    width: 100% ;
+    height:250px !important;
+  }
+  .project-container{
+    width:100% !important;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .img-wrapper img{
+    width: 100% ;
+    height:380px !important;
+  }
+  .project-container{
+    width: 90% !important ;
+  }
+  .animated-item{
+    font-size: 39px;
+  } 
+
+}
 
 
 </style>
@@ -29,21 +80,21 @@
                 <div class="col-lg-7 col-md-12 col-12 d-flex align-items-center">
                     <div class="about-text">
                         <small style="background-color: #0A0A21;color:white;" class="small-text">Welcome to <span class="mobile-block">my portfolio website!</span></small> 
-                        <br><br>
-                        <h2 class="animated animated-text">
+                        <br>
+                        <h1 class="animated animated-text">
                             <span style="color:white;" class="mr-2">Hi, I'm</span>
                                 <div class="animated-info">
                                     <span class="animated-item">Mokhele Katleho</span>
                                     <span class="animated-item">Fullstack Developer</span>
                                     <span class="animated-item">UI/UX Designer</span>
                                 </div>
-                        </h2>
+                        </h1>
 
                         <p style="color: rgb(190, 190, 190)">Building a successful product is a challenge. I am highly energetic in user experience design, interfaces and web development.</p>
                         
                         <div class="custom-btn-group mt-4 row">
-                          <a style="color: #00000C !important " href="#" class="btn mr-lg-2 btn-lg col-4 col-md-3 col-lg-3 custom-btn">Download CV</a> &nbsp;&nbsp;
-                          <a href="#contact" class="btn custom-btn custom-btn-bg btn-lg col-4 col-md-3 col-lg-3 custom-btn-link">Hire me</a>
+                          <a style="color: #00000C !important " href="#" class="btn mr-lg-2 btn-lg col-5 col-md-3 col-lg-3 custom-btn">Download CV</a> &nbsp;&nbsp;
+                          <a href="#contact" class="btn custom-btn custom-btn-bg btn-lg col-5 col-md-3 col-lg-3 custom-btn-link">Hire me</a>
                         </div>
                     </div>
                 </div>
@@ -244,7 +295,7 @@
     <!-- ###################################################### PROJECTS ######################################################################## -->
 
 
-    <section class="project py-5" id="projects" style="background-color: #00000C;border-top: 1px solid #ffc200;">
+    <section class="project py-5" id="project" style="background-color: #00000C;border-top: 1px solid #ffc200;">
         <div class="container-fluid project-container">
           <div>
           <div class="d-flex justify-content-center">  
@@ -258,7 +309,7 @@
                   {% for project in projects %}
                   <div class="col-md-6"> 
                       <div class="img-wrapper">  
-                        <img style="width: 700px;height: 400px;" src="{{project.thumbnail.url}}" class="img-fluid" alt="project image">
+                        <img src="{{project.thumbnail.url}}" class="img-fluid" alt="project image">
                       </div>
 
 

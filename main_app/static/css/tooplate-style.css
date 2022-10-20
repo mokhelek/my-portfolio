@@ -132,7 +132,7 @@ b, strong {
 }
 
 .animated-item {
-  font-size: 38px;
+  font-size: 23px ;
   line-height: inherit;
   display: flex;
   opacity: 0;
@@ -369,7 +369,7 @@ b, strong {
 
   .custom-btn {
     display: block;
-    margin: 10px 0;
+    margin: 3px 0;
   }
 
   .timeline-info small {
