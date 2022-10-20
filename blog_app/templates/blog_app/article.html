@@ -1,5 +1,5 @@
 {% extends 'main_app/base.html'  %}
-
+{% load static %}
 {% load read-time %}
 {% block content %}
 
@@ -16,12 +16,12 @@
 
                 <div class="d-flex" >  
                     <div class="position-relative"  >
-                      <img style="height: 50px; width:50px;border-radius:50%;border: gray 2px solid;" src="{{article.thumbnail.url}}"  class="img-flex"  alt="">
+                      <img style="height: 50px; width:50px;border-radius:50%;border: gray 2px solid;" src="{% static 'images/author.jpg' %}"  class="img-flex"  alt="">
                     </div>
 
                     <div class="col-5">
                         <div class="row">  
-                            <h6 style="margin-left: 2px;color:white;margin-bottom: 2px;">Mokhele Katleho</h6> 
+                            <h6 style="margin-left: 3px;color:white;margin-bottom: 2px;">Mokhele Katleho</h6> 
                         </div>
                    
                         <div class="row">

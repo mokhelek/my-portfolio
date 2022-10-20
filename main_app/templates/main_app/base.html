@@ -20,19 +20,98 @@
     <title>Mokhele Katleho</title>
 </head>
 
+<nav class="navbar navbar-expand-lg fixed-top" style="background-color:#00000C;">
+    <div class="container-fluid" style="width: 90%;">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor " class="bi bi-list text-warning" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+          </svg>
+      </button>
+      <a class="navbar-brand" href="{% url 'main_app:homePage' %}">
+        <img height="50" src="{% static 'images/mokheleme-logos__transparent.png' %}" alt="logo">
+    </a>
+
+    
+        <div class="d-none d-lg-block ">  
+            <div style="padding-left: 180px;" > 
+                <ul class="navbar-nav  me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a style="color: white;" class="nav-link" href="#about">About </a> 
+                    </li>&nbsp;&nbsp;&nbsp;
+                    <li class="nav-item">
+                        <a style="color: white;" class="nav-link" href="#skills">Skills</a>
+                    </li>&nbsp;&nbsp;&nbsp;
+                    <li class="nav-item">
+                        <a style="color: white;" class="nav-link" href="#project">Projects</a>
+                    </li>&nbsp;&nbsp;&nbsp;
+                    <li class="nav-item">
+                        <a style="color: white;" class="nav-link" href="#blog">Blog</a>
+                    </li>&nbsp;&nbsp;&nbsp;
+                    <li class="nav-item">
+                        <a style="color: white;" class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+      </div>
+
+      <div class="d-flex justify-content-center  navbar-collapse" >
+        <div id="navbarTogglerDemo03" class="collapse ">  
+            <ul class="navbar-nav  me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a style="color: white;" class="nav-link" href="#about">About </a> 
+            </li>
+            <li class="nav-item">
+                <a style="color: white;" class="nav-link" href="#skills">Skills</a>
+            </li>
+            <li class="nav-item">
+                <a style="color: white;" class="nav-link" href="#project">Projects</a>
+            </li>
+            <li class="nav-item">
+                <a style="color: white;" class="nav-link" href="#blog">Blog</a>
+            </li>
+            <li class="nav-item">
+                <a style="color: white;" class="nav-link" href="#contact">Contact</a>
+            </li>
+
+            
+            </ul>
+        </div>
+      </div>
+      
+    </div>
+  </nav>
+
+{% block content %}
+    <body>
+
+        <script src="{% static 'js/main.js' %}"></script>
+        <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+        <script src="{% static 'js/popper.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/Headroom.js' %}"></script>
+        <script src="{% static 'js/jQuery.headroom.js' %}"></script>
+        <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'js/smoothscroll.js' %}"></script>
+        <script src="{% static 'js/custom.js' %}"></script>
+      
+    </body>
+{% endblock content %}
+
+</html>
+
+
+
+
+
+<!--    
 <nav class="navbar navbar-expand-sm navbar-light" >
     <div class="container">
         <a class="navbar-brand" href="{% url 'main_app:homePage' %}">
-            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-circle text-warning" viewBox="0 0 16 16">
-            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-          </svg></a>
+            <img height="80" src="{% static 'images/mokheleme-logos__transparent.png' %}" alt="logo">
+        </a>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            <span class="navbar-toggler-icon"></span>
-            <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            toggle
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -58,23 +137,4 @@
         </div>
     </div>
 </nav>
-
-
-
-{% block content %}
-    <body>
-
-    
-        
-        <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
-        <script src="{% static 'js/popper.min.js' %}"></script>
-        <script src="{% static 'js/bootstrap.min.js' %}"></script>
-        <script src="{% static 'js/Headroom.js' %}"></script>
-        <script src="{% static 'js/jQuery.headroom.js' %}"></script>
-        <script src="{% static 'js/owl.carousel.min.js' %}"></script>
-        <script src="{% static 'js/smoothscroll.js' %}"></script>
-        <script src="{% static 'js/custom.js' %}"></script>
-    </body>
-{% endblock content %}
-
-</html>
+-->
