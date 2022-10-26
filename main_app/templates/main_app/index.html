@@ -76,12 +76,24 @@
     <!-- ABOUT -->
     <section class="about full-screen d-lg-flex justify-content-center align-items-center"  style="background-color: #00000C;height:550px; overflow: hidden;">
         <div class="container-fluid " style="width: 92%;"> 
+         
             <div class="row">
-                
+           
                 <div class="col-lg-7 col-md-12 col-12 d-flex align-items-center">
+                
                     <div class="about-text">
+                      <div class="d-none d-lg-block">
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br> 
+                        <br>
+                      </div>
+                      
                         <small style="background-color: #b1b0b01d;color:rgb(224, 224, 224);" class="small-text">Welcome to <span class="mobile-block">my portfolio website!</span></small> 
                         <br>
+                        <div class="container-fluid">
                         <h1 class="animated animated-text">
                             <span style="color:white;" class="mr-2">Hi, I'm</span>
                                 <div class="animated-info">
@@ -90,23 +102,47 @@
                                     <span class="animated-item">UI/UX Designer</span>
                                 </div>
                         </h1>
-
+                      
                         <p style="color: rgb(190, 190, 190)">Building a successful product is a challenge. I am highly energetic in user experience design, interfaces and web development.</p>
-                        
+                      </div>
                         <div class="custom-btn-group mt-4 d-flex">
                           <a style="color: #00000C !important " href="#" class="btn mr-lg-2 btn-lg  custom-btn">Download CV</a> &nbsp;&nbsp;
                           <a href="#contact" class="btn custom-btn custom-btn-bg btn-lg  custom-btn-link">Hire me</a>
                         </div>
+                        
+                    <div class="row ">  
+
+                      <div class="col d-block d-lg-none">
+                        <div class=" d-flex justify-content-center "  >
+                          <a href="#about"> 
+                            <img  style="height: 50px;margin-top: 80px;" src="{% static 'images/scroll3.gif' %}"  alt="">
+                          </a>
+                        </div>
+                      </div>
+                      
+
+                      <div class="col d-none d-lg-block">
+                        <div class=" d-flex justify-content-end"  >
+                          <a href="#about"> 
+                            <img  style="height: 50px;margin-top: 100px;" src="{% static 'images/scroll3.gif' %}"  alt="">
+                          </a>
+                        </div>
+                      </div>
+                     
 
                     </div>
-                 
+
+                    </div> 
+                    
+                   
                 </div>
-               
+                
+                
                 <div class="col-lg-5 col-md-12 col-12">
-                  <div class="d-none d-lg-block" style="padding-top: 10px;padding-left: 20px;position: absolute;">
+                  <div class="d-none d-lg-block" style="padding-top: 20px;padding-left: 35px;position: absolute;">
                     <img height="380" src="{% static 'images/undraw/nom1.svg' %}"  alt="">
                   </div>
-                    <div class="about-image svg d-none d-lg-block" style="padding-top: 94px;padding-left: 70px;position: relative;">
+                    <div class="about-image svg d-none d-lg-block" style="padding-top: 120px;padding-left: 80px;position: relative;">
                         <img style="height: 450px;" height="30" src="{% static 'images/profile.png' %}" class="img-fluid" alt="svg image">
                     </div>
                     
@@ -269,7 +305,7 @@
                   {% for project in projects %}
                   <div class="col-md-6"> 
                       <div class="img-wrapper">  
-                        <img src="{{project.thumbnail.url}}" class="img-fluid" alt="project image">
+                        <img style="border-radius: 10px ;" src="{{project.thumbnail.url}}" class="img-fluid" alt="project image">
                       </div>
                     <div class="justify-content-center d-flex" style="position: relative;top: -30px;"> 
                       <div class="card" style="width:93% !important; background-color: #00000A; border-radius: 4px;box-shadow: 0 0 6px rgb(178, 180, 255);">
@@ -286,14 +322,14 @@
                       </div>
 
                         <div class="d-flex" style="margin-top: 0cm;width: 100% !important;">
-                            <button id="less_btn{{project.id}}" onclick="myFunction('{{project.id}}')" style="display: none; margin-left: 20px;margin-bottom: 8px;width:150px;height: 35px;background-color: #222319;" class="btn-outline-light expand_btn rounded-pill">
+                            <button id="less_btn{{project.id}}" onclick="myFunction('{{project.id}}')" style="border-width: 1px !important;display: none; margin-left: 20px;margin-bottom: 8px;width:152px;height: 30px;background-color: #222319;" class="btn-outline-light expand_btn  rounded-pill">
                               <small> Read Less </small>   
-                              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-chevron-bar-contract" viewBox="0 0 16 16">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-bar-contract" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M3.646 14.854a.5.5 0 0 0 .708 0L8 11.207l3.646 3.647a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 0 0 0 .708zm0-13.708a.5.5 0 0 1 .708 0L8 4.793l3.646-3.647a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 0-.708zM1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8z"/>
                               </svg>
 
                             </button>
-                            <button id="more_btn{{project.id}}" onclick="myFunction('{{project.id}}')" style="margin-left: 20px;margin-bottom: 8px;width:150px;height: 35px;background-color: #7a75a312;" class="btn-outline-warning rounded-pill">
+                            <button id="more_btn{{project.id}}" onclick="myFunction('{{project.id}}')" style="margin-left: 20px;margin-bottom: 8px;width:152px;height: 30px; border-width: 1px !important; background-color: #7a75a312;" class="btn-outline-warning expand_btn rounded-pill">
                               <small> Read More </small>   
                               <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-chevron-bar-expand" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M3.646 10.146a.5.5 0 0 1 .708 0L8 13.793l3.646-3.647a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 0-.708zm0-4.292a.5.5 0 0 0 .708 0L8 2.207l3.646 3.647a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 0 0 0 .708zM1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8z"/>
