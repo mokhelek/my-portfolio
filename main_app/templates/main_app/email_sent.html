@@ -1,0 +1,43 @@
+{% extends 'main_app/base.html' %}
+
+{% block content %}
+
+<style type="text/css">
+	html, body{
+		height: 100%;
+	}
+
+	#page-wrapper{
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		background-color: #00000C;
+	}
+
+	#success-box{
+		max-width: 800px;
+		height: auto;
+		background-color: rgba(78, 78, 78, 0.124);
+		border:1px solid #ffc200;
+		border-radius: 5px;
+		padding: 15px;
+		color: rgb(214, 214, 214);
+	}
+
+	#success-box p{
+		font-size: 18px;
+	}
+
+</style>
+
+<div id="page-wrapper">
+	<div id="success-box" class="content-block">
+		<h1>Thanks for reaching out!</h1>
+		<p>Your email was successfully sent. Meanwhile please follow me on social media platforms :)</p>
+		<a id="back-btn" class="btn btn-success" href="#">BACK TO HOME PAGE</a>
+	</div>
+</div>
+
+{% endblock content %}

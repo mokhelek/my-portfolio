@@ -208,16 +208,16 @@ b, strong {
 
 .about-me{
   
-  border: 1px solid #ffc200;
-  background-color: #0a0a188b;
-  border-radius: 10px;
-  box-shadow: 20px 20px 0px 4px rgb(0, 0, 0);
+  border: 0.8px solid #fcdc6f;
+  background-color: #0A0A21;
+  border-radius: 8px;
+
 
 }
 .about-me div{
   font-size: 1.2rem;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color:rgb(230, 230, 230);
+
+  color:rgb(193, 193, 193);
 }
 
 
@@ -282,21 +282,26 @@ b, strong {
 
 .contact-form {
   position: relative;
+  background-color: #04003620 !important;
+  border: #ffc400c1 1px solid !important;
+  border-radius: 10px;
 }
 .contact-form .form-control {
-  background: transparent;
+  background: #0700680e;
   border-radius: 8px;
   outline: none;
   box-shadow: none;
-  font-weight: bold;
+
   margin: 16px 0;
-  border-color: #ffc4003f;
+  border-color: #ffdd0051;
+  color:rgb(197, 197, 197);
 }
 .contact-form .form-control:not(textarea) {
   height: 48px;
 }
 .contact-form .form-control:hover, .contact-form .form-control:focus {
   border-color: #ffc200;
+ 
 }
 .contact-form .submit-btn {
   background: #ffc200;
@@ -312,7 +317,7 @@ b, strong {
 }
 
 .contact-info {
-  background: #474559;
+  background: #f63e00;
   border-radius: 0 0 3px 3px;
   position: relative;
   bottom: 8px;
