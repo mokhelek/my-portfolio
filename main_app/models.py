@@ -6,6 +6,15 @@ class Skill(models.Model):
     name = models.CharField(max_length=100)
     thumbnail = models.ImageField(upload_to="skills")
     description = models.TextField()
+    date_added = models.DateTimeField(auto_now_add=True, blank=True,null=True)
+
     
     def __str__(self):
         return self.name
+    
+class Texts(models.Model):
+    intro_text = models.TextField()
+    about_text = models.TextField()
+    
+    def __str__(self):
+        return "Website Texts"

@@ -6,7 +6,9 @@
 <style>
 
   @media (max-width: 400px) {
-    
+    section{
+    background-color: #070719 !important;
+  }
     .about-illustration{
       display: none;
     }
@@ -71,7 +73,7 @@
   </style>
 
 
-    <section class="project py-5" id="project" style="background-color: #00000C;border-top: 1px solid #ffc200;">
+    <section class="project py-5" id="project" style="background-color: #070719 ;border-top: 1px solid #ffc200;">
         <div class="container-fluid project-container" >
           <div>
             <div class="d-flex justify-content-center">  
@@ -87,11 +89,8 @@
               {% for project in projects %}
               <div class="col-md-6"> 
                   <div class="img-wrapper">  
-                    <img src="{{project.thumbnail.url}}" class="img-fluid" alt="project image">
+                    <img style="border-radius: 10px ;" src="{{project.thumbnail.url}}" class="img-fluid" alt="project image">
                   </div>
-
-
-
                 <div class="justify-content-center d-flex" style="position: relative;top: -30px;"> 
                   <div class="card" style="width:93% !important; background-color: #00000A; border-radius: 4px;box-shadow: 0 0 6px rgb(178, 180, 255);">
                     <div style="min-height: 170px;overflow: hidden;">   
@@ -107,14 +106,14 @@
                   </div>
 
                     <div class="d-flex" style="margin-top: 0cm;width: 100% !important;">
-                        <button id="less_btn{{project.id}}" onclick="myFunction('{{project.id}}')" style="display: none; margin-left: 20px;margin-bottom: 8px;width:150px;height: 35px;background-color: #222319;" class="btn-outline-light expand_btn rounded-pill">
+                        <button id="less_btn{{project.id}}" onclick="myFunction('{{project.id}}')" style="border-width: 1px !important;display: none; margin-left: 20px;margin-bottom: 8px;width:152px;height: 30px;background-color: #222319;" class="btn-outline-light expand_btn  rounded-pill">
                           <small> Read Less </small>   
-                          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-chevron-bar-contract" viewBox="0 0 16 16">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-bar-contract" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M3.646 14.854a.5.5 0 0 0 .708 0L8 11.207l3.646 3.647a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 0 0 0 .708zm0-13.708a.5.5 0 0 1 .708 0L8 4.793l3.646-3.647a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 0-.708zM1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8z"/>
                           </svg>
 
                         </button>
-                        <button id="more_btn{{project.id}}" onclick="myFunction('{{project.id}}')" style="margin-left: 20px;margin-bottom: 8px;width:150px;height: 35px;background-color: #7a75a312;" class="btn-outline-warning rounded-pill">
+                        <button id="more_btn{{project.id}}" onclick="myFunction('{{project.id}}')" style="margin-left: 20px;margin-bottom: 8px;width:152px;height: 30px; border-width: 1px !important; background-color: #7a75a312;" class="btn-outline-warning expand_btn rounded-pill">
                           <small> Read More </small>   
                           <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-chevron-bar-expand" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M3.646 10.146a.5.5 0 0 1 .708 0L8 13.793l3.646-3.647a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 0-.708zm0-4.292a.5.5 0 0 0 .708 0L8 2.207l3.646 3.647a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 0 0 0 .708zM1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8z"/>

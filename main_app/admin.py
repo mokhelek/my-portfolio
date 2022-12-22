@@ -8,4 +8,5 @@ admin.site.register(Project)
 admin.site.register(Article)
 admin.site.register(Tag)
 admin.site.register(Skill)
+admin.site.register(Texts)
 

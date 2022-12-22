@@ -15,39 +15,48 @@
 
     <!-- MAIN STYLE -->
     <link rel="stylesheet" href="{% static 'css/tooplate-style.css' %}">
+    <style>
+        @media (max-width: 400px) {
+  
+            #logo{
+                font-size: 1.3rem !important;
+            }
+        }
+    </style>
 
     <title>Mokhele Katleho</title>
 </head>
 
-<nav class="navbar navbar-expand-lg fixed-top" style="background-color:#00000C;height:80px;">
+<nav class="navbar navbar-expand-lg fixed-top" style="background-color:#070719;height:80px;">
     <div class="container-fluid" style="width: 95%;">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor " class="bi bi-list text-warning" viewBox="0 0 16 16">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor " class="bi bi-list text-warning" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
           </svg>
       </button>
       <a class="navbar-brand" href="{% url 'main_app:homePage' %}">
-      &nbsp;<img height="20" src="{% static 'images/logo.png' %}" alt="logo" >&nbsp;
+     <!--  &nbsp;<img height="20" src="{% static 'images/logo.png' %}" alt="logo" >&nbsp; -->
+     <h6 id="logo" style="color:#ffca1d;font-family:monospace;font-size: 1.6rem;font-weight: 500;font-style:oblique;" > Mokhele.dev_ </h6>
     </a>
 
     
-        <div style="background-color:#00000C;" class="d-none d-lg-block ">  
+        <div style="background-color:#070719;" class="d-none d-lg-block ">  
             <div style="padding-left: 250px;" > 
                 <ul class="navbar-nav  me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a style="color: white;" class="nav-link" href="#about">About </a> 
+                        <a style="color: white;" class="nav-link" href="{% url 'main_app:homePage' %}#about">About </a> 
                     </li>&nbsp;&nbsp;&nbsp;
                     <li class="nav-item">
-                        <a style="color: white;" class="nav-link" href="#skills">Skills</a>
+                        <a style="color: white;" class="nav-link" href="{% url 'main_app:homePage' %}#skills">Skills</a>
                     </li>&nbsp;&nbsp;&nbsp;
                     <li class="nav-item">
-                        <a style="color: white;" class="nav-link" href="#project">Projects</a>
+                        <a style="color: white;" class="nav-link" href="{% url 'main_app:homePage' %}#project">Projects</a>
                     </li>&nbsp;&nbsp;&nbsp;
                     <li class="nav-item">
-                        <a style="color: white;" class="nav-link" href="#blog">Blog</a>
+                        <a style="color: white;" class="nav-link" href="{% url 'main_app:homePage' %}#blog">Blog</a>
                     </li>&nbsp;&nbsp;&nbsp;
                     <li class="nav-item">
-                        <a style="color: white;" class="nav-link" href="#contact">Contact</a>
+                        <a style="color: white;" class="nav-link" href="{% url 'main_app:homePage' %}#contact">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -57,19 +66,19 @@
         <div id="navbarTogglerDemo03" class="collapse ">  
             <ul class="navbar-nav  me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-                <a style="color: white;" class="nav-link" href="#about">About </a> 
+                <a style="color: white;" class="nav-link" href="{% url 'main_app:homePage' %}#about">About </a> 
             </li>
             <li class="nav-item">
-                <a style="color: white;" class="nav-link" href="#skills">Skills</a>
+                <a style="color: white;" class="nav-link" href="{% url 'main_app:homePage' %}#skills">Skills</a>
             </li>
             <li class="nav-item">
-                <a style="color: white;" class="nav-link" href="#project">Projects</a>
+                <a style="color: white;" class="nav-link" href="{% url 'main_app:homePage' %}#project">Projects</a>
             </li>
             <li class="nav-item">
-                <a style="color: white;" class="nav-link" href="#blog">Blog</a>
+                <a style="color: white;" class="nav-link" href="{% url 'main_app:homePage' %}#blog">Blog</a>
             </li>
             <li class="nav-item">
-                <a style="color: white;" class="nav-link" href="#contact">Contact</a>
+                <a style="color: white;" class="nav-link" href="{% url 'main_app:homePage' %}#contact">Contact</a>
             </li>
 
             

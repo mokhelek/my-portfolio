@@ -12,11 +12,17 @@ from main_app.models import *
 # Create your views here.
 
 def homePage(request):
-    projects = Project.objects.filter(featured=True)[0:4]
-    articles = Article.objects.filter(featured_article = True)[0:3:-1]
+    projects = Project.objects.filter(featured=True).order_by("date_added")[0:4:-1]
+    articles = Article.objects.filter(featured_article = True).order_by("date_added")[0:3:-1]
     skills = Skill.objects.all()
+    texts = Texts.objects.all()
     
-    context = {"projects":projects ,"articles":articles,"skills":skills}
+    context = {
+        "projects":projects ,
+        "articles":articles,
+        "skills":skills,
+        "texts":texts,
+        }
     return render(request,"main_app/index.html",context)
 
 def sendEmail(request):
