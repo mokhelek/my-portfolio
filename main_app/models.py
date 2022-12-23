@@ -18,3 +18,9 @@ class Texts(models.Model):
     
     def __str__(self):
         return "Website Texts"
+    
+class Resume(models.Model):
+    resume_file = models.FileField(upload_to="resume")
+    
+    def __str__(self):
+        return "my resume"

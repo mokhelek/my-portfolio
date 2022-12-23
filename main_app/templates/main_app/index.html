@@ -7,7 +7,7 @@
 
 <style>
   section{
-    background-color: #070719 !important;
+    background-color: #0c0c14 !important;
   }
 @media (max-width: 400px) {
   
@@ -109,7 +109,9 @@
                         {% endfor %}
                       </div>
                         <div class="custom-btn-group mt-4 d-flex">
-                          <a style="color: #00000C !important " href="#" class="btn mr-lg-2 btn-lg  custom-btn">Download CV</a> &nbsp;&nbsp;
+                          {% for i in resume %}
+                            <a style="color: #00000C !important " href="{{i.resume_file.url}}" class="btn mr-lg-2 btn-lg  custom-btn">Download CV</a> &nbsp;&nbsp;
+                          {% endfor %}
                           <a href="#contact" class="btn custom-btn custom-btn-bg btn-lg  custom-btn-link">Hire me</a>
                         </div>
                         

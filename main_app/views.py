@@ -16,12 +16,14 @@ def homePage(request):
     articles = Article.objects.filter(featured_article = True).order_by("date_added")[0:3:-1]
     skills = Skill.objects.all()
     texts = Texts.objects.all()
+    resume = Resume.objects.all()
     
     context = {
         "projects":projects ,
         "articles":articles,
         "skills":skills,
         "texts":texts,
+        "resume":resume,
         }
     return render(request,"main_app/index.html",context)
 

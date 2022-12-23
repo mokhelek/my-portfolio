@@ -9,4 +9,5 @@ admin.site.register(Article)
 admin.site.register(Tag)
 admin.site.register(Skill)
 admin.site.register(Texts)
+admin.site.register(Resume)
 
