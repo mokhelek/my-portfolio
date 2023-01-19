@@ -19,8 +19,16 @@
         @media (max-width: 400px) {
   
             #logo{
-                font-size: 1.3rem !important;
+                font-size: 1.2rem !important;
             }
+        }
+        #logo{
+         
+        
+            background: linear-gradient(to right, rgb(232, 232, 255) 20%, rgb(255, 210, 12) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+    
         }
     </style>
 
@@ -36,7 +44,7 @@
       </button>
       <a class="navbar-brand" href="{% url 'main_app:homePage' %}">
      <!--  &nbsp;<img height="20" src="{% static 'images/logo.png' %}" alt="logo" >&nbsp; -->
-     <h6 id="logo" style="color:#ffca1d;font-family:monospace;font-size: 1.6rem;font-weight: 500;font-style:oblique;" > Mokhele.dev_ </h6>
+     <h6 id="logo" style="color:#ffca1d;font-family:monospace;font-size: 1.5rem;font-weight: 500;" > mokhele<span style="color: white;">.dev_ </span></h6>
     </a>
 
     

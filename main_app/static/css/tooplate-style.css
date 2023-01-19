@@ -1,8 +1,10 @@
 
 
+
 @import url("https://fonts.googleapis.com/css?family=Maven+Pro:400,700");
+
 body {
-  font-family: "Maven Pro", sans-serif;
+  font-family: "poppins", sans-serif;
   padding-top: 70px;
   
 }
@@ -208,8 +210,8 @@ b, strong {
 
 .about-me{
   
-  border: 0.8px solid #fcdc6f;
-  background-color: #0A0A21;
+
+  background-color: #14142a6b;
   border-radius: 8px;
 
 
@@ -238,7 +240,7 @@ b, strong {
 }
 .timeline-wrapper:before {
   content: "";
-  background: #FFDF00;
+  background: #ffea63;
   width: 1.4px;
   height: 100%;
   position: absolute;
@@ -247,7 +249,7 @@ b, strong {
 
 .timeline-yr {
   background: #060605;
-  border: 2px solid #FFDF00;
+  border: 1px solid #ffea63;
   border-radius: 100%;
   position: absolute;
   width: 50px;
@@ -357,18 +359,9 @@ b, strong {
     font-size: 2em;
   }
 
-  .animated-item {
-    font-size: 28px;
-  }
 
 
 @media (max-width: 580px) {
-	.animated-info {
-		min-width: 200px;
-	}
-  .animated-item {
-    font-size: 30px;
-  }
 
 
 
@@ -383,9 +376,6 @@ b, strong {
   }
 }
 @media (max-width: 320px) {
-  .animated-text {
-    margin-top: 0;
-  }
 
   .about-text {
     text-align: center;
@@ -403,10 +393,7 @@ b, strong {
     flex-direction: column;
   }
 
-  .social-links li {
-    display: inline-block;
-    vertical-align: top;
-  }
+
 }
 
 
