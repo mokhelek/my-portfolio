@@ -15,7 +15,7 @@
     display: none;
   }
   #about-text{
-    font-size: 0.5rem !important;
+    font-size: 0.95rem !important;
   }
   .animated-item{
     font-size: 22px;
@@ -35,7 +35,7 @@
     width:100%
   }
   #about-text{
-    font-size: 0.9rem !important;
+    font-size: 0.95rem !important;
   }
 }
 
@@ -175,12 +175,16 @@
             <br>
             <img src="{% static 'images\undraw\undraw_programming_re_kg9v.svg' %}" class="img-fluid" alt="svg image">
           </div>
+
           <div class="col-md-7">
 
-            <div class="" style="border-left: 2.7px solid #ffc4008d;margin:0cm">
-              <h4 style="margin-left: 5px;color: white;margin-top: 0cm;margin-bottom: 0cm;">About Me</h4>
-              <p style="margin-left: 5px;color:rgb(195, 195, 195);margin-top: 0cm;margin-bottom: 3px;font-size:1rem;">A closer look at my journey in tech</p>
+            <h2 style="margin-left: 5px;color: white;margin-top: 0cm;margin-bottom: 0cm;">About me</h2>
+            <div style="width: 85px; overflow:hidden">
+              <hr style="border:2px rgb(255, 228, 22) solid;margin: 7px;">
             </div>
+           
+              <p style="margin-left: 5px;color:rgb(215, 215, 215);margin-top: 0cm;margin-bottom: 3px;font-size:1rem;">A closer look at my tech journey</p>
+      
             <br>
             <div>
 
@@ -191,7 +195,7 @@
          
               <div > 
                 {% for text in texts %}
-                  <p id="about-tex">   
+                  <p id="about-text">   
                     {{text.about_text}}
                   </p>
                 {% endfor %}
@@ -212,13 +216,14 @@
     <section class="resume py-5 d-lg-flex justify-content-center align-items-center" id="skills" style="background-color: #00000C;">
       <div class="container">
 
-        <div class="d-flex justify-content-center">  
-          <div class="" style="border-left: 3px solid #ffc40049;margin:0cm; " >
-            <h4 style="margin-left: 7px;color: white;margin-top: 0cm;margin-bottom: 0cm;">My Skills</h4>
-            <p style="margin-left: 7px;color:rgb(208, 208, 208);margin-top: 4px;margin-bottom: 3px;font-size:1rem;">A list of my core skills and tools</p>
-          </div>
-      </div>
-     
+        <h2 style="margin-left: 5px;color: white;margin-top: 0cm;margin-bottom: 0cm;">My Skills </h2>
+        <div style="width: 100px; overflow:hidden">
+          <hr style="border:2px orange solid;margin: 7px;">
+        </div>
+       
+          <p style="margin-left: 5px;color:rgb(215, 215, 215);margin-top: 0cm;margin-bottom: 3px;font-size:1rem;">A list of my core skills & tools</p>
+
+       
 
     <br><br>
 
@@ -309,12 +314,13 @@
     <section class="project py-5" id="project" style="background-color: #00000C;">
         <div class="container-fluid project-container">
           <div>
-          <div class="d-flex justify-content-center">  
-            <div class="" style="border-left: 2.7px solid #ffc4008d;margin:0cm">
-              <h4 style="margin-left: 5px;color: white;margin-top: 0cm;margin-bottom: 0cm;">Projects</h4>
-              <p style="margin-left: 5px;color:rgb(210, 210, 210);margin-top: 0cm;margin-bottom: 3px;font-size:1rem;">Some of my past projects</p>
+            <h2 style="margin-left: 5px;color: white;margin-top: 0cm;margin-bottom: 0cm;">Projects </h2>
+            <div style="width: 85px; overflow:hidden">
+              <hr style="border:2px rgb(255, 228, 22) solid;margin: 7px;">
             </div>
-        </div>
+           
+              <p style="margin-left: 5px;color:rgb(215, 215, 215);margin-top: 0cm;margin-bottom: 3px;font-size:1rem;">Some of my past projects</p>
+    
         <br><br>
                 <div class="row">
                   {% for project in projects %}
@@ -409,12 +415,16 @@
 
     <!-- ###################################################### BLOG ######################################################################## -->
     <section class="py-5" id="blog" style="background-color: #00000C ;">
-      <div class="d-flex justify-content-center">  
-        <div class="" style="border-left: 2.7px solid #ffc4008d;margin:0cm">
-          <h4 style="margin-left: 5px;color: white;margin-top: 0cm;margin-bottom: 0cm;">My Blog</h4>
-          <p style="margin-left: 5px;color:rgb(230, 230, 230);margin-top: 0cm;margin-bottom: 3px;font-size: 1rem;">Recent articles from my tech blog</p>
+      <div class="container-fluid">
+        <h2 style="margin-left: 5px;color: white;margin-top: 0cm;margin-bottom: 0cm;">My Blog </h2>
+        <div style="width: 85px; overflow:hidden">
+          <hr style="border:2px rgb(255, 228, 22) solid;margin: 7px;">
         </div>
-    </div>
+       
+          <p style="margin-left: 5px;color:rgb(215, 215, 215);margin-top: 0cm;margin-bottom: 3px;font-size:1rem;">Featured articles from my blog </p>
+  
+      </div>
+ 
     <br><br>
 
     <div class="container-fluid blog-container"  >
@@ -460,7 +470,7 @@
     </div>
 
 
-    <div class="container-fluid" style="margin-top: 30px;width: 85%;">
+    <div class="container-fluid" style="margin-top: 30px;">
       <a href="{% url 'blog_app:all_articles' %}" style="color:#000000 !important;" class="btn btn-warning rounded-pill">See More
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
           <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
@@ -477,12 +487,16 @@
 
     <!-- ###################################################### CONTACT ######################################################################## -->
     <section class="contact py-5" id="contact" style="background-color:#00000C;">
-      <div class="d-flex justify-content-center">  
-        <div class="" style="border-left: 2.7px solid #ffc4008d;margin:0cm">
-          <h4 style="margin-left: 5px;color: white;margin-top: 0cm;margin-bottom: 0cm;">Contact</h4>
-          <p style="margin-left: 5px;color:rgb(200, 200, 200);margin-top: 0cm;margin-bottom: 3px;font-size: 1rem;">Connect with me on social media</p>
+      <div class="container-fluid">
+        <h2 style="margin-left: 5px;color: white;margin-top: 0cm;margin-bottom: 0cm;">Contact me</h2>
+        <div style="width: 85px; overflow:hidden">
+          <hr style="border:2px rgb(255, 228, 22) solid;margin: 7px;">
         </div>
-    </div>
+       
+          <p style="margin-left: 5px;color:rgb(215, 215, 215);margin-top: 0cm;margin-bottom: 3px;font-size:1rem;">Connect with me on social media</p>
+  
+      </div>
+ 
     <br><br>
       <div class="container-fluid col-11 col-md-10" >
         <div class="row">
