@@ -10,7 +10,7 @@ body {
 }
 
 .expand_btn:hover{
-  color:rgb(252, 249, 36) !important;
+  color:#ffec42!important;
   width:155px !important;
   height: 40px !important;
 }
@@ -55,7 +55,7 @@ a:hover {
   color: #ffd752 !important;
 }
 .article-link h3:hover{
-  color: #ffc200 !important;  
+  color: #ffec42 !important;  
   text-decoration: underline ;
 }
 
@@ -88,7 +88,7 @@ b, strong {
 }
 
 .custom-btn {
-  background: #ffc200;
+  background: #ffec42;
   color: #0A0A21;
   font-weight: bold;
   border-radius: 50px;
@@ -130,7 +130,7 @@ b, strong {
 }
 
 .animated-item {
-  color: #ffc200;
+  color: #ffec42  ;
 }
 
 .animated-item {
@@ -147,7 +147,7 @@ b, strong {
   animation-delay: 2s;
 }
 .animated-item:nth-child(3n+3) {
-  animation-delay: 4s;
+  animation-delay: 3s;
 }
 
 @keyframes BottomTotop {
@@ -240,7 +240,7 @@ b, strong {
 }
 .timeline-wrapper:before {
   content: "";
-  background: #ffea63;
+  background: #ffec42 ;
   width: 1.4px;
   height: 100%;
   position: absolute;
@@ -249,7 +249,7 @@ b, strong {
 
 .timeline-yr {
   background: #060605;
-  border: 1px solid #ffea63;
+  border: 1px solid #ffec42 ;
   border-radius: 100%;
   position: absolute;
   width: 50px;
@@ -285,7 +285,7 @@ b, strong {
 .contact-form {
   position: relative;
   background-color: #04003620 !important;
-  border: #ffc400c1 1px solid !important;
+  border: #ffec42 1px solid !important;
   border-radius: 10px;
 }
 .contact-form .form-control {
@@ -302,11 +302,11 @@ b, strong {
   height: 48px;
 }
 .contact-form .form-control:hover, .contact-form .form-control:focus {
-  border-color: #ffc200;
+  border-color: #ffec42;
  
 }
 .contact-form .submit-btn {
-  background: #ffc200;
+  background: #ffec42 ;
   border-radius: 50px;
   color: #ffffff;
   font-weight: bold;
