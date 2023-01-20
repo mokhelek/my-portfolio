@@ -4,14 +4,20 @@
 {% load read-time %}
 
 {% block content %}
-<section class="py-5" id="blog" style="background-color: #00000C;border-top: 1px solid #ffc200;">
-    <div class="d-flex justify-content-center">  
-      <div class="" style="border-left: 3px solid #ffc200;margin:0cm">
-        <h4 style="margin-left: 5px;color: white;margin-top: 0cm;margin-bottom: 0cm;">My Blog</h4>
-        <h5 style="margin-left: 5px;color:rgb(230, 230, 230);margin-top: 0cm;margin-bottom: 3px;font-weight: 500;"></h5>
-      </div>
-  </div>
+<section class="py-5" id="blog" style="background-color: #12121a;border-top: 1px solid #ffc200;">
+  <h2 id="sections" style="margin-left: 5px;color: white;margin-top: 0cm;margin-bottom: 0cm;">My Blog </h2>
+        <div style="width:100px;overflow:hidden">
+          <hr style="color: rgb(235, 255, 13 ) ;border: 2px rgb(235, 255, 13 ) solid ; opacity: 1;margin:5px ">
+       
+        </div>
+        
+          <p style="margin-left: 5px;color:rgb(215, 215, 215);margin-top: 0cm;margin-bottom: 3px;font-size:1.1rem;">Featured articles from my blog </p>
+  
   <br><br>
+
+
+
+
   <div class="container-fluid blog-container"  >
     <div class="row d-flex justify-content-center">
       {% for article in articles %}

@@ -6,8 +6,16 @@
 {% block content %}
 
 <style>
-  section{
-    background-color: #0c0c14 !important;
+  #sections{
+
+      background: linear-gradient(to right, rgb(232, 232, 255) 20%, rgb(255, 210, 12) 100%) !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+
+        }
+
+section{
+    background-color: #12121a !important;
   }
 @media (max-width: 400px) {
   
@@ -18,10 +26,13 @@
     font-size: 0.95rem !important;
   }
   .animated-item{
-    font-size: 22px;
+    font-size: 1.9rem !important;
+  } 
+  .n-animated-item{
+    font-size: 1.9rem !important;
   } 
   .animated-text{
-    font-size: 25px !important;
+    font-size: 1.9rem !important;
   }
 }
 
@@ -35,7 +46,16 @@
     width:100%
   }
   #about-text{
-    font-size: 0.95rem !important;
+    font-size: 2.1rem !important;
+  }
+  .animated-item{
+    font-size: 2.1rem !important;
+  } 
+  .n-animated-item{
+    font-size: 2.1rem !important;
+  } 
+  .animated-text{
+    font-size: 21px !important;
   }
 }
 
@@ -79,37 +99,34 @@
 
 
     <!-- ABOUT -->
-    <section class="about full-screen d-lg-flex justify-content-center align-items-center"  style="background-color: #070719;height:550px; overflow: hidden;">
+    <section class="about full-screen d-lg-flex justify-content-center align-items-center" >
         <div class="container-fluid " style="width: 92%;"> 
          
             <div class="row">
            
-                <div class="col-lg-7 col-md-12 col-12 d-flex align-items-center">
+                <div class="col-md-7 col-12 d-flex align-items-center">
                 
                     <div class="about-text">
                       <div class="d-none d-lg-block">
                         <br>
                         <br>
-                        <br>
-                        <br>
-                        <br> 
-                        <br>
+                   
                       </div>
                       
                         <small style="background-color: #b1b0b01d;color:rgb(224, 224, 224);" class="small-text">Welcome to <span class="mobile-block">my portfolio website!</span></small> 
                         <br>
                       
-                        <h1 style="font-size: 1.7rem" class="animated animated-text">
-                            <span style="font-size: 1.9rem !important;"  class="mr-2" >Hi, I'm</span>
+                        <h1 class="animated animated-text">
+                            <span style="font-size: 3rem ;"  class="mr-2 n-animated-item" >Hi, I'm</span>
                                 <div class="animated-info">
-                                    <span style="font-size: 1.7rem !important;" class="animated-item">Mokhele Katleho</span>
-                                    <span style="font-size: 1.8rem !important;" class="animated-item">Fullstack Dev</span>
-                                    <span style="font-size: 1.8rem !important;" class="animated-item">UI Designer</span>
+                                    <span style="font-size: 3rem " class="animated-item">Mokhele Katleho</span>
+                                    <span style="font-size: 3rem " class="animated-item">Fullstack Dev</span>
+                                    <span style="font-size: 3rem " class="animated-item">UI Designer</span>
                                 </div>
                         </h1>
                         
                           {% for text in texts %}
-                          <p style="color: rgb(190, 190, 190);font-size: 1rem !important;">{{text.intro_text}}</p>
+                          <p id="sections" style="color: rgb(190, 190, 190);font-size: 1rem !important;"> {{text.intro_text}}</p>
                         {% endfor %}
                     
                      
@@ -118,7 +135,7 @@
                           {% for i in resume %}
                             <a style="color: #00000C !important " href="{{i.resume_file.url}}" class="btn mr-lg-2 btn-lg  custom-btn">Download CV</a> &nbsp;&nbsp;
                           {% endfor %}
-                          <a href="#contact" class="btn custom-btn custom-btn-bg btn-lg  custom-btn-link">Hire me</a>
+                          <a href="#contact" style="background-color: rgba(91, 91, 91, 0.357) !important;" class="btn custom-btn custom-btn-bg btn-lg  custom-btn-link">Hire me</a>
                         </div>
                         
                     <div class="row ">  
@@ -149,24 +166,24 @@
                 </div>
                 
                 
-                <div class="col-lg-5 col-md-12 col-12">
-                  <div class="d-none d-lg-block" style="padding-top: 20px;padding-left: 35px;position: absolute;">
-                    <img height="380" src="{% static 'images/undraw/nom1.svg' %}"  alt="">
-                  </div>
-                    <div class="about-image svg d-none d-lg-block" style="padding-top: 120px;padding-left: 80px;position: relative;">
-                        <img style="height: 450px;" height="30" src="{% static 'images/profile.png' %}" class="img-fluid" alt="svg image">
+                <div class="col-md-5 d-none d-md-block">
+               
+                    <div >
+          
+                        <img style="border-radius: 50% ; border: 2px orange solid; width:80% ;margin-left:70px " height="30" src="{% static 'images/profile.jpg' %}" class="img-fluid" alt="svg image">
                     </div>
                     
                 </div>
                
             </div>
+
         </div>
     </section>
 
     <!-- ###################################################### MORE ABOUT ME ################################################################ -->
-    <section class="more-about-me" style="background-color: #00000C;border-top: 1px solid #ffc4002b;" id="about">
+    <section class="more-about-me" style="border-top: 1px solid #ffc4002b;" id="about">
       <div class="container-fluid" style="padding-top: 1cm;width:90%">
-        
+
         <div class="row">
           <div class="col-md-5 d-none d-md-block about-illustration">
             <br>
@@ -177,25 +194,26 @@
           </div>
 
           <div class="col-md-7">
+          
+            <h2 id="sections" style="margin-left: 5px;color: white;margin-top: 0cm;margin-bottom: 0cm;">About me</h2>
 
-            <h2 style="margin-left: 5px;color: white;margin-top: 0cm;margin-bottom: 0cm;">About me</h2>
-            <div style="width: 85px; overflow:hidden">
-              <hr style="border:2px rgb(255, 228, 22) solid;margin: 7px;">
-            </div>
+            <div style="width:100px;overflow:hidden">
+              <hr style="color: rgb(235, 255, 13 ) ;border: 2px rgb(235, 255, 13 ) solid ; opacity: 1;margin:5px ">
            
-              <p style="margin-left: 5px;color:rgb(215, 215, 215);margin-top: 0cm;margin-bottom: 3px;font-size:1rem;">A closer look at my tech journey</p>
-      
+            </div>
+            <p style="margin-left: 5px;color:rgb(226, 226, 226);margin-top: 0cm;margin-bottom: 3px;font-size:1.1rem;">A closer look at my journey in tech</p>
             <br>
+
             <div>
 
               <img  src="{% static 'images/profile.png' %}" class="img-fluid d-block d-md-none" alt="svg image">
             </div>
 
-            <div  class="card card-body about-me">            
+            <div  style="background-color: #181820 !important;font-size:1.1rem;color:#bfbfbf"  class="card card-body ">            
          
               <div > 
                 {% for text in texts %}
-                  <p id="about-text">   
+                  <p id="about-text" >   
                     {{text.about_text}}
                   </p>
                 {% endfor %}
@@ -217,11 +235,12 @@
       <div class="container">
 
         <h2 style="margin-left: 5px;color: white;margin-top: 0cm;margin-bottom: 0cm;">My Skills </h2>
-        <div style="width: 100px; overflow:hidden">
-          <hr style="border:2px orange solid;margin: 7px;">
-        </div>
+        <div style="width:100px;overflow:hidden">
+          <hr style="color: rgb(235, 255, 13 ) ;border: 2px rgb(235, 255, 13 ) solid ; opacity: 1;margin:5px ">
        
-          <p style="margin-left: 5px;color:rgb(215, 215, 215);margin-top: 0cm;margin-bottom: 3px;font-size:1rem;">A list of my core skills & tools</p>
+        </div>
+        
+          <p style="margin-left: 5px;color:rgb(215, 215, 215);margin-top: 0cm;margin-bottom: 3px;font-size:1.1rem;">A list of my core skills & tools</p>
 
        
 
@@ -311,15 +330,16 @@
     <!-- ###################################################### PROJECTS ######################################################################## -->
 
 
-    <section class="project py-5" id="project" style="background-color: #00000C;">
+    <section class="project py-5" id="project" >
         <div class="container-fluid project-container">
           <div>
             <h2 style="margin-left: 5px;color: white;margin-top: 0cm;margin-bottom: 0cm;">Projects </h2>
-            <div style="width: 85px; overflow:hidden">
-              <hr style="border:2px rgb(255, 228, 22) solid;margin: 7px;">
-            </div>
+            <div style="width:100px;overflow:hidden">
+              <hr style="color: rgb(235, 255, 13 ) ;border: 2px rgb(235, 255, 13 ) solid ; opacity: 1;margin:5px ">
            
-              <p style="margin-left: 5px;color:rgb(215, 215, 215);margin-top: 0cm;margin-bottom: 3px;font-size:1rem;">Some of my past projects</p>
+            </div>
+            
+              <p style="margin-left: 5px;color:rgb(215, 215, 215);margin-top: 0cm;margin-bottom: 3px;font-size:1.1rem;">Some of my past projects</p>
     
         <br><br>
                 <div class="row">
@@ -329,9 +349,16 @@
                         <img style="border-radius: 10px ;" src="{{project.thumbnail.url}}" class="img-fluid" alt="project image">
                       </div>
                     <div class="justify-content-center d-flex" style="position: relative;top: -20px;"> 
-                      <div class="card" style="width:93% !important; background-color: #00000A; border-radius: 4px;box-shadow: 0 0 6px rgb(178, 180, 255);">
+                      <div class="card" style="width:93% !important; background-color: #171720; border-radius: 4px;box-shadow: 0 0 6px rgb(52, 52, 52);">
                         <div style="min-height: 170px;overflow: hidden;">   
-                          <h5 style="margin-left: 20px;margin-top:12px;margin-right: 20px;color:white">{{project.title}}</h5>
+                          <h3 style="margin-left: 20px; margin-top:12px;margin-right: 20px;color:white">{{project.title}}</h3>
+
+
+                          <div style="width:80px;overflow:hidden;margin-left: 20px;margin-bottom: 10px ; ">
+                            <hr style="color: rgb(235, 255, 13 ) ;border: 2px rgb(235, 255, 13 ) solid ; opacity: 1;margin:5px ">
+                         
+                          </div>
+
 
                           <p id="less-description{{project.id}}" style="margin-left: 20px;margin-right: 20px;margin-bottom: 8px;color:rgb(206, 206, 206); font-size: 1rem;" class="lead">
                             {{project.description|safe|truncatechars:"150"}}
@@ -415,13 +442,14 @@
 
     <!-- ###################################################### BLOG ######################################################################## -->
     <section class="py-5" id="blog" style="background-color: #00000C ;">
-      <div class="container-fluid">
-        <h2 style="margin-left: 5px;color: white;margin-top: 0cm;margin-bottom: 0cm;">My Blog </h2>
-        <div style="width: 85px; overflow:hidden">
-          <hr style="border:2px rgb(255, 228, 22) solid;margin: 7px;">
-        </div>
+      <div class="container">
+        <h2 id="sections" style="margin-left: 5px;color: white;margin-top: 0cm;margin-bottom: 0cm;">My Blog </h2>
+        <div style="width:100px;overflow:hidden">
+          <hr style="color: rgb(235, 255, 13 ) ;border: 2px rgb(235, 255, 13 ) solid ; opacity: 1;margin:5px ">
        
-          <p style="margin-left: 5px;color:rgb(215, 215, 215);margin-top: 0cm;margin-bottom: 3px;font-size:1rem;">Featured articles from my blog </p>
+        </div>
+        
+          <p style="margin-left: 5px;color:rgb(215, 215, 215);margin-top: 0cm;margin-bottom: 3px;font-size:1.1rem;">Featured articles from my blog </p>
   
       </div>
  
@@ -470,7 +498,7 @@
     </div>
 
 
-    <div class="container-fluid" style="margin-top: 30px;">
+    <div class="container" style="margin-top: 30px;">
       <a href="{% url 'blog_app:all_articles' %}" style="color:#000000 !important;" class="btn btn-warning rounded-pill">See More
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
           <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
@@ -483,17 +511,16 @@
  
     </section>
 
-
-
     <!-- ###################################################### CONTACT ######################################################################## -->
     <section class="contact py-5" id="contact" style="background-color:#00000C;">
-      <div class="container-fluid">
-        <h2 style="margin-left: 5px;color: white;margin-top: 0cm;margin-bottom: 0cm;">Contact me</h2>
-        <div style="width: 85px; overflow:hidden">
-          <hr style="border:2px rgb(255, 228, 22) solid;margin: 7px;">
-        </div>
+      <div class="container">
+        <h2 id="sections" style="margin-left: 5px; margin-top: 0cm;margin-bottom: 0cm;">Contact me</h2>
+        <div style="width:100px;overflow:hidden">
+          <hr style="color: rgb(235, 255, 13 ) ;border: 2px rgb(235, 255, 13 ) solid ; opacity: 1;margin:5px ">
        
-          <p style="margin-left: 5px;color:rgb(215, 215, 215);margin-top: 0cm;margin-bottom: 3px;font-size:1rem;">Connect with me on social media</p>
+        </div>
+        
+          <p style="margin-left: 5px;color:rgb(215, 215, 215);margin-top: 0cm;margin-bottom: 3px;font-size:1.1rem;">Connect with me on social media</p>
   
       </div>
  
