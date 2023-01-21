@@ -10,7 +10,7 @@ body {
 }
 
 .expand_btn:hover{
-  color:#ffec42 !important;
+  color:#ffec42!important;
   width:155px !important;
   height: 40px !important;
 }
@@ -52,7 +52,7 @@ a {
   transition: all 0.4s ease;
 }
 a:hover {
-  color: #ffec42 !important;
+  color: #ffd752 !important;
 }
 .article-link h3:hover{
   color: #ffec42 !important;  
@@ -88,7 +88,7 @@ b, strong {
 }
 
 .custom-btn {
-  background: #ffec42 ;
+  background: #ffec42;
   color: #0A0A21;
   font-weight: bold;
   border-radius: 50px;
@@ -130,7 +130,7 @@ b, strong {
 }
 
 .animated-item {
-  color: #ffec42 ;
+  color: #ffec42  ;
 }
 
 .animated-item {
@@ -199,7 +199,7 @@ b, strong {
 
 .navbar-light .navbar-nav .nav-link:focus,
 .navbar-light .navbar-nav .nav-link:hover {
-  color: #ffec42 ;
+  color: #ffc200;
   font-weight: bold;
 }
 .navbar-light .navbar-nav .nav-link:focus span,
@@ -302,7 +302,7 @@ b, strong {
   height: 48px;
 }
 .contact-form .form-control:hover, .contact-form .form-control:focus {
-  border-color: #ffec42 ;
+  border-color: #ffec42;
  
 }
 .contact-form .submit-btn {

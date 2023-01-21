@@ -5,6 +5,9 @@
 {% load skill_tag %}
 {% block content %}
 
+<div>
+
+
 <style>
   #sections{
 
@@ -15,7 +18,7 @@
         }
 
 section{
-    background-color: #12121a !important;
+    background-color: #15292B !important;
   }
 @media (max-width: 400px) {
   
@@ -99,7 +102,7 @@ section{
 
 
     <!-- ABOUT -->
-    <section class="about full-screen d-lg-flex justify-content-center align-items-center" >
+    <section style="margin: 0; height:100%" class="about full-screen d-lg-flex justify-content-center align-items-center" >
         <div class="container-fluid " style="width: 92%;"> 
          
             <div class="row">
@@ -181,7 +184,7 @@ section{
     </section>
 
     <!-- ###################################################### MORE ABOUT ME ################################################################ -->
-    <section class="more-about-me" style="border-top: 1px solid #ffc4002b;" id="about">
+    <section class="more-about-me" id="about">
       <div class="container-fluid" style="padding-top: 1cm;width:90%">
 
         <div class="row">
@@ -209,7 +212,7 @@ section{
               <img  src="{% static 'images/profile.png' %}" class="img-fluid d-block d-md-none" alt="svg image">
             </div>
 
-            <div  style="background-color: #181820 !important;font-size:1.1rem;color:#bfbfbf"  class="card card-body ">            
+            <div  style="background-color: #142223  !important;font-size:1.1rem;color:#bfbfbf"  class="card card-body ">            
          
               <div > 
                 {% for text in texts %}
@@ -349,7 +352,7 @@ section{
                         <img style="border-radius: 10px ;" src="{{project.thumbnail.url}}" class="img-fluid" alt="project image">
                       </div>
                     <div class="justify-content-center d-flex" style="position: relative;top: -20px;"> 
-                      <div class="card" style="width:93% !important; background-color: #171720; border-radius: 4px;box-shadow: 0 0 6px rgb(52, 52, 52);">
+                      <div class="card" style="width:93% !important; background-color: #131e1f ; border-radius: 4px;box-shadow: 0 0 6px rgb(52, 52, 52);">
                         <div style="min-height: 170px;overflow: hidden;">   
                           <h3 style="margin-left: 20px; margin-top:12px;margin-right: 20px;color:white">{{project.title}}</h3>
 
