@@ -1,7 +1,7 @@
 
 #sections{
 
-  background: linear-gradient(to right, rgb(255, 254, 225) 30%, rgba(255, 234, 0, 0.641) 70%) !important;
+  background: linear-gradient(to left, rgba(255, 234, 0, 0.641) 25%, white 100%) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
 
@@ -245,7 +245,7 @@ b, strong {
   }
 
   .full-screen {
-    padding: 3.4rem 0;
+    padding: 4rem 0;
   }
 
   .mobile-block {
@@ -273,7 +273,7 @@ b, strong {
     font-size: 0.9rem !important;
   }
   .full-screen {
-    padding: 6.5rem 0 !important;
+    padding: 7rem 0 !important;
   }
 
   .custom-btn {
@@ -304,7 +304,7 @@ b, strong {
     font-size: 0.92rem !important;
   }
   .full-screen {
-    padding: 5rem 0;
+    padding: 6rem 0;
   
 }
 #scroller{
@@ -326,7 +326,7 @@ b, strong {
     font-size: 1rem !important;
   }
   .full-screen {
-    padding: 5rem 0;
+    padding: 6.5rem 0;
   }
   #scroller{
     padding-top:50px;
