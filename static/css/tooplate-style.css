@@ -1,7 +1,7 @@
 
 #sections{
 
-  background: linear-gradient(to right, rgb(255, 254, 225) 0%, rgba(255, 234, 0, 0.641) 100%) !important;
+  background: linear-gradient(to right, rgb(255, 254, 225) 30%, rgba(255, 234, 0, 0.641) 70%) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
 
@@ -285,6 +285,9 @@ b, strong {
     display: block;
     margin: 10px 0 0 0;
   }
+  #scroller{
+    padding-top:50px;
+  }
 }
 
 
@@ -304,6 +307,9 @@ b, strong {
     padding: 5rem 0;
   
 }
+#scroller{
+  padding-top:50px;
+}
 
 }
 
@@ -321,6 +327,9 @@ b, strong {
   }
   .full-screen {
     padding: 5rem 0;
+  }
+  #scroller{
+    padding-top:50px;
   }
 
 }
@@ -347,7 +356,9 @@ b, strong {
   h2 {
     font-size: 2em;
   }
-
+  #scroller{
+    padding-top:10px;
+  }
 
 }
 
@@ -379,6 +390,10 @@ b, strong {
 
   .contact-info {
     padding: 0 2rem;
+  }
+  #scroller{
+    padding-top: 0cm;
+    
   }
 }
 
@@ -507,17 +522,9 @@ background-color: #142224 !important;
 display: none;
 }
 #about-text{
-font-size: 0.9rem !important;
+font-size: 1rem !important;
 }
-.animated-item{
-font-size: 1.82rem !important;
-} 
-.n-animated-item{
-font-size: 1.82rem !important;
-} 
-.animated-text{
-font-size: 1.82rem !important;
-}
+
 }
 
 
@@ -530,7 +537,7 @@ height: auto !important;
 width:100%
 }
 #about-text{
-font-size: 0.95rem !important;
+font-size: 1rem !important;
 }
 
 }
