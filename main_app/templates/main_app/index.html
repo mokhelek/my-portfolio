@@ -5,143 +5,72 @@
 {% load skill_tag %}
 {% block content %}
 
+
+
 <div>
 
 
-<style>
-  #sections{
-
-      background: linear-gradient(to right, rgb(255, 254, 225) 0%, rgba(255, 234, 0, 0.641) 100%) !important;
-      -webkit-background-clip: text !important;
-      -webkit-text-fill-color: transparent !important;
-
-        }
-
-section{
-    background-color: #15292B !important;
-  }
-@media (max-width: 400px) {
-  
-  .about-illustration{
-    display: none;
-  }
-  #about-text{
-    font-size: 0.9rem !important;
-  }
-  .animated-item{
-    font-size: 1.82rem !important;
-  } 
-  .n-animated-item{
-    font-size: 1.82rem !important;
-  } 
-  .animated-text{
-    font-size: 1.82rem !important;
-  }
-}
-
-
-@media screen and (max-width: 550px) {
-  .img-wrapper img{
-    width:100%;
-    height: auto !important;
-  }
-  .project-container{
-    width:100%
-  }
-  #about-text{
-    font-size: 0.95rem !important;
-  }
-  .animated-item{
-    font-size: 2.1rem !important;
-  } 
-  .n-animated-item{
-    font-size: 2.1rem !important;
-  } 
-  .animated-text{
-    font-size: 21px !important;
-  }
-}
-
-@media screen and (min-width: 551px) {
-  .img-wrapper img{
-    width:100%;
-    height: auto !important;
-  }
-  .project-container{
-    width:85% !important;
-  }
-}
-
-
-@media screen and (min-width: 767px) {
-  .img-wrapper img{
-    width: 100% ;
-    height:250px !important;
-  }
-  .project-container{
-    width:100% !important;
-  }
-}
-
-@media screen and (min-width: 900px) {
-  .img-wrapper img{
-    width: 100% ;
-    height:340px !important;
-  }
-  .project-container{
-    width: 85% !important ;
-  }
-  .animated-item{
-    font-size: 39px;
-  } 
-
-}
-
-
-</style>
-
-
     <!-- ABOUT -->
-    <section style="margin: 0; height:100%" class="about full-screen d-lg-flex justify-content-center align-items-center" >
+    <section id="landing_page" style="margin: 0; height:95%;" class="about full-screen d-lg-flex justify-content-center " >
         <div class="container-fluid " style="width: 92%;"> 
-         
+          <div class="d-none d-lg-block">
+            <br><br>
+          </div>
+      
             <div class="row">
            
-                <div class="col-md-7 col-12 d-flex align-items-center">
+                <div class="col-md-7 col-12 ">
                 
                     <div class="about-text">
-                      <div class="d-none d-lg-block">
-                        <br>
-                        <br>
-                   
-                      </div>
-                      
-                        <small style="background-color: #b1b0b01d;color:rgb(224, 224, 224);" class="small-text">Welcome to <span class="mobile-block">my portfolio website!</span></small> 
-                        <br>
-                      
-                        <h1 class="animated animated-text">
-                            <span style="font-size: 3rem ;"  class="mr-2 n-animated-item" >Hi, I'm</span>
-                                <div class="animated-info">
-                                    <span style="font-size: 3rem " class="animated-item">Mokhele Katleho</span>
-                                    <span style="font-size: 3rem " class="animated-item">Fullstack Dev</span>
-                                    <span style="font-size: 3rem " class="animated-item">UI Designer</span>
-                                </div>
-                        </h1>
+                     
+
+                        <p style="color:#fffef0be;font-size: 1.1rem !important;margin:0cm" > Hello, my name is </p> 
+            
+                        <h1  id="hero_name" style="font-size: 4rem;margin:0cm"> Mokhele Katleho</h1>
+
                         
+                        <h2 id="hero_intro">
+                          I'm a <span id="animation" style="color:#ffec42 ;">  </span>
+                        </h2> 
+                                                        
+
+
                           {% for text in texts %}
-                          <p style="color: rgb(190, 190, 190);font-size: 1rem !important;"> {{text.intro_text}}</p>
-                        {% endfor %}
+                          <p id="hero_slogan" style="color: rgb(207, 207, 207);font-size: 1.08rem;"> {{text.intro_text}}</p>
+                          {% endfor %}
                     
                      
-                    
-                        <div class="custom-btn-group mt-4 d-flex">
-                          {% for i in resume %}
-                            <a style="color: #00000C !important " href="{{i.resume_file.url}}" class="btn mr-lg-2 btn-lg  custom-btn">Download CV</a> &nbsp;&nbsp;
-                          {% endfor %}
-                          <a href="#contact" style="background-color: rgba(91, 91, 91, 0.357) !important;" class="btn custom-btn custom-btn-bg btn-lg  custom-btn-link">Hire me</a>
+                        <div class="d-none d-sm-block">
+
+                          <div class="mt-4 d-flex ">
+                            <a style="color: #232323 !important ;background-color: #fde92f !important;font-size: 1.1rem;" href="#project" class="btn mr-lg-2 btn-warning btn-md  ">&nbsp; &nbsp; My Work &nbsp;&nbsp;
+                              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                              </svg>
+                            </a>
+                           &nbsp;&nbsp;
+                           <a style="font-size: 1.1rem;color:rgb(211, 211, 211) !important" href="#contact"   class="btn btn-outline-secondary btn-md"  >  Get in touch  </a>
                         </div>
                         
-                    <div class="row ">  
+                        </div>
+
+                        <div class="d-block d-sm-none">
+                          <div style="margin-bottom: 10px;" class="row">
+                            <a style="color: #232323 !important ;background-color: #fde92f !important;font-size: 1.1rem;width: 100%;border-radius: 20px !important;" href="#project" class="btn mr-lg-2 btn-warning btn-md  ">&nbsp; &nbsp; My Work &nbsp;&nbsp;
+                              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                              </svg>
+                            </a>
+                          </div>
+                          
+                          <div class="row">
+                              <a style="font-size: 1.1rem;color:rgb(211, 211, 211) !important;width: 100%;border-radius: 20px !important;" href="#contact"   class="btn btn-outline-secondary btn-md"  >  Get in touch  </a>
+                          </div>
+                        </div>
+
+
+<!--
+    <div class="row ">  
 
                       <div class="col d-block d-lg-none">
                         <div class=" d-flex justify-content-center "  >
@@ -162,6 +91,8 @@ section{
                      
 
                     </div>
+-->
+                
 
                     </div> 
                     
@@ -173,18 +104,27 @@ section{
                
                     <div >
           
-                        <img style="border-radius: 50% ; border: 2px orange solid; width:80% ;margin-left:70px " height="30" src="{% static 'images/profile.jpg' %}" class="img-fluid" alt="svg image">
+                        <img style="border-radius: 50% ; border: 2px #ffec42 solid; width:75% ;margin-left:80px " height="30" src="{% static 'images/profile.jpg' %}" class="img-fluid" alt="svg image">
                     </div>
                     
                 </div>
                
+            </div>
+            <div class="row">
+              <div class="col">
+
+              
+              <center>
+                <img  style="height: 50px;margin-top: 40px;" src="{% static 'images/scroll3.gif' %}"  alt="">
+              </center>
+            </div>
             </div>
 
         </div>
     </section>
 
     <!-- ###################################################### MORE ABOUT ME ################################################################ -->
-    <section class="more-about-me" id="about">
+    <section class="more-about-me " id="about">
       <div class="container-fluid" style="padding-top: 1cm;width:90%">
 
         <div class="row">
@@ -212,7 +152,7 @@ section{
               <img  src="{% static 'images/profile.png' %}" class="img-fluid d-block d-md-none" alt="svg image">
             </div>
 
-            <div  style="background-color: #142223  !important;font-size:1.1rem;color:#bfbfbf"  class="card card-body ">            
+            <div  style="background-color: #1a2e2f6b  !important;font-size:1.1rem;color:#bfbfbf;border-radius: 10px;"  class="card card-body ">            
          
               <div > 
                 {% for text in texts %}
@@ -234,7 +174,7 @@ section{
     </section>
 
     <!-- ###################################################### SKILLS ######################################################################## -->
-    <section class="resume py-5 d-lg-flex justify-content-center align-items-center" id="skills" style="background-color: #00000C;">
+    <section class="resume d-lg-flex py-5 justify-content-center align-items-center" id="skills" style="background-color: #00000C;">
       <div class="container">
 
         <h2 style="margin-left: 5px;color: white;margin-top: 0cm;margin-bottom: 0cm;">My Skills </h2>
@@ -519,7 +459,7 @@ section{
       <div class="container">
         <h2 id="sections" style="margin-left: 5px; margin-top: 0cm;margin-bottom: 0cm;">Contact me</h2>
         <div style="width:100px;overflow:hidden">
-          <hr style="color: #ffec42 ;border: 2px #ffec42 solid ; opacity: 1;margin:5px ">
+          <hr style="color: #ffec42  ;border: 2px #ffec42  solid ; opacity: 1;margin:5px ">
        
         </div>
         
@@ -560,7 +500,7 @@ section{
           </div>
 
           <div class="col-lg-7 col-12">
-            <div class="contact-form card card-body " style="background-color:#00000fc7;border: 1px solid #ffc40036;">
+            <div class="contact-form card card-body " style="background-color:#00000fc7;border: 1px solid #fed75536;">
              
 
               <form class="form" action="{% url 'main_app:sendEmail' %}" method="POST">
@@ -636,6 +576,47 @@ section{
    }
 
 }
+
+
+
+
+
+// ##################################
+
+
+ var dataText = [ "fullstack developer", "UI/UX Designer"];
+  
+ 
+
+  function typeWriter(text, i, fnCallback) {
+      if (i < (text.length)) {
+          document.getElementById("animation").innerHTML = text.substring(0, i+1) +'<span aria-hidden="true"></span>';
+          setTimeout(function() {
+          typeWriter(text, i + 1, fnCallback)
+          }, 100);
+          }else if (typeof fnCallback == 'function') {
+            setTimeout(fnCallback, 700);
+      }
+  }
+
+
+
+   function StartTextAnimation(i) {
+      if (typeof dataText[i] == 'undefined'){
+              StartTextAnimation(0);
+          }
+
+          if (i < dataText[i].length) {
+
+              typeWriter(dataText[i], 0, function(){
+              StartTextAnimation(i + 1);
+              });
+        }
+
+  }
+
+  StartTextAnimation(0);
+
 
  </script>
 
