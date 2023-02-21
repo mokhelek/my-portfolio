@@ -19,6 +19,10 @@
           <div class="d-none d-lg-block">
             <br><br>
           </div>
+
+          <div class="d-block d-lg-none">
+            <br><br>
+          </div>
         
             <div class="row">
            
@@ -26,9 +30,9 @@
                 
                     <div class="about-text">
                      
-
-                        <p style="color:#fffef0be;font-size: 1.1rem !important;margin:0cm" > Hello, my name is </p> 
-            
+                      {% for text in texts %}
+                        <p style="color:#fffef0be;font-size: 1.1rem !important;margin:0cm" > {{text.greetings_text}} </p> 
+                      {% endfor %}
                         <h1  id="hero_name" style="font-size: 4rem;margin:0cm"> Mokhele Katleho</h1>
 
                         
@@ -185,14 +189,14 @@
                       <p id="less{{skill.id}}"  style="color: rgb(186, 186, 186);margin-bottom: 0cm;">{{skill.description|truncatechars:120}}</p>
                       <p id="more{{skill.id}}"  style="color: rgb(186, 186, 186);display: none;margin-bottom: 0cm;">{{skill.description}}</p>
 
-                      <a id="read_less_skill{{skill.id}}" onclick="skillsFunction('{{skill.id}}')" style="display: none;color: #ffffff;font-size: 0.85rem;cursor: pointer;text-decoration:underline !important" > 
+                      <a id="read_less_skill{{skill.id}}" onclick="skillsFunction('{{skill.id}}')" style="display: none;color: #ffffff;margin-bottom: 0.5rem;margin-top:0.5rem;font-size: 0.9rem;cursor: pointer;text-decoration:underline !important" > 
                         view less <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
                           <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
                         </svg>
                       
                       </a>
 
-                      <a id="read_more_skill{{skill.id}}" style="color: rgba(134, 134, 255, 0.945);font-size: 0.85rem;cursor: pointer;" onclick="skillsFunction('{{skill.id}}')"> 
+                      <a id="read_more_skill{{skill.id}}" style="color: rgba(134, 134, 255, 0.945);font-size: 0.85rem;cursor: pointer;margin-bottom: 0.5rem;margin-top:0.5rem;" onclick="skillsFunction('{{skill.id}}')"> 
                        view more <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
                       </svg>
@@ -220,14 +224,14 @@
                       <p id="less{{skill.id}}"  style="color: rgb(186, 186, 186);margin-bottom: 0cm;">{{skill.description|truncatechars:120}}</p>
                       <p id="more{{skill.id}}" style="color: rgb(186, 186, 186);display: none;margin-bottom: 0cm;">{{skill.description}}</p>
 
-                      <a id="read_less_skill{{skill.id}}" onclick="skillsFunction('{{skill.id}}')" style="display: none;text-decoration:underline !important;color:white;font-size:0.85rem;cursor:pointer"> 
+                      <a id="read_less_skill{{skill.id}}" onclick="skillsFunction('{{skill.id}}')" style="display: none;margin-bottom: 0.5rem;margin-top:0.5rem;text-decoration:underline !important;color:white;font-size:0.9rem;cursor:pointer"> 
                         view less <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
                           <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
                         </svg>
                       
                       </a>
 
-                      <a id="read_more_skill{{skill.id}}" style="color: rgba(134, 134, 255, 0.945);font-size: 0.85rem;cursor: pointer;" onclick="skillsFunction('{{skill.id}}')"> 
+                      <a id="read_more_skill{{skill.id}}" style="color: rgba(134, 134, 255, 0.945);font-size: 0.9rem;cursor: pointer;margin-bottom: 0.5rem;margin-top:0.5rem;" onclick="skillsFunction('{{skill.id}}')"> 
                        view more <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
                       </svg>
@@ -302,7 +306,7 @@
                               </svg>
 
                             </button>
-                            <button id="more_btn{{project.id}}" onclick="myFunction('{{project.id}}')" style="margin-left: 20px;margin-bottom: 8px;width:152px;height: 30px; border-width: 1px !important; background-color: #7a75a312;border: none;color: #ffec429e;" class="btn-outline-warning expand_btn rounded-pill">
+                            <button id="more_btn{{project.id}}" onclick="myFunction('{{project.id}}')" style="margin-left: 20px;margin-bottom: 8px;width:152px;height: 30px; border-width: 1px !important; background-color: #7a75a312;border: none;color: #ffec42ec;" class="btn-outline-warning expand_btn rounded-pill">
                               <small> Read More </small>   
                               <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-chevron-bar-expand" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M3.646 10.146a.5.5 0 0 1 .708 0L8 13.793l3.646-3.647a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 0-.708zm0-4.292a.5.5 0 0 0 .708 0L8 2.207l3.646 3.647a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 0 0 0 .708zM1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8z"/>
@@ -490,9 +494,9 @@
           <div class="col-lg-7 col-12">
             <center>    
             {%  if messages  %}
-            <ul  style="background-color: rgb(255, 188, 188);margin-bottom: 2rem;" class="messages card card-body">
+            <ul  style="background-color: rgb(254, 201, 201);margin-bottom: 2rem;" class="messages card card-body">
               {% for message in messages %}
-                <li style="color:rgb(84, 84, 84);font-weight: 600;" class="{{message.tags}}"  >{{message}}</li>
+                <li style="color:rgb(84, 84, 84);font-weight: 600;margin:0cm !important;" class="{{message.tags}}"  >{{message}}</li>
               {% endfor %}
             </ul>
             {% endif %}
@@ -528,6 +532,13 @@
         </div>
       </div>
     </section>
+
+
+
+
+
+
+
 
 
      

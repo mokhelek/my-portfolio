@@ -15,6 +15,7 @@ class Skill(models.Model):
 class Texts(models.Model):
     intro_text = models.TextField()
     about_text = models.TextField()
+    greetings_text = models.TextField()
     
     def __str__(self):
         return "Website Texts"
