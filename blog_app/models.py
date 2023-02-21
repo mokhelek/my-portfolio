@@ -30,6 +30,7 @@ class Article(models.Model):
     featured_article = models.BooleanField(default=False)
     tags = models.ManyToManyField(Tag, null=True, blank=True)
     slug = models.SlugField(null=True)
+    ordering = models.IntegerField( unique = True , null= True , blank = True   )    
     date_added = models.DateTimeField(auto_now_add=True, blank=True,null=True)
 
     

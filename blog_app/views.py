@@ -14,6 +14,9 @@ def all_articles(request):
 
 def article(request , slug):
     article = Article.objects.get(slug=slug)
-    context = {"article":article}
+    
+    articles = Article.objects.exclude( slug = slug )
+    
+    context = {"article":article, "articles":articles }
     
     return render(request , "blog_app/article.html", context)

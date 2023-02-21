@@ -229,6 +229,14 @@ b, strong {
 
 
 
+@media screen  and (max-width: 520px) {
+  #about-container{
+    width:100% !important ;
+  }
+}
+
+
+
 @media (max-width: 320px) {
   #hero_name{
     font-size: 1.9rem !important;
