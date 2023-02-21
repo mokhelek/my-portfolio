@@ -376,8 +376,7 @@
         </div>
         
 
-          <span id="animation-subtexts"  style="margin-left: 5px;color:rgb(215, 215, 215);margin-top: 0cm;margin-bottom: 3px;font-size:1.1rem;">  </span>
-       
+        <p style="margin-left: 5px;color:rgb(215, 215, 215);margin-top: 0cm;margin-bottom: 3px;font-size:1.1rem;"> Some articles from my tech blog  </p>       
                   
       </div>
  
@@ -451,8 +450,8 @@
           <hr style="color: #ffec42  ;border: 2px #ffec42  solid ; opacity: 1;margin:5px ">
         </div>
         
-        <span id="contact-subtext"  style="margin-left: 5px;color:rgb(215, 215, 215);margin-top: 0cm;margin-bottom: 3px;font-size:1.1rem;">  </span>
-  
+        <p style="margin-left: 5px;color:rgb(215, 215, 215);margin-top: 0cm;margin-bottom: 3px;font-size:1.1rem;">Connect with me on social media</p>
+
       </div>
  
     <br><br>
@@ -491,7 +490,7 @@
           <div class="col-lg-7 col-12">
             <center>    
             {%  if messages  %}
-            <ul  style="background-color: rgb(255, 180, 180);" class="messages card card-body">
+            <ul  style="background-color: rgb(255, 188, 188);margin-bottom: 2rem;" class="messages card card-body">
               {% for message in messages %}
                 <li style="color:rgb(84, 84, 84);font-weight: 600;" class="{{message.tags}}"  >{{message}}</li>
               {% endfor %}
@@ -622,83 +621,36 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 
 function runAnimation(dataText,textContainerID){  
 
-function typeWriter(text, i, fnCallback) {
-  if (i < (text.length)) {
-      document.getElementById(`${textContainerID}`).innerHTML = text.substring(0, i+1) +'<span aria-hidden="true"></span>';
-      setTimeout(function() {
-      typeWriter(text, i + 1, fnCallback)
-      }, 30);
-      }else if (typeof fnCallback == 'function') {
-        setTimeout(fnCallback, 700);
-  }
-}
-
-function StartTextAnimation(i) {
-  if (typeof dataText[i] == 'undefined'){
-          setTimeout(function(){
-            StartTextAnimation(0); 
-          } , 20000 )
+    function typeWriter(text, i, fnCallback) {
+      if (i < (text.length)) {
+          document.getElementById(`${textContainerID}`).innerHTML = text.substring(0, i+1) +'<span aria-hidden="true"></span>';
+          setTimeout(function() {
+          typeWriter(text, i + 1, fnCallback)
+          }, 30);
+          }else if (typeof fnCallback == 'function') {
+            setTimeout(fnCallback, 700);
       }
-
-      if (i < dataText[i].length) {
-          typeWriter(dataText[i], 0, function(){
-        });
     }
-}
-StartTextAnimation(0);
 
-}
+    function StartTextAnimation(i) {
+      if (typeof dataText[i] == 'undefined'){
+              setTimeout(function(){
+                StartTextAnimation(0); 
+              } , 20000 )
+          }
 
-
-
-function onScroll(){ 
-    var dataText = [ "Some articles from my tech blog"];
-    var textContainer = document.getElementById("animation-subtexts")
-    textContainerID = textContainer.id
-    console.log(textContainerID)
-    const rect = textContainer.getBoundingClientRect();
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop ;
-    const  containerTop = rect.top  + scrollTop ;
-
-    const  windowHeight = window.innerHeight || document.documentElement.clientHeight ;
-
-    if (containerTop <= scrollTop + windowHeight || containerTop >= scrollTop + windowHeight  ){
-      runAnimation(dataText, textContainerID );
-
+          if (i < dataText[i].length) {
+              typeWriter(dataText[i], 0, function(){
+            });
+        }
     }
+    StartTextAnimation(0);
+
 }
 
 
-
-
-
-function onScroll2(){ 
-    var dataText = [ "Connect with me on social media"];
-    var textContainer = document.getElementById("contact-subtext")
-    textContainerID = textContainer.id
-    console.log(textContainerID)
-    const rect = textContainer.getBoundingClientRect();
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop ;
-    const  containerTop = rect.top  + scrollTop ;
-
-    const  windowHeight = window.innerHeight || document.documentElement.clientHeight ;
-
-    if (containerTop <= scrollTop + windowHeight || containerTop >= scrollTop + windowHeight  ){
-      runAnimation(dataText, textContainerID );
-
-    }
-}
-
-
-
-
-
-
-
-window.addEventListener("scroll",onScroll)
-window.addEventListener("scroll",onScroll2)
 
  </script>
 
-     {% endblock content %}
+{% endblock content %}
    
