@@ -6,7 +6,6 @@
 <style>
   pre{
     background-color: rgb(240, 240, 240) !important;
-    overflow-x: hidden;
     padding: 1rem !important;
     border-radius: 0.7rem ;
     
@@ -22,21 +21,21 @@
 
   @media screen and (min-width:351px) {
     pre{
-      width: 320px !important;
+      width: 310px !important;
 
     }
   }
 
   @media screen and (min-width:400px) {
     pre{
-      width: 360px !important;
+      width: 340px !important;
 
     }
   }
 
   @media screen and (min-width:460px) {
     pre{
-      width: 420px !important;
+      width: 400px !important;
 
     }
   }
@@ -47,19 +46,22 @@
       width: 100% !important;
 
     }
+    
   }
 
   @media screen and (min-width:992px) {
     pre{
       width: 100% !important;
+      overflow-x: hidden;
 
     }
-  }
-
-
-  pre:hover{
+    pre:hover{
     overflow-x: scroll !important;
   }
+  }
+
+
+ 
 
 </style>
     
@@ -111,7 +113,7 @@
                     </div> 
                         <div class="row">
                             <div class="col"> 
-                            <p style="font-size: 0.7rem;color:rgb(206, 206, 206);margin-left: 2px;margin-top: 3px;"> {{article.date_posted|date:" d M Y"}} <span style="font-weight:700;font-size:larger">  &centerdot; </span> {{article.body.html|readtime}}</p> 
+                            <p style="font-size: 0.7rem;color:rgb(206, 206, 206);margin-left: 2px;margin-top: 15px;"> {{article.date_posted|date:" d M Y"}} <span style="font-weight:700;font-size:larger">  &centerdot; </span> {{article.body.html|readtime}}</p> 
                             </div>
                         </div>
                     <h3 style="color:rgb(227, 227, 227)">{{article.title}}</h3>
