@@ -16,6 +16,25 @@
 
     <!-- MAIN STYLE -->
     <link rel="stylesheet" href="{% static 'css/tooplate-style.css' %}">
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Include your favorite highlight.js stylesheet -->
+   
+   
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/tokyo-night-light.min.css">
+
+
     <style>
         @media (max-width: 400px) {
   
@@ -100,24 +119,7 @@
 {% block content %}
     <body style="background-color:#142224 !important">
 
-    <!-- FOOTER -->
- 
 
-
-
-
-    <footer class="footer py-5" style="background-color:#142224;">
-        <div class="container">
-             <div class="row">
-
-                  <div class="col-lg-12 col-12">                                
-                      <p class="copyright-text text-center text-light">Copyright &copy; 2022 . All rights reserved</p>
-                      <p class="copyright-text text-center text-light">Designed and developed by <span style="color:#ffc200;">Mokhele Katleho</span></p>
-                  </div>
-                  
-             </div>
-        </div>
-   </footer>
    
         <script src="{% static 'js/main.js' %}"></script>
         <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
@@ -128,7 +130,47 @@
      
         <script src="{% static 'js/smoothscroll.js' %}"></script>
         <script src="{% static 'js/custom.js' %}"></script>
-      
+
+
+
+        
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+
+            hljs.configure({  
+                languages: ['python','javascript']
+            });
+       
+            var toolbarOptions = [
+                ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+                ['blockquote', 'code-block'],                     // blocks
+                [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+                [{ 'list': 'ordered' }, { 'list': 'bullet' }],    // lists
+                [{ 'script': 'sub' }, { 'script': 'super' }],     // superscript/subscript
+                [{ 'indent': '-1' }, { 'indent': '+1' }],         // indent/outdent
+                [{ 'direction': 'rtl' }],                         // text direction
+                [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+                [{ 'header': [1, 2, 3, 4, 5, 6, false] }],         // header dropdown
+                [{ 'color': [] }, { 'background': ['white'] }],          // dropdown with defaults from theme
+                [{ 'font': [] }],
+                [{ 'align': [] }],
+                ['clean']                                         // remove formatting button
+            ];
+        var quill = new Quill('#editor-container', {
+        modules: {
+            syntax: {
+                highlight: text => hljs.highlightAuto(text).value,
+            },
+            toolbar: [['code-block']]
+        },
+        theme: 'bubble'
+    });
+        </script>
+        
+
+
     </body>
 
 {% endblock content %}

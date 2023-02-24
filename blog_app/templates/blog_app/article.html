@@ -3,23 +3,33 @@
 {% load read-time %}
 {% block content %}
 
+<style>
+  pre{
+    background-color: rgb(240, 240, 240) !important;
+    overflow-x: hidden;
+    padding: 1rem !important;
+    border-radius: 0.7rem ;
+  }
+  pre:hover{
+    overflow-x: scroll !important;
+  }
 
-    <section style="background-color: #12121a;">
+</style>
+    
+    <section style="">
         <br>
-        <br>
-
-
+      
         <div class=" d-flex justify-content-center ">
 
             <div class= "d-flex justify-content-center" >
-                <div class="col-12 col-md-8">
+                <div class="col-12 col-md-9">
 
                     <div class="d-flex" >  
                         <div class="position-relative"  >
                         <img style="height: 50px; width:50px;border-radius:50%;border: gray 2px solid;" src="{% static 'images/author.jpg' %}"  class="img-flex"  alt="">
                         </div>
 
-                        <div class="col-5">
+                        <div class="col-6">
                             <div class="row">  
                                 <h5 style="margin-left: 3px;color:rgb(227, 227, 227);margin-bottom: 2px;">Mokhele Katleho</h5> 
                             </div>
@@ -157,7 +167,41 @@
   
 
 
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <script>
 
+      hljs.highlightAll();
+
+      hljs.configure({  
+          languages: ['python','javascript']
+      });
+ 
+      var toolbarOptions = [
+          ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+          ['blockquote', 'code-block'],                     // blocks
+          [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+          [{ 'list': 'ordered' }, { 'list': 'bullet' }],    // lists
+          [{ 'script': 'sub' }, { 'script': 'super' }],     // superscript/subscript
+          [{ 'indent': '-1' }, { 'indent': '+1' }],         // indent/outdent
+          [{ 'direction': 'rtl' }],                         // text direction
+          [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+          [{ 'header': [1, 2, 3, 4, 5, 6, false] }],         // header dropdown
+          [{ 'color': [] }, { 'background': ['white'] }],          // dropdown with defaults from theme
+          [{ 'font': [] }],
+          [{ 'align': [] }],
+          ['clean']                                         // remove formatting button
+      ];
+  var quill = new Quill('#editor-container', {
+  modules: {
+      syntax: {
+          highlight: text => hljs.highlightAuto(text).value,
+      },
+      toolbar: [['code-block']]
+  },
+  theme: 'bubble'
+});
+  </script>
+  
 
    
     </section>
