@@ -20,19 +20,10 @@
 
 
 
-
-
-
-
-
-
-
-
-
     <!-- Include your favorite highlight.js stylesheet -->
    
    
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/tokyo-night-light.min.css">
+    <link rel="stylesheet" href="{% static 'css/highlight.css' %}">
 
 
     <style>
@@ -55,9 +46,12 @@
 </head>
 
 <nav class="navbar navbar-expand-lg fixed-top" style="background-color:#142224 ;height:75px; ">
-    <div class="container-fluid" style="width: 95%;">
+    <div>
+
+    </div>
+    <div class="container-fluid" style="width: 100%;">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-        <svg  style="color: #ffec42"  xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor " class="bi bi-list " viewBox="0 0 16 16">
+        <svg  style="color: #feee5b"  xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor " class="bi bi-list " viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
           </svg>
       </button>
@@ -68,7 +62,7 @@
 
     
         <div style="background-color:#142224;" class="d-none d-lg-block ">  
-            <div style="padding-left: 250px;" > 
+            <div style="padding-left: 300px;" > 
                 <ul class="navbar-nav  me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a style="color: white;" class="nav-link" href="{% url 'main_app:homePage' %}#about">About </a> 
@@ -140,7 +134,7 @@
             hljs.highlightAll();
 
             hljs.configure({  
-                languages: ['python','javascript']
+                languages: ['python','javascript','html','css']
             });
        
             var toolbarOptions = [
