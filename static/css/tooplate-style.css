@@ -454,9 +454,9 @@ b, strong {
   /* border: 1px rgba(255, 192, 203, 0.561) solid; */
   border: none;
   padding: 0.25rem 0.6rem;
-  border-radius: 2px;
+  border-radius: 1px;
   color:rgb(182, 182, 182);
-  font-size: 0.70rem;
+  font-size: 0.75rem;
   background:none;
   background-color: #364748;
 
