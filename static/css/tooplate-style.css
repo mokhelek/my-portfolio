@@ -454,11 +454,11 @@ b, strong {
   /* border: 1px rgba(255, 192, 203, 0.561) solid; */
   border: none;
   padding: 0.25rem 0.6rem;
-  border-radius: 4px;
+  border-radius: 2px;
   color:rgb(182, 182, 182);
   font-size: 0.70rem;
   background:none;
-  background-color: #273536;
+  background-color: #364748;
 
   margin-right: 1px !important;
   margin-bottom: 2px;
