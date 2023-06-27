@@ -323,12 +323,12 @@
 
                   </div>
 
-                  <div class="tags d-flex" style="margin-left: 20px;margin-bottom: 10px; flex-wrap: wrap; ">
+                  <div class="tags d-flex" style="margin-left: 20px;margin-bottom: 6px; flex-wrap: wrap; ">
                     {% for tag in project.tags.all %}
                     <div class="">
-                      <p id="project-tags">
+                      <span id="project-tags">
                         {{tag}}
-                      </p>
+                      </span>
                     </div>
                     {% endfor %}
 
