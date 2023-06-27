@@ -303,6 +303,7 @@
           of my past projects</p>
 
         <br><br>
+
         <div class="row">
           {% for project in projects %}
           <div class="col-md-6">
@@ -323,7 +324,7 @@
 
                   </div>
 
-                  <div class="tags d-flex" style="margin-left: 20px;margin-bottom: 6px; flex-wrap: wrap; ">
+                  <!-- <div class="tags d-flex" style="margin-left: 20px;margin-bottom: 6px; flex-wrap: wrap; ">
                     {% for tag in project.tags.all %}
                 
                       <span id="project-tags">
@@ -332,7 +333,17 @@
                    
                     {% endfor %}
 
-                  </div>
+                  </div> -->
+
+                  <div class="d-flex tags" style="margin-left: 20px;margin-bottom: 6px; flex-wrap: wrap; ">
+                    {% for tag in project.tags.all %}
+                    <div style="margin:0" >
+                      <div  style="background-color: #37373736 ; border-radius: 8px;margin-right: 5px;">
+                        <p class="d-flex justify-content-center" style="margin-bottom: 5px;padding:5px 8px;font-size: 0.75rem; color: {% cycle 'orange' '#FB04C9' '#7C8EE8' '#E6E116' '#C653FF'  '#00D43F' '#009FB8' '#E6E116' %};">{{tag.name}}</p> 
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
 
 
                   <p id="less-description{{project.id}}"

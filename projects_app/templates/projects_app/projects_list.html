@@ -16,92 +16,140 @@
             <p style="margin-left: 5px;color:rgb(215, 215, 215);margin-top: 0cm;margin-bottom: 3px;font-size:1.1rem;">Some of my past projects</p>
   
       <br><br>
-              <div class="row">
-                {% for project in projects %}
-                <div class="col-md-6"> 
-                    <div class="img-wrapper">  
-                      <img style="border-radius: 10px ;" src="{{project.thumbnail.url}}" class="img-fluid" alt="project image">
+      
+              
+      <div class="row">
+        {% for project in projects %}
+        <div class="col-md-6">
+          <div class="img-wrapper">
+            <img style="border-radius: 10px ;" src="{{project.thumbnail.url}}" class="img-fluid" alt="project image">
+          </div>
+          <div class="justify-content-center d-flex" style="position: relative;top: -20px;">
+            <div class="card"
+              style="width:93% !important; background-color: #131e1f ; border-radius: 4px;box-shadow: 0 0 6px rgb(52, 52, 52);">
+              <div style="min-height: 200px;overflow: hidden;"><br>
+                <a style="color:rgb(248, 248, 248);margin-left: 20px;margin-right: 20px;font-size: 1.6rem;font-weight: 600;"
+                  href="{{project.live}}">
+                  {{project.title}}
+                </a>
+
+                <div style="width:30%;overflow:hidden;margin-left: 20px;margin-bottom: 10px ; ">
+                  <hr style="color: #ffef64 ;border: 2px #fff06c solid ; opacity: 1;margin:5px ">
+
+                </div>
+
+                <div class="tags d-flex" style="margin-left: 20px;margin-bottom: 6px; flex-wrap: wrap; ">
+                  {% for tag in project.tags.all %}
+              
+                    <span id="project-tags">
+                      {{tag}}
+                    </span>
+                 
+                  {% endfor %}
+
+                </div>
+
+
+                <p id="less-description{{project.id}}"
+                  style="margin-left: 20px;margin-right: 20px;margin-bottom: 8px;color:rgb(206, 206, 206); font-size: 1rem;"
+                  class="lead">
+                  {{project.description|safe|truncatechars:"150"}}
+                </p>
+
+                <div id="more-description{{project.id}}"
+                  style=" display: none !important; margin-left: 20px !important;margin-right: 20px;margin-bottom: 8px;color:rgb(206, 206, 206); font-size: 1rem;"
+                  class="lead">
+                  {{project.description|safe}}
+                  <span>
+                    {% if project.demoUsername != None %}
+                    <div
+                      style="margin-bottom: 8px;color:rgb(206, 206, 206);margin-bottom: 0.95rem;font-size: 0.8rem;">
+                      <hr>
+                      <p style="margin-bottom: 0; color:pink;font-style: italic; ">username <span
+                          style="color:white">: {{project.demoUsername}}</span>
+                        </p>
+                      <p style="margin-top: 0;color:pink;font-style: italic;">password <span style="color:white">:
+                          {{project.demoPassword}}</span></p>
                     </div>
-                  <div class="justify-content-center d-flex" style="position: relative;top: -20px;"> 
-                    <div class="card" style="width:93% !important; background-color: #131e1f ; border-radius: 4px;box-shadow: 0 0 6px rgb(52, 52, 52);">
-                      <div style="min-height: 170px;overflow: hidden;">   
+                    {% endif %}
+                  </span>
+                </div>
 
-                        <a style="color:rgb(240, 240, 240);margin-left: 20px; margin-top:12px;margin-right: 20px;font-size: 1.6rem;font-weight: 600;" href="{{project.live}}"> 
-                          {{project.title}} 
-                        </a>
 
-                        <div style="width:80px;overflow:hidden;margin-left: 20px;margin-bottom: 10px ; ">
-                          <hr style="color: #ffec42 ;border: 2px #ffec42 solid ; opacity: 1;margin:5px ">
-                       
+              </div>
+
+              <div class="d-flex" style="margin-top: 0cm;width: 100% !important;">
+                <button id="less_btn{{project.id}}" onclick="myFunction('{{project.id}}')"
+                  style="border-width: 1px !important;display: none; margin-left: 20px;margin-bottom: 8px;width:152px;height: 30px;background-color: #4747471e;border: none"
+                  class="btn-outline-light expand_btn  rounded-pill">
+                  <small> Read Less </small>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-chevron-bar-contract" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M3.646 14.854a.5.5 0 0 0 .708 0L8 11.207l3.646 3.647a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 0 0 0 .708zm0-13.708a.5.5 0 0 1 .708 0L8 4.793l3.646-3.647a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 0-.708zM1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8z" />
+                  </svg>
+
+                </button>
+                <button id="more_btn{{project.id}}" onclick="myFunction('{{project.id}}')"
+                  style="margin-left: 20px;margin-bottom: 8px;width:152px;height: 30px; border-width: 1px !important; background-color: #7a75a312;border: none;color: #ffec42ec;"
+                  class="btn-outline-warning expand_btn rounded-pill">
+                  <small> Read More </small>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor"
+                    class="bi bi-chevron-bar-expand" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M3.646 10.146a.5.5 0 0 1 .708 0L8 13.793l3.646-3.647a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 0-.708zm0-4.292a.5.5 0 0 0 .708 0L8 2.207l3.646 3.647a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 0 0 0 .708zM1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8z" />
+                  </svg>
+
+                </button>
+
+                <div class="d-flex justify-content-end" style="width: 100% !important; padding-bottom: 20px;">
+
+
+                  <div class="col-1 ">
+                    <div class="rounded-circle" style="background-color: #3c45ff17;">
+                      <a style="color:#cecece" href="{{project.github}}">
+                        <div type="button" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true"
+                          title="View Code on <b>Github</b>">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor"
+                            class="bi bi-github " viewBox="0 0 16 16">
+                            <path
+                              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                          </svg>
                         </div>
-
-
-                        <p id="less-description{{project.id}}" style="margin-left: 20px;margin-right: 20px;margin-bottom: 8px;color:rgb(206, 206, 206); font-size: 1rem;" class="lead">
-                          {{project.description|safe|truncatechars:"150"}}
-                        </p>
-
-                        <p id="more-description{{project.id}}" style=" display: none !important; margin-left: 20px !important;margin-right: 20px;margin-bottom: 8px;color:rgb(206, 206, 206); font-size: 1rem;" class="lead">
-                          {{project.description|safe}}
-                        </p>
-                    </div>
-
-                      <div class="d-flex" style="margin-top: 0cm;width: 100% !important;">
-                          <button id="less_btn{{project.id}}" onclick="myFunction('{{project.id}}')" style="border-width: 1px !important;display: none; margin-left: 20px;margin-bottom: 8px;width:152px;height: 30px;background-color: #4747471e;border: none" class="btn-outline-light expand_btn  rounded-pill">
-                            <small> Read Less </small>   
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-bar-contract" viewBox="0 0 16 16">
-                              <path fill-rule="evenodd" d="M3.646 14.854a.5.5 0 0 0 .708 0L8 11.207l3.646 3.647a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 0 0 0 .708zm0-13.708a.5.5 0 0 1 .708 0L8 4.793l3.646-3.647a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 0-.708zM1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8z"/>
-                            </svg>
-
-                          </button>
-                          <button id="more_btn{{project.id}}" onclick="myFunction('{{project.id}}')" style="margin-left: 20px;margin-bottom: 8px;width:152px;height: 30px; border-width: 1px !important; background-color: #7a75a312;border: none;color: #ffff52;" class="btn-outline-warning expand_btn rounded-pill">
-                            <small> Read More </small>   
-                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-chevron-bar-expand" viewBox="0 0 16 16">
-                              <path fill-rule="evenodd" d="M3.646 10.146a.5.5 0 0 1 .708 0L8 13.793l3.646-3.647a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 0-.708zm0-4.292a.5.5 0 0 0 .708 0L8 2.207l3.646 3.647a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 0 0 0 .708zM1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8z"/>
-                            </svg>
-
-                          </button>
-                          
-                          <div class="d-flex justify-content-end" style="width: 100% !important; padding-bottom: 20px;">  
-                            
-                            
-                            <div class="col-1 " >
-                              <div class="rounded-circle" style="background-color: #3c45ff17;">
-                                <a style="color:#cecece" href="{{project.github}}">  
-                                  <div type="button"  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" title="View Code on <b>Github</b>">  
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-github " viewBox="0 0 16 16">
-                                      <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-                                    </svg>
-                                  </div>
-                              </a>
-                              </div>
-                            </div>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
-
-                            <div class="col-1" style="margin-right:40px">
-                              <div class="rounded-circle" style="background-color: rgba(186, 251, 182, 0.15);">
-                              
-                                <a style="color: #cecece;font-weight:700" href="{{project.live}}"> 
-                                  <div type="button"  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" title="View Live Website ">  
-                                    <svg xmlns="http://www.w3.org/2000/svg"  width="25" height="25" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
-                                      <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
-                                      <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
-                                    </svg>
-                                  </div>
-                                </a>
-
-                              </div>
-                             </div>
-
-                          </div> 
-                   
-                       </div> 
-                    
-                
+                      </a>
                     </div>
                   </div>
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+
+                  <div class="col-1" style="margin-right:40px">
+                    <div class="rounded-circle" style="background-color: rgba(186, 251, 182, 0.15);">
+
+                      <a style="color: #cecece;font-weight:700;text-decoration: none;" href="{{project.live}}">
+                        <div type="button" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true"
+                          title="View Live Website ">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                            class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                              d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
+                            <path fill-rule="evenodd"
+                              d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
+                          </svg>
+                        </div>
+                      </a>
+
+                    </div>
+                  </div>
+
                 </div>
-                {% endfor %}
+
               </div>
+
+
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
 
 
               <div class="container-fluid" style="margin-top: 30px;">
