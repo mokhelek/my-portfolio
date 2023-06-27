@@ -454,16 +454,26 @@ b, strong {
   /* border: 1px rgba(255, 192, 203, 0.561) solid; */
   border: none;
   padding: 0.25rem 0.6rem;
-  border-radius: 1px;
+  border-radius: 4px;
   color:rgb(182, 182, 182);
   font-size: 0.75rem;
   background:none;
-  background-color: #364748;
+  background-color: #22494b48;
 
-  margin-right: 1px !important;
-  margin-bottom: 2px;
+  margin-right: 3px !important;
+  margin-bottom: 3px;
 }
 
+
+@media screen and (max-width: 550px) {
+
+  #project-tags{
+
+    margin-right: 1px !important;
+    margin-bottom: 2px;
+  }
+
+}
 
 
 
