@@ -11,16 +11,7 @@ section{
   background-color: #1a2c2f !important;
 }
 
-.navbar {
-  background-color: #233b3f1a; /* Transparent white background */
-  backdrop-filter: blur(20px); /* Adds the blur effect */
-  -webkit-backdrop-filter: blur(10px); /* For Safari */
-  border-bottom: 1px rgba(128, 128, 128, 0.468) solid;
-}
-#nav-menu{
-  background-color: #16282b00; /* Transparent white background */
- 
-}
+
 
 .expand_btn:hover{
   color:#ffec42!important;

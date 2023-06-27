@@ -1,173 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    {% load static %}
-    {% load bootstrap5 %}
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <head>
+        {% load static %} {% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/unicons.css' %}">
-    
-    <link rel="image_src" href="/preview.png">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/unicons.css' %}" />
 
-    <!-- MAIN STYLE -->
-    <link rel="stylesheet" href="{% static 'css/tooplate-style.css' %}">
+        <link rel="image_src" href="/preview.png" />
 
+        <!-- MAIN STYLE -->
+        <link rel="stylesheet" href="{% static 'css/tooplate-style.css' %}" />
 
+        <!-- Include your favorite highlight.js stylesheet -->
 
+        <link rel="stylesheet" href="{% static 'css/highlight.css' %}" />
 
-    <!-- Include your favorite highlight.js stylesheet -->
-   
-   
-    <link rel="stylesheet" href="{% static 'css/highlight.css' %}">
-
-
-    <style>
-        @media (max-width: 400px) {
-  
-            #logo{
-                font-size: 1.2rem !important;
+        <style>
+            @media (max-width: 400px) {
+                #logo {
+                    font-size: 1.2rem !important;
+                }
             }
-        }
 
-        #logo{
-            background: linear-gradient(to right, rgb(232, 232, 255) 20%, rgb(255, 210, 12) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-       
-    </style>
+            #logo {
+                background: linear-gradient(to right, rgb(232, 232, 255) 20%, rgb(255, 210, 12) 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
 
-    <title>Mokhele Katleho</title>
-</head>
+            .navbar {
+                background-color: #233b3f1a; /* Transparent white background */
+                backdrop-filter: blur(20px); /* Adds the blur effect */
+                -webkit-backdrop-filter: blur(10px); /* For Safari */
+                border-bottom: 1px rgba(128, 128, 128, 0.468) solid;
+            }
+            #nav-menu {
+                background-color: #16282b00; /* Transparent white background */
+            }
+        </style>
 
-<nav class="navbar navbar-expand-lg fixed-top" style="height:75px; ">
-    <div>
+        <title>Mokhele Katleho</title>
+    </head>
 
-    </div>
-    <div class="container-fluid" style="width: 100%;">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-        <svg  style="color: #feee5b"  xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor " class="bi bi-list " viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-          </svg>
-      </button>
-      <a class="navbar-brand" href="{% url 'main_app:homePage' %}">
- 
-     <h6 id="logo" style="color:#ffca1d;font-family:monospace;font-size: 1.5rem;font-weight: 500;" > mokhele<span style="color: white;">.dev_ </span></h6>
-    </a>
+    <nav class="navbar navbar-expand-lg fixed-top" style="height: 75px">
+        <div></div>
+        <div class="container-fluid" style="width: 100%">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <svg style="color: #feee5b" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor " class="bi bi-list" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                </svg>
+            </button>
+            <a class="navbar-brand" href="{% url 'main_app:homePage' %}">
+                <h6 id="logo" style="color: #ffca1d; font-family: monospace; font-size: 1.5rem; font-weight: 500">mokhele<span style="color: white">.dev_ </span></h6>
+            </a>
 
-    
-        <div id="nav-menu" class="d-none d-lg-block ">  
-            <div style="padding-left: 300px;" > 
-                <ul class="navbar-nav  me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a style="color: white;" class="nav-link" href="{% url 'main_app:homePage' %}#about">About </a> 
-                    </li>&nbsp;&nbsp;&nbsp;
-                    <li class="nav-item">
-                        <a style="color: white;" class="nav-link" href="{% url 'main_app:homePage' %}#skills">Skills</a>
-                    </li>&nbsp;&nbsp;&nbsp;
-                    <li class="nav-item">
-                        <a style="color: white;" class="nav-link" href="{% url 'main_app:homePage' %}#project">Projects</a>
-                    </li>&nbsp;&nbsp;&nbsp;
-                    <li class="nav-item">
-                        <a style="color: white;" class="nav-link" href="{% url 'main_app:homePage' %}#blog">Blog</a>
-                    </li>&nbsp;&nbsp;&nbsp;
-                    <li class="nav-item">
-                        <a style="color: white;" class="nav-link" href="{% url 'main_app:homePage' %}#contact">Contact</a>
-                    </li>
-                </ul>
+            <div id="nav-menu" class="d-none d-lg-block">
+                <div style="padding-left: 300px">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a style="color: white" class="nav-link" href="{% url 'main_app:homePage' %}#about">About </a>
+                        </li>
+                        &nbsp;&nbsp;&nbsp;
+                        <li class="nav-item">
+                            <a style="color: white" class="nav-link" href="{% url 'main_app:homePage' %}#skills">Skills</a>
+                        </li>
+                        &nbsp;&nbsp;&nbsp;
+                        <li class="nav-item">
+                            <a style="color: white" class="nav-link" href="{% url 'main_app:homePage' %}#project">Projects</a>
+                        </li>
+                        &nbsp;&nbsp;&nbsp;
+                        <li class="nav-item">
+                            <a style="color: white" class="nav-link" href="{% url 'main_app:homePage' %}#blog">Blog</a>
+                        </li>
+                        &nbsp;&nbsp;&nbsp;
+                        <li class="nav-item">
+                            <a style="color: white" class="nav-link" href="{% url 'main_app:homePage' %}#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-      </div>
 
-      <div id="nav-menu" class="d-flex justify-content-center  navbar-collapse" >
-        <div id="navbarTogglerDemo03" class="collapse ">  
-            <ul class="navbar-nav  me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-                <a style="color: white;" class="nav-link" href="{% url 'main_app:homePage' %}#about">About </a> 
-            </li>
-            <li class="nav-item">
-                <a style="color: white;" class="nav-link" href="{% url 'main_app:homePage' %}#skills">Skills</a>
-            </li>
-            <li class="nav-item">
-                <a style="color: white;" class="nav-link" href="{% url 'main_app:homePage' %}#project">Projects</a>
-            </li>
-            <li class="nav-item">
-                <a style="color: white;" class="nav-link" href="{% url 'main_app:homePage' %}#blog">Blog</a>
-            </li>
-            <li class="nav-item">
-                <a style="color: white;" class="nav-link" href="{% url 'main_app:homePage' %}#contact">Contact</a>
-            </li>
-
-            
-            </ul>
+            <div id="nav-menu" class="d-flex justify-content-center navbar-collapse">
+                <div id="navbarTogglerDemo03" class="collapse">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a style="color: white" class="nav-link" href="{% url 'main_app:homePage' %}#about">About </a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="color: white" class="nav-link" href="{% url 'main_app:homePage' %}#skills">Skills</a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="color: white" class="nav-link" href="{% url 'main_app:homePage' %}#project">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="color: white" class="nav-link" href="{% url 'main_app:homePage' %}#blog">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="color: white" class="nav-link" href="{% url 'main_app:homePage' %}#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-      </div>
-      
-    </div>
-  </nav>
+    </nav>
 
-{% block content %}
-    <body style="background-color:#142224 !important">
-
-
-   
+    {% block content %}
+    <body style="background-color: #142224 !important">
         <script src="{% static 'js/main.js' %}"></script>
         <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
         <script src="{% static 'js/popper.min.js' %}"></script>
         <script src="{% static 'js/bootstrap.min.js' %}"></script>
         <script src="{% static 'js/Headroom.js' %}"></script>
         <script src="{% static 'js/jQuery.headroom.js' %}"></script>
-     
+
         <script src="{% static 'js/smoothscroll.js' %}"></script>
         <script src="{% static 'js/custom.js' %}"></script>
 
-
-
-        
-        
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
         <script>
             hljs.highlightAll();
 
-            hljs.configure({  
-                languages: ['python','javascript','html','css']
+            hljs.configure({
+                languages: ["python", "javascript", "html", "css"],
             });
-       
+
             var toolbarOptions = [
-                ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
-                ['blockquote', 'code-block'],                     // blocks
-                [{ 'header': 1 }, { 'header': 2 }],               // custom button values
-                [{ 'list': 'ordered' }, { 'list': 'bullet' }],    // lists
-                [{ 'script': 'sub' }, { 'script': 'super' }],     // superscript/subscript
-                [{ 'indent': '-1' }, { 'indent': '+1' }],         // indent/outdent
-                [{ 'direction': 'rtl' }],                         // text direction
-                [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
-                [{ 'header': [1, 2, 3, 4, 5, 6, false] }],         // header dropdown
-                [{ 'color': [] }, { 'background': ['white'] }],          // dropdown with defaults from theme
-                [{ 'font': [] }],
-                [{ 'align': [] }],
-                ['clean']                                         // remove formatting button
+                ["bold", "italic", "underline", "strike"], // toggled buttons
+                ["blockquote", "code-block"], // blocks
+                [{ header: 1 }, { header: 2 }], // custom button values
+                [{ list: "ordered" }, { list: "bullet" }], // lists
+                [{ script: "sub" }, { script: "super" }], // superscript/subscript
+                [{ indent: "-1" }, { indent: "+1" }], // indent/outdent
+                [{ direction: "rtl" }], // text direction
+                [{ size: ["small", false, "large", "huge"] }], // custom dropdown
+                [{ header: [1, 2, 3, 4, 5, 6, false] }], // header dropdown
+                [{ color: [] }, { background: ["white"] }], // dropdown with defaults from theme
+                [{ font: [] }],
+                [{ align: [] }],
+                ["clean"], // remove formatting button
             ];
-        var quill = new Quill('#editor-container', {
-        modules: {
-            syntax: {
-                highlight: text => hljs.highlightAuto(text).value,
-            },
-            toolbar: [['code-block']]
-        },
-        theme: 'bubble'
-    });
+            var quill = new Quill("#editor-container", {
+                modules: {
+                    syntax: {
+                        highlight: (text) => hljs.highlightAuto(text).value,
+                    },
+                    toolbar: [["code-block"]],
+                },
+                theme: "bubble",
+            });
         </script>
-        
-
-
     </body>
 
-{% endblock content %}
-
+    {% endblock content %}
 </html>
-
