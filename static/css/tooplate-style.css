@@ -454,14 +454,14 @@ b, strong {
   /* border: 1px rgba(255, 192, 203, 0.561) solid; */
   border: none;
   padding: 0.25rem 0.6rem;
-  border-radius: 5px;
+  border-radius: 4px;
   color:rgb(182, 182, 182);
   font-size: 0.70rem;
   background:none;
-  background-color: #1f2c2d;
+  background-color: #273536;
 
-  margin-right: 0px;
-  margin-bottom: 0px;
+  margin-right: 2px !important;
+  margin-bottom: 3px;
 }
 
 
