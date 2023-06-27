@@ -319,7 +319,7 @@
                     {{project.title}}
                   </a>
 
-                  <div style="width:30%;overflow:hidden;margin-left: 20px;margin-bottom: 10px ; ">
+                  <div style="width:25%;overflow:hidden;margin-left: 20px;margin-bottom: 10px ; ">
                     <hr style="color: #ffef64 ;border: 2px #fff06c solid ; opacity: 1;margin:5px ">
 
                   </div>
@@ -337,11 +337,9 @@
 
                   <div class="d-flex tags" style="margin-left: 20px;margin-bottom: 6px; flex-wrap: wrap; ">
                     {% for tag in project.tags.all %}
-                    <div style="margin:0" > <span style="color: #fb04caa4"> </span>
-                      <div  style="border-radius: 8px;margin-right: 5px;"> 
-                        <p class="d-flex justify-content-center" style="margin-bottom: 0px;padding:5px 8px;font-size: 0.75rem; color: {% cycle 'orange' '#fb04caa4' '#7C8EE8' '#C653FF'  '#00D43F' '#009FB8' '#E6E116' %};">
-                          #{{tag.name}}
-                        </p> 
+                    <div style="margin:0" >
+                      <div  style="background-color: #37373736 ; border-radius: 8px;margin-right: 5px;"> 
+                        <p class="d-flex justify-content-center" style="margin-bottom: 5px;padding:5px 8px;font-size: 0.75rem; color: {% cycle '#ffb43c' '#ff8de8' '#9eaeff' '#dc97ff' '#94ffb4' '#b0f5ff' '#ffa8ad' %};">{{tag.name}}</p> 
                       </div>
                     </div>
                   {% endfor %}

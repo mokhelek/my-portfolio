@@ -538,7 +538,8 @@ b, strong {
 
 
 section{
-background-color: #142224 !important;
+/* background-color: #142224 !important; */
+  background-color: #193135 !important;
 }
 
 @media (max-width: 400px) {
@@ -600,6 +601,18 @@ height:340px !important;
 width: 85% !important ;
 }
 
+
+}
+
+.cycle{
+  color:#ffb43c;
+  color:#ff8de8;
+  color:#9eaeff;
+
+  color:#dc97ff;
+  color:#94ffb4;
+  color:#b0f5ff;
+  color:#ffa8ad;
 
 }
 
