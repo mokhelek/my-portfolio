@@ -455,13 +455,13 @@ b, strong {
   border: none;
   padding: 0.25rem 0.6rem;
   border-radius: 4px;
-  color:rgb(182, 182, 182);
+  color:rgb(174, 174, 174);
   font-size: 0.75rem;
   background:none;
   background-color: #22494b48;
 
-  margin-right: 3px !important;
-  margin-bottom: 3px;
+  margin-right: 5px !important;
+  margin-bottom: 5px;
 }
 
 
@@ -471,6 +471,7 @@ b, strong {
 
     margin-right: 1px !important;
     margin-bottom: 2px;
+    border-radius: 2px;
   }
 
 }
