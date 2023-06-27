@@ -457,8 +457,8 @@ b, strong {
   border-radius: 5px;
   color:rgb(182, 182, 182);
   font-size: 0.70rem;
-  margin-right: 0px;
-  margin-bottom: 4px;
+  margin-right: 0px !important;
+  margin-bottom: 3px !important;
   background:none;
   background-color: #1f2c2d;
   
