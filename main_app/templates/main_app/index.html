@@ -289,13 +289,15 @@
                           
                           <div class="tags"  style="margin-left: 20px;margin-bottom: 10px ; ">
                             {% for tag in project.tags.all %}
-                            <button  id="project-tags">
+                            <button id="project-tags">
                               {{tag}}
                             </button>
                             {% endfor %}
                            
                           </div>
 
+
+                         
                           <p id="less-description{{project.id}}" style="margin-left: 20px;margin-right: 20px;margin-bottom: 8px;color:rgb(206, 206, 206); font-size: 1rem;" class="lead">
                             {{project.description|safe|truncatechars:"150"}}
                           </p>

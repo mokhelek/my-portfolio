@@ -125,7 +125,7 @@ b, strong {
 }
 .timeline-wrapper:before {
   content: "";
-  background: #ffec42c7 ;
+  background: #fff176c7 ;
   width: 1.4px;
   height: 100%;
   position: absolute;
@@ -458,6 +458,7 @@ b, strong {
   color:rgb(182, 182, 182);
   font-size: 0.70rem;
   margin-right: 0px !important;
+  margin-left:0px !important;
   margin-bottom: 3px !important;
   background:none;
   background-color: #1f2c2d;
