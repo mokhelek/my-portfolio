@@ -4,7 +4,7 @@
 {% load read-time %}
 {% load skill_tag %}
 {% block content %}
-
+<link rel="stylesheet" href="{% static 'css/tooplate-style.css' %}">
 
 
 <div>
@@ -276,26 +276,44 @@
                         <img style="border-radius: 10px ;" src="{{project.thumbnail.url}}" class="img-fluid" alt="project image">
                       </div>
                     <div class="justify-content-center d-flex" style="position: relative;top: -20px;"> 
-                      <div class="card" style="width:93% !important; background-color: #131e1f ; border-radius: 4px;box-shadow: 0 0 6px rgb(52, 52, 52);">
-                        <div style="min-height: 170px;overflow: hidden;">   
-
-                          <a style="color:rgb(248, 248, 248);margin-left: 20px; margin-top:12px;margin-right: 20px;font-size: 1.6rem;font-weight: 600;" href="{{project.live}}"> 
+                      <div class="card" style="padding-bottom: 2rem;width:93% !important; background-color: #131e1f ; border-radius: 4px;box-shadow: 0 0 6px rgb(52, 52, 52);">
+                        <div style="min-height: 250px;overflow: hidden;"><br>
+                          <a style="color:rgb(248, 248, 248);margin-left: 20px;margin-right: 20px;font-size: 1.6rem;font-weight: 600;" href="{{project.live}}"> 
                             {{project.title}} 
                           </a>
 
-                          <div style="width:80px;overflow:hidden;margin-left: 20px;margin-bottom: 10px ; ">
-                            <hr style="color: #ffec42 ;border: 2px #ffec42 solid ; opacity: 1;margin:5px ">
+                          <div style="width:30%;overflow:hidden;margin-left: 20px;margin-bottom: 10px ; ">
+                            <hr style="color: #ffef64 ;border: 2px #fff06c solid ; opacity: 1;margin:5px ">
                          
                           </div>
-
+                          
+                          <div class="tags"  style="margin-left: 20px;margin-bottom: 10px ; ">
+                            {% for tag in project.tags.all %}
+                            <button  id="project-tags">
+                              {{tag}}
+                            </button>
+                            {% endfor %}
+                           
+                          </div>
 
                           <p id="less-description{{project.id}}" style="margin-left: 20px;margin-right: 20px;margin-bottom: 8px;color:rgb(206, 206, 206); font-size: 1rem;" class="lead">
                             {{project.description|safe|truncatechars:"150"}}
                           </p>
 
-                          <p id="more-description{{project.id}}" style=" display: none !important; margin-left: 20px !important;margin-right: 20px;margin-bottom: 8px;color:rgb(206, 206, 206); font-size: 1rem;" class="lead">
+                          <div id="more-description{{project.id}}" style=" display: none !important; margin-left: 20px !important;margin-right: 20px;margin-bottom: 8px;color:rgb(206, 206, 206); font-size: 1rem;" class="lead">
                             {{project.description|safe}}
-                          </p>
+                            <span>
+                              {% if project.demoUsername != None %}
+                              <div style="margin-bottom: 8px;color:rgb(206, 206, 206);margin-bottom: 0.95rem;font-size: 0.8rem;">
+                              <hr>
+                              <p style="margin-bottom: 0; color:pink;font-style: italic; " >username <span style="color:white" >: {{project.demoUsername}}</span></p> 
+                              <p style="margin-top: 0;color:pink;font-style: italic;"  >password <span style="color:white" >: {{project.demoPassword}}</span></p> 
+                             </div>
+                            {% endif %}
+                            </span>
+                          </div>
+                          
+                          
                       </div>
 
                         <div class="d-flex" style="margin-top: 0cm;width: 100% !important;">
@@ -408,9 +426,9 @@
 
               <div class="d-flex">
                 {% for tag in article.tags.all %}
-                <div class="">
-                  <div class="rounded-pill" style="background-color: #17172284 ">
-                    <p class="d-flex justify-content-center" style="padding:3px 5px 3px 5px;font-size: 0.85rem;color: {% cycle 'orange' '#FB04C9' '#7C8EE8' '#E6E116' '#C653FF'  '#00D43F' '#009FB8' '#E6E116' %};">{{tag.name}}</p> 
+                <div >
+                  <div  style="background-color: #37373736 ; border-radius: 8px;">
+                    <p class="d-flex justify-content-center" style="padding:5px 8px;font-size: 0.85rem;color: {% cycle 'orange' '#FB04C9' '#7C8EE8' '#E6E116' '#C653FF'  '#00D43F' '#009FB8' '#E6E116' %};">{{tag.name}}</p> 
                   </div>
                 </div> &nbsp;&nbsp;
                {% endfor %}

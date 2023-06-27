@@ -1,14 +1,4 @@
 
-#sections{
-
-  background: linear-gradient(to left, rgba(255, 234, 0, 0.641) 25%, white 100%) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-
-    }
-
-
-
 @import url("https://fonts.googleapis.com/css?family=Maven+Pro:400,700");
 
 body {
@@ -459,6 +449,22 @@ b, strong {
     width:100% !important;
   }
 }
+
+#project-tags{
+  /* border: 1px rgba(255, 192, 203, 0.561) solid; */
+  border: none;
+  padding: 0.25rem 0.6rem;
+  border-radius: 8px;
+  color:rgb(228, 228, 228);
+  font-size: 0.70rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.6rem;
+  background:none;
+  background-color: #1f2c2d;
+  
+}
+
+
 
 
 
