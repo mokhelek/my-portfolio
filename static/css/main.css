@@ -50,7 +50,7 @@ a {
   transition: all 0.4s ease;
 }
 a:hover {
-  color: #ffd752a5 !important;
+  color: #f4c52cef !important;
 }
 .article-link h3:hover{
   color: #ffec42 !important;  
@@ -114,11 +114,6 @@ b, strong {
 }
 
 
-.copyright-text {
-  font-size: 16px;
-  font-weight: normal;
-  display: block;
-}
 
 
 
@@ -403,15 +398,22 @@ b, strong {
 
 
 
-
-
-  
-
-
-
-
-
 /* ####################################################### PROJECT  ############################################################*/
+
+
+
+#project-tags{
+  border: none;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  color:rgb(174, 174, 174);
+  font-size: 0.75rem;
+  background:none;
+  background-color: #22494b48;
+
+  margin-right: 5px !important;
+  margin-bottom: 5px;
+}
 
 @media screen and (max-width: 550px) {
   .img-wrapper img{
@@ -456,19 +458,6 @@ b, strong {
   }
 }
 
-#project-tags{
-  /* border: 1px rgba(255, 192, 203, 0.561) solid; */
-  border: none;
-  padding: 0.25rem 0.6rem;
-  border-radius: 4px;
-  color:rgb(174, 174, 174);
-  font-size: 0.75rem;
-  background:none;
-  background-color: #22494b48;
-
-  margin-right: 5px !important;
-  margin-bottom: 5px;
-}
 
 
 @media screen and (max-width: 550px) {
@@ -490,8 +479,8 @@ b, strong {
 @media (max-width: 600px) {
 
   .blog-img img{
-    width: 60px;
-    height: 60px;
+    width: 65px;
+    height: 65px;
     top:50;
     bottom:50;
   }

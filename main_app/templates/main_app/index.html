@@ -4,7 +4,7 @@
 {% load read-time %}
 {% load skill_tag %}
 {% block content %}
-<link rel="stylesheet" href="{% static 'css/tooplate-style.css' %}">
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
 
 
   <!-- ABOUT -->
@@ -38,17 +38,7 @@
               I'm a <span id="animation" style="color:#ffec42 ;"> </span>
             </h2>
 
-            <!-- <div class="d-flex tags" style="margin-bottom: 6px; flex-wrap: wrap; ">
-            
-              <div style="margin:0" >
-                <div  style="background-color: #8b8b8b53 ; border-radius: 8px;margin-right: 5px;"> 
-                  <p class="d-flex justify-content-center" style="margin-bottom: 5px;padding:5px 8px;font-size: 0.75rem; color: gray">
-                    python
-                  </p> 
-                </div>
-              </div>
-             
-          </div> -->
+       
 
             {% for text in texts %}
             <p id="hero_slogan" style="color: rgb(207, 207, 207);font-size: 1.08rem;"> {{text.intro_text}}</p>
@@ -75,7 +65,7 @@
 
             <div class="d-block d-sm-none">
               <div style="margin-bottom: 10px;" class="row">
-                <a style="color: #232323 !important ;background-color: #fde92f !important;font-size: 1.1rem;width: 100%;border-radius: 20px !important;"
+                <a style="color: #232323 !important ;background-color: #fde92f !important;font-size: 1.1rem;width: 100%;border-radius: 10px !important;"
                   href="#project" class="btn mr-lg-2 btn-warning btn-md  ">&nbsp; &nbsp; My Work &nbsp;&nbsp;
                   <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
                     class="bi bi-arrow-right" viewBox="0 0 16 16">
@@ -86,7 +76,7 @@
               </div>
 
               <div class="row">
-                <a style="font-size: 1.1rem;color:rgb(211, 211, 211) !important;width: 100%;border-radius: 20px !important;"
+                <a style="font-size: 1.1rem;color:rgb(211, 211, 211) !important;width: 100%;border-radius: 10px !important;"
                   href="#contact" class="btn btn-outline-secondary btn-md"> Get in touch </a>
               </div>
             </div>
@@ -315,7 +305,7 @@
           {% for project in projects %}
           <div class="col-md-6">
             <div class="img-wrapper">
-              <img style="border-radius: 10px ;" src="{{project.thumbnail.url}}" class="img-fluid" alt="project image">
+              <img style="border-radius: 10px ;" src="{{project.thumbnail.url}}" class="img-fluid" alt="project image | cape town freelancer">
             </div>
             <div class="justify-content-center d-flex" style="position: relative;top: -20px;">
               <div class="card"
@@ -568,7 +558,7 @@
           <h1> Find Me On Social Media</h1>
 
           <div class="row" style="border-top:#535563 1px solid; padding-top:20px">
-            <a style="color:rgba(156, 203, 250, 0.315)" href="https://www.linkedin.com/in/mokhele-katleho"
+            <a style="color:rgba(156, 203, 250, 0.315)" href="#"
               class="col-3">
               <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-linkedin"
                 viewBox="0 0 16 16">
@@ -651,8 +641,8 @@
     <div style="width:93%" class="container-fluid">
         <div class="d-flex justify-content-end">
             <a href="#">
-              <button style="height: 60px;width: 60px;" class="btn btn-warning rounded-circle" >
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
+              <button style="height: 60px;width: 60px;background-color: #fff175;box-shadow: 0 2px 6px rgb(28, 40, 37);" class="btn rounded-circle" >
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
                   <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146ZM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5Z"/>
                 </svg>
               </button>
@@ -661,131 +651,5 @@
     </div>
 </footer>
 
-
-
-
-
-  <script>
-    function myFunction(id) {
-      let more_description = document.getElementById("more-description" + id);
-      let less_description = document.getElementById("less-description" + id);
-
-      let more_btn = document.getElementById("more_btn" + id);
-      let less_btn = document.getElementById("less_btn" + id);
-
-      if (more_description.style.display === "none") {
-        more_description.style.display = "block";
-        less_description.style.display = "none";
-        less_btn.style.display = "block"
-        more_btn.style.display = "none"
-
-      } else {
-        more_description.style.display = "none";
-        less_description.style.display = "block";
-        less_btn.style.display = "none"
-        more_btn.style.display = "block"
-      }
-    }
-
-    function skillsFunction(id) {
-      let more_skill_description = document.getElementById("more" + id)
-      let less_skill_description = document.getElementById("less" + id)
-
-      let read_more_btn = document.getElementById("read_more_skill" + id)
-      let read_less_btn = document.getElementById("read_less_skill" + id)
-
-      if (more_skill_description.style.display == "none") {
-        more_skill_description.style.display = "block";
-        less_skill_description.style.display = "none";
-        read_more_btn.style.display = "none";
-        read_less_btn.style.display = "block";
-
-      } else {
-        more_skill_description.style.display = "none";
-        less_skill_description.style.display = "block";
-        read_less_btn.style.display = "none"
-        read_more_btn.style.display = "block"
-      }
-
-    }
-
-    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-      return new bootstrap.Tooltip(tooltipTriggerEl)
-    })
-
-
-
-
-    // ##################################
-
-
-    var dataText = ["fullstack developer", "UI/UX Designer"];
-
-    function typeWriter(text, i, fnCallback) {
-      if (i < (text.length)) {
-        document.getElementById("animation").innerHTML = text.substring(0, i + 1) + '<span aria-hidden="true"></span>';
-        setTimeout(function () {
-          typeWriter(text, i + 1, fnCallback)
-        }, 100);
-      } else if (typeof fnCallback == 'function') {
-        setTimeout(fnCallback, 700);
-      }
-    }
-
-    function StartTextAnimation(i) {
-      console.log(dataText[i])
-      if (dataText[i] == undefined) {
-        StartTextAnimation(0);
-      }
-
-      if (i < dataText.length ) {
-
-        typeWriter(dataText[i], 0, function () {
-          StartTextAnimation(i + 1);
-        });
-      }
-    }
-
-    StartTextAnimation(0);
-
-
-
-
-    // #############################################  On Scroll animations  ###################################################   
-
-/*
-    function runAnimation(dataText, textContainerID) {
-
-      function typeWriter(text, i, fnCallback) {
-        if (i < (text.length)) {
-          document.getElementById(`${textContainerID}`).innerHTML = text.substring(0, i + 1) + '<span aria-hidden="true"></span>';
-          setTimeout(function () {
-            typeWriter(text, i + 1, fnCallback)
-          }, 30);
-        } else if (typeof fnCallback == 'function') {
-          setTimeout(fnCallback, 700);
-        }
-      }
-
-      function StartTextAnimation(i) {
-        if (typeof dataText[i] == 'undefined') {
-          setTimeout(function () {
-            StartTextAnimation(0);
-          }, 20000)
-        }
-
-        if (i < dataText[i].length) {
-          typeWriter(dataText[i], 0, function () {
-          });
-        }
-      }
-      StartTextAnimation(0);
-
-    }
-
-*/
-
-  </script>
-
+<script src="{% static 'js/main.js' %}"></script>
   {% endblock content %}
