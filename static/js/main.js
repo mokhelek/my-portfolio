@@ -63,7 +63,7 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 
 
 
-// ##################################
+// ************************************* Typwriter effect *****************
 
 
 var dataText = ["fullstack developer", "UI/UX Designer"];
@@ -94,6 +94,8 @@ function StartTextAnimation(i) {
 }
 
 StartTextAnimation(0);
+
+// *********************************** Delay Navigation *********************
 
 
 
