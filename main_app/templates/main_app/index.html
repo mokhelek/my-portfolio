@@ -363,32 +363,33 @@
 
                 <div class="d-flex" style="margin-top: 0cm;width: 100% !important;">
                   <button id="less_btn{{project.id}}" onclick="myFunction('{{project.id}}')"
-                    style="border-width: 1px !important;display: none; margin-left: 20px;margin-bottom: 8px;width:152px;height: 30px;background-color: #4747471e;border: none"
-                    class="btn-outline-light expand_btn  rounded-pill">
+                    style="border-width: 1px !important;display: none; margin-left: 20px;margin-bottom: 8px;width:152px;height: 30px;background-color: #8b8b8b53;border: none"
+                    class="btn-outline-light expand_btn rounded ">
                     <small> Read Less </small>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                       class="bi bi-chevron-bar-contract" viewBox="0 0 16 16">
                       <path fill-rule="evenodd"
                         d="M3.646 14.854a.5.5 0 0 0 .708 0L8 11.207l3.646 3.647a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 0 0 0 .708zm0-13.708a.5.5 0 0 1 .708 0L8 4.793l3.646-3.647a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 0-.708zM1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8z" />
                     </svg>
-
                   </button>
-                  <button id="more_btn{{project.id}}" onclick="myFunction('{{project.id}}')"
-                    style="margin-left: 20px;margin-bottom: 8px;width:152px;height: 30px; border-width: 1px !important; background-color: #7a75a312;border: none;color: #ffec42ec;"
-                    class="btn-outline-warning expand_btn rounded-pill">
+                  
+                  <button 
+                    id="more_btn{{project.id}}" 
+                    onclick="myFunction('{{project.id}}')"
+                    style="margin-left: 20px;margin-bottom: 8px;width:152px;height: 30px; border-width: 1px !important; background-color: #8b8b8b53;border: none;color: #ffec42ec;"
+                    class="btn-outline-warning expand_btn rounded ">
                     <small> Read More </small>
                     <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor"
                       class="bi bi-chevron-bar-expand" viewBox="0 0 16 16">
                       <path fill-rule="evenodd"
                         d="M3.646 10.146a.5.5 0 0 1 .708 0L8 13.793l3.646-3.647a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 0-.708zm0-4.292a.5.5 0 0 0 .708 0L8 2.207l3.646 3.647a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 0 0 0 .708zM1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8z" />
                     </svg>
-
                   </button>
 
                   <div class="d-flex justify-content-end" style="width: 100% !important; padding-bottom: 20px;">
 
 
-                    <div class="col-1 ">
+                    <div class="col-1">
                       <div class="rounded-circle" style="background-color: #3c45ff17;">
                         <a style="color:#cecece" href="{{project.github}}">
                           <div type="button" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true"
@@ -403,7 +404,6 @@
                       </div>
                     </div>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-
                     <div class="col-1" style="margin-right:40px">
                       <div class="rounded-circle" style="background-color: rgba(186, 251, 182, 0.15);">
 
@@ -452,7 +452,7 @@
 
 
   <!-- ###################################################### BLOG ######################################################################## -->
-  <section class="py-5" id="blog" style="background-color: #00000C ;">
+  <section class="py-5" id="blog" >
     <div class="container">
       <h2 id="sections" style="margin-left: 5px;color: white;margin-top: 0cm;margin-bottom: 0cm;">My Blog </h2>
       <div style="width:100px;overflow:hidden">
@@ -539,7 +539,7 @@
   </section>
 
   <!-- ###################################################### CONTACT ######################################################################## -->
-  <section class="contact py-5" id="contact" style="background-color:#00000C;">
+  <section class="contact py-5" id="contact" >
     <div class="container">
       <h2 id="sections" style="margin-left: 5px; margin-top: 0cm;margin-bottom: 0cm;">Contact me</h2>
       <div style="width:100px;overflow:hidden">
@@ -640,7 +640,7 @@
   <footer style="height: 6rem; bottom: 0; position: fixed; width: 100%; margin-top: 2rem; ">
     <div style="width:93%" class="container-fluid">
         <div class="d-flex justify-content-end">
-            <a href="#">
+            <a style="color: #292929 !important;" href="{% url 'main_app:homePage' %}">
               <button style="height: 60px;width: 60px;background-color: #fff175;box-shadow: 0 2px 6px rgb(28, 40, 37);" class="btn rounded-circle" >
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
                   <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146ZM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5Z"/>
