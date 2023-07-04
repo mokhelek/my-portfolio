@@ -135,8 +135,8 @@
             <hr style="color: #ffec42 ;border: 2px #ffec42 solid ; opacity: 1;margin:5px ">
 
           </div>
-          <p style="margin-left: 5px;color:rgb(226, 226, 226);margin-top: 0cm;margin-bottom: 3px;font-size:1.1rem;">A
-            closer look at my journey in tech</p>
+          <p style="margin-left: 5px;color:rgb(226, 226, 226);margin-top: 0cm;margin-bottom: 3px;font-size:1.1rem;">
+            A closer look at my journey in tech</p>
           <br>
 
           <div>
@@ -146,7 +146,7 @@
             </center>
           </div>
 
-          <div style="background-color: #1a2e2f6b  !important;font-size:1.1rem;color:#bfbfbf;border-radius: 10px;"
+          <div style="background-color: #2c484d  !important;font-size:1.1rem;color:#b7b7b7;border:none"
             class="card card-body ">
 
             <div>
@@ -309,7 +309,7 @@
             </div>
             <div class="justify-content-center d-flex" style="position: relative;top: -20px;">
               <div class="card"
-                style="width:93% !important; background-color: #1f3337 ; border-radius: 4px;">
+                style="width:93% !important; background-color: #29494e ; border-radius: 4px;border:none">
                 <div style="min-height: 200px;overflow: hidden;"><br>
                   <a style="color:rgb(248, 248, 248);margin-left: 20px;margin-right: 20px;font-size: 1.6rem;font-weight: 600;"
                     href="{{project.live}}">
@@ -452,6 +452,7 @@
 
 
   <!-- ###################################################### BLOG ######################################################################## -->
+ 
   <section class="py-5" id="blog" >
     <div class="container">
       <h2 id="sections" style="margin-left: 5px;color: white;margin-top: 0cm;margin-bottom: 0cm;">My Blog </h2>
@@ -496,8 +497,8 @@
                   <div class="d-flex">
                     {% for tag in article.tags.all %}
                     <div >
-                      <div  style="background-color: #37373736 ; border-radius: 8px;">
-                        <p class="d-flex justify-content-center" style="padding:5px 8px;font-size: 0.85rem;color: {% cycle 'orange' '#FB04C9' '#7C8EE8' '#E6E116' '#C653FF'  '#00D43F' '#009FB8' '#E6E116' %};">{{tag.name}}</p> 
+                      <div  style="background-color: #8b8b8b53 ; border-radius: 8px;">
+                        <p class="d-flex justify-content-center" style="padding:5px 8px;font-size: 0.85rem;color: {% cycle '#ffb43c' '#ff8de8' '#9eaeff' '#dc97ff' '#94ffb4' '#b0f5ff' '#ffa8ad' %};">{{tag.name}}</p> 
                       </div>
                     </div> &nbsp;&nbsp;
                   {% endfor %}
@@ -520,7 +521,7 @@
 
 
         <div class="container" style="margin-top: 30px;">
-          <a href="{% url 'blog_app:all_articles' %}" style="color:#141414 !important;background-color:#fff279 "
+          <a href="{% url 'blog_app:all_articles' %}" style="color:#141414 !important;background-color:#fff066 "
             class="btn btn-warning">See More Articles
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" fill="currentColor" class="bi bi-arrow-right"
               viewBox="0 0 16 16">

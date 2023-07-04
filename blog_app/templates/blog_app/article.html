@@ -114,7 +114,7 @@
                     </div> 
                         <div class="row">
                             <div class="col"> 
-                            <p style="font-size: 0.7rem;color:rgb(206, 206, 206);margin-left: 2px;margin-top: 15px;"> {{article.date_posted|date:" d M Y"}} <span style="font-weight:700;font-size:larger">  &centerdot; </span> {{article.body.html|readtime}}</p> 
+                            <p style="font-size: 0.85rem;color:rgb(206, 206, 206);margin-left: 2px;margin-top: 15px;"> {{article.date_posted|date:" d M Y"}} <span style="font-weight:700;font-size:larger">  &centerdot; </span> {{article.body.html|readtime}}</p> 
                             </div>
                         </div>
                     <h3 style="color:rgb(227, 227, 227)">{{article.title}}</h3>
@@ -122,16 +122,15 @@
                     <div  style="border-left: 3px gray solid;"  class="container">
                         <p style="color:rgb(215, 215, 215)">{{article.subtitle}}</p>
                     </div>
-
                     <div class="d-flex">
-                        {% for tag in article.tags.all %}
-                        <div class="">
-                        <div class="rounded-pill" style="background-color: #17172284 ">
-                            <p class="d-flex justify-content-center" style="padding:3px 5px 3px 5px;font-size: 0.85rem;color: {% cycle 'orange' '#FB04C9' '#7C8EE8' '#E6E116' '#C653FF'  '#00D43F' '#009FB8' '#E6E116' %};">{{tag.name}}</p> 
+                      {% for tag in article.tags.all %}
+                      <div >
+                        <div  style="background-color: #8b8b8b53 ; border-radius: 8px;">
+                          <p class="d-flex justify-content-center" style="padding:5px 8px;font-size: 0.85rem;color: {% cycle '#ffb43c' '#ff8de8' '#9eaeff' '#dc97ff' '#94ffb4' '#b0f5ff' '#ffa8ad' %};">{{tag.name}}</p> 
                         </div>
-                        </div> &nbsp;&nbsp;
+                      </div> &nbsp;&nbsp;
                     {% endfor %}
-                    </div>
+                  </div>
 
                     
                     <div style="margin: 0cm; padding:0cm;" class="thumb-wrapper"  >
@@ -268,6 +267,20 @@
 
 
 
+    <footer style="height: 6rem; bottom: 0; position: fixed; width: 100%; margin-top: 2rem; ">
+      <div style="width:93%" class="container-fluid">
+          <div class="d-flex justify-content-end">
+              <a style="color: #292929 !important;" href="{% url 'main_app:homePage' %}">
+                <button style="height: 60px;width: 60px;background-color: #fff175;box-shadow: 0 2px 6px rgb(28, 40, 37);" class="btn rounded-circle" >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
+                    <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146ZM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5Z"/>
+                  </svg>
+                </button>
+              </a>
+          </div>
+      </div>
+  </footer>
+  
     
 
 {% endblock content %}

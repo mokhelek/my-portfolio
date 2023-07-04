@@ -1,16 +1,27 @@
 
-@import url("https://fonts.googleapis.com/css?family=Maven+Pro:400,700");
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
+
+
 
 body {
-  font-family: "poppins", sans-serif;
+  font-family: "Montserrat", sans-serif;
   padding-top: 70px;
-  background-color: #16282b;
+  background-color: #233d41;
+  font-weight: 500;
 }
 
 section{
-  background-color: #1a2c2f !important;
+  background-color: #233d41 !important;
 }
 
+/* section{
+  background-color: #21293c !important;
+} */
+
+/* section{
+  background-color: #263c32 !important;
+} */
 
 
 .expand_btn:hover{
@@ -79,6 +90,10 @@ h2 {
 h3 {
   color: #ffffff;
 }
+p{
+  color: #e8e8e8 ;
+}
+
 
 h3,
 b, strong {

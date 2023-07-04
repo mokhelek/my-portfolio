@@ -4,78 +4,84 @@
 {% load read-time %}
 
 {% block content %}
-<section class="py-5" id="blog" style="background-color: #12121a;min-height: 700px;">
+ 
+<section class="py-5" id="blog" >
+  <div class="container">
+    <h2 id="sections" style="margin-left: 5px;color: white;margin-top: 0cm;margin-bottom: 0cm;">My Blog </h2>
+    <div style="width:100px;overflow:hidden">
+      <hr style="color: #ffec42;border: 2px #ffec42 solid ; opacity: 1;margin:5px ">
+
+    </div>
 
 
-  <h2 id="sections" style="margin-left: 5px;color: white;margin-top: 0cm;margin-bottom: 0cm;">My Blog </h2>
-  <div style="width:100px;overflow:hidden">
-    <hr style="color: rgb(235, 255, 13 ) ;border: 2px rgb(235, 255, 13 ) solid ; opacity: 1;margin:5px ">
+    <p style="margin-left: 5px;color:rgb(215, 215, 215);margin-top: 0cm;margin-bottom: 3px;font-size:1.1rem;"> Some
+      articles from my tech blog </p>
 
   </div>
 
-  <p style="margin-left: 5px;color:rgb(215, 215, 215);margin-top: 0cm;margin-bottom: 3px;font-size:1.1rem;">
-    Articles from my tech blog
-  </p>
+  <br><br>
 
-  <br>
 
   <div class="container-fluid blog-container">
+    <div class="row d-flex justify-content-center">
+      {% for article in articles %}
+      <div class=" col-12 col-md-10 col-lg-9">
+        {% if forloop.counter == 1 %}
+        <div class="d-flex"
+          style="border-top:1px  solid rgba(200, 200, 200, 0.126);border-bottom:1px  solid rgba(200, 200, 200, 0.126);">
+          {% else %}
+          <div class="d-flex" style="border-bottom:1px  solid rgba(200, 200, 200, 0.126);">
+            {% endif %}
 
-      <div class="row d-flex justify-content-center">
-        {% for article in articles %}
-        <div class=" col-12 col-md-10 col-lg-9">
-          {% if forloop.counter == 1 %}
-          <div class="d-flex"
-            style="border-top:1px  solid rgba(200, 200, 200, 0.126);border-bottom:1px  solid rgba(200, 200, 200, 0.126);">
-            {% else %}
-            <div class="d-flex" style="border-bottom:1px  solid rgba(200, 200, 200, 0.126);">
-              {% endif %}
-
-              <div class="blog-img" style="margin: 20px;">
-                <img height="150" src="{{article.thumbnail.url}}" alt="">
-              </div>
-              <div class="">
-                <a href="{% url 'blog_app:article' article.slug %}" class="article-link">
-                  <h3 class="blog-title" style="margin-left: 2px;margin-top:10px;color:white">{{article.title}}</h3>
-                </a>
-                <p style="margin-left: 2px;margin-right: 20px;margin-bottom: 8px;color:rgb(225, 225, 225); font-size: 1.1rem;"
-                  class="blog-subtitle">
-                  {{article.subtitle|truncatechars:160}}
-                </p>
-
-
-                  <div class="d-flex">
-                    {% for tag in article.tags.all %}
-                    <div >
-                      <div  style="background-color: #37373736 ; border-radius: 8px;">
-                        <p class="d-flex justify-content-center" style="padding:5px 8px;font-size: 0.85rem;color: {% cycle 'orange' '#FB04C9' '#7C8EE8' '#E6E116' '#C653FF'  '#00D43F' '#009FB8' '#E6E116' %};">{{tag.name}}</p> 
-                      </div>
-                    </div> &nbsp;&nbsp;
-                  {% endfor %}
-                </div>
-
-                <div class="row">
-                  <div class="col">
-                    <p style="font-size: 0.7rem;color:rgb(206, 206, 206);margin-left: 2px;margin-top: 3px;">
-                      {{article.date_posted|date:" d M Y"}} <span style="font-weight:700;font-size:larger"> &centerdot;
-                      </span> {{article.body.html|readtime}}</p>
-                  </div>
-                </div>
-
-              </div>
+            <div class="blog-img" style="margin: 20px;">
+              <img height="150" src="{{article.thumbnail.url}}" alt="">
             </div>
+            <div class="">
+              <a href="{% url 'blog_app:article' article.slug %}" class="article-link">
+                <h3 class="blog-title" style="margin-left: 2px;margin-top:10px;color:white">{{article.title}}</h3>
+              </a>
+              <p style="margin-left: 2px;margin-right: 20px;margin-bottom: 8px;color:rgb(225, 225, 225); font-size: 1.1rem;"
+                class="blog-subtitle">
+                {{article.subtitle|truncatechars:160}}
+              </p>
 
+
+                <div class="d-flex">
+                  {% for tag in article.tags.all %}
+                  <div >
+                    <div  style="background-color: #8b8b8b53 ; border-radius: 8px;">
+                      <p class="d-flex justify-content-center" style="padding:5px 8px;font-size: 0.85rem;color: {% cycle '#ffb43c' '#ff8de8' '#9eaeff' '#dc97ff' '#94ffb4' '#b0f5ff' '#ffa8ad' %};">{{tag.name}}</p> 
+                    </div>
+                  </div> &nbsp;&nbsp;
+                {% endfor %}
+              </div>
+
+              <div class="row">
+                <div class="col">
+                  <p style="font-size: 0.7rem;color:rgb(206, 206, 206);margin-left: 2px;margin-top: 3px;">
+                    {{article.date_posted|date:" d M Y"}} <span style="font-weight:700;font-size:larger"> &centerdot;
+                    </span> {{article.body.html|readtime}}</p>
+                </div>
+              </div>
+
+            </div>
           </div>
-          {% endfor %}
-        </div>
 
+        </div>
+        {% endfor %}
       </div>
 
+
+    
+
+    </div>
   </div>
+
 
 
 
 </section>
+
 <footer style="height: 6rem; bottom: 0; position: fixed; width: 100%; margin-top: 2rem; ">
   <div style="width:93%" class="container-fluid">
       <div class="d-flex justify-content-end">
