@@ -5,8 +5,10 @@ cssselect==1.2.0
 Django==4.2.4
 django-bootstrap-v5==1.0.11
 django-quill-editor==0.1.40
+gunicorn==21.2.0
 lxml==4.9.3
 markdown2==2.4.10
+packaging==23.1
 Pillow==10.0.0
 pyquery==2.0.0
 readtime==3.0.0
