@@ -8,6 +8,11 @@ body {
   font-weight: 500;
 }
 
+.text-warning{
+  color: #ffdc6a !important;
+  margin-right: 5px;
+}
+
 section{
   background-color: #233d41;
 }
@@ -64,13 +69,26 @@ a {
   transition: all 0.4s ease;
 }
 a:hover {
-  color: #f4c52cef !important;
+  color: #ffd754ef !important;
 }
 .article-link h3:hover{
   color: #ffec42 !important;  
   text-decoration: underline ;
 }
 
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.hero-image {
+  width: 200px; 
+ animation: floating 2s ease-in-out infinite; 
+}
 
 
 h1, h2, h3, h4, h5, h6 {
