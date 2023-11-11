@@ -11,8 +11,21 @@ body {
 section{
   background-color: #233d41;
 }
+@font-face {
+  font-family: "Titles";
+  src: url("fonts/Gemsbuck01Black-axn2g.ttf");
+}
 
-
+#hero_name{
+  font-family: "Titles";
+  /* font-size: 3rem !important; */
+  margin:0cm
+}
+#sections{
+  font-family: "Titles";
+  font-size: 2.5rem;
+  letter-spacing: 7px;
+}
 
 .expand_btn:hover{
   color:#ffec42!important;
@@ -263,8 +276,6 @@ b, strong {
 
 }
 
-
-
 @media (min-width: 321px) {
   #hero_name{
     font-size: 2.2rem !important;
@@ -293,7 +304,6 @@ b, strong {
     padding-top:50px;
   }
 }
-
 
 @media (min-width: 400px) {
 
@@ -338,9 +348,6 @@ b, strong {
 
 }
 
-
-
-
 @media (min-width: 767px) {
   
   #hero_name{
@@ -365,7 +372,6 @@ b, strong {
   }
 
 }
-
 
 @media (min-width: 991px) {
   #hero_name{
@@ -440,8 +446,6 @@ b, strong {
   }
 }
 
-
-
 @media screen and (min-width: 551px) {
   .img-wrapper img{
     width:100%;
@@ -475,7 +479,6 @@ b, strong {
   }
 
 }
-
 
 
 
