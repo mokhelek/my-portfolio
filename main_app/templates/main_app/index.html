@@ -5,22 +5,21 @@
 {% load skill_tag %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/main.css' %}">
+ <style>
+  #hero,#about{
+  background-image: url('{% static "/images/background.svg" %}') !important;
+  background-size: cover;
+  background-position: center;
+}
+ </style>
 
-
-  <!-- ABOUT -->
-  <section id="landing_page" style="margin: 0 !important; height:95%;"
+  <!-- ###################################################### Hero Section ################################################################ -->
+  <section id="hero" style="margin: 0 !important;"
     class="about full-screen d-lg-flex justify-content-center ">
 
     <div class="container-fluid " style="width: 92%;">
 
-
-      <div class="d-none d-lg-block">
-        <br><br>
-      </div>
-
-      <div class="d-block d-lg-none">
-        <br><br>
-      </div>
+      <br>
 
       <div class="row">
 
@@ -143,6 +142,7 @@
             <center>
               <img style="width: 70%;" src="{% static 'images/profile.png' %}" class="img-fluid d-block d-md-none"
                 alt="svg image">
+                <br>
             </center>
           </div>
 
@@ -169,8 +169,7 @@
   </section>
 
   <!-- ###################################################### SKILLS ######################################################################## -->
-  <section class="resume d-lg-flex py-5 justify-content-center align-items-center" id="skills"
-    style="background-color: #00000C;">
+  <section class="resume d-lg-flex py-5 justify-content-center align-items-center" id="skills">
     <div class="container">
 
       <h2 id="sections" style="margin-left: 5px;color: white;margin-top: 0cm;margin-bottom: 0cm;">My Skills </h2>
@@ -559,7 +558,7 @@
           <h1> Find Me On Social Media</h1>
 
           <div class="row" style="border-top:#535563 1px solid; padding-top:20px">
-            <a style="color:rgba(156, 203, 250, 0.315)" href="#"
+            <a style="color:rgba(156, 203, 250, 0.315)" href="https://www.linkedin.com/in/mokhele-katleho"
               class="col-3">
               <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-linkedin"
                 viewBox="0 0 16 16">
@@ -638,19 +637,17 @@
     </div>
   </section>
 
-  <footer style="height: 6rem; bottom: 0; position: fixed; width: 100%; margin-top: 2rem; ">
-    <div style="width:93%" class="container-fluid">
-        <div class="d-flex justify-content-end">
-            <a style="color: #292929 !important;" href="{% url 'main_app:homePage' %}">
-              <button style="height: 60px;width: 60px;background-color: #fff175;box-shadow: 0 2px 6px rgb(28, 40, 37);" class="btn rounded-circle" >
-                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
-                  <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146ZM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5Z"/>
-                </svg>
-              </button>
-            </a>
-        </div>
-    </div>
-</footer>
+
+
+  <a style="color: #292929 !important;position: fixed;margin: 2rem; bottom: 0; right: 0;" href="{% url 'main_app:homePage' %}">
+    <button style="height: 60px;width: 60px;background-color: #fff175;box-shadow: 0 2px 6px rgb(28, 40, 37);" class="btn rounded-circle" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
+        <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146ZM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5Z"/>
+      </svg>
+    </button>
+  </a>
+
+
 
 <script src="{% static 'js/main.js' %}"></script>
-  {% endblock content %}
+{% endblock content %}

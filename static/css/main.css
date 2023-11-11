@@ -1,7 +1,4 @@
-
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
-
 
 
 body {
@@ -12,16 +9,9 @@ body {
 }
 
 section{
-  background-color: #233d41 !important;
+  background-color: #233d41;
 }
 
-/* section{
-  background-color: #21293c !important;
-} */
-
-/* section{
-  background-color: #263c32 !important;
-} */
 
 
 .expand_btn:hover{
