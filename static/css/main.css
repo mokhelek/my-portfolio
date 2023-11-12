@@ -20,16 +20,68 @@ section{
   font-family: "Titles";
   src: url("fonts/Gemsbuck01Black-axn2g.ttf");
 }
-
+#about{
+  height: 100vh;
+}
 #hero_name{
   font-family: "Titles";
-  /* font-size: 3rem !important; */
   margin:0cm
 }
+
+.about-tags{
+  background-color: #2c5c4c;
+  padding: 7px 8px;color: #d4d4d4;
+  position: absolute;
+  border: 1px #ebc95c solid;
+  box-shadow: 5px 3px 0 #dbe7de;
+}
+
+#tag1{
+  left: 0;
+  top: 20%;
+  transform: rotate(-10deg);
+}
+#tag2{
+  right: 0;
+  top: 20%;
+  transform: rotate(10deg);
+}
+#tag3{
+  right: 0;
+  top: 90%;
+  transform: rotate(-6deg);
+}
+#tag4{
+  left: 0%;
+  top: 90%;
+  transform: rotate(6deg);
+}
+
+
+
+
 #sections{
   font-family: "Titles";
   font-size: 2.5rem;
   letter-spacing: 7px;
+}
+
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.hero-image {
+ width: 200px; 
+ animation: floating 2s ease-in-out infinite; 
+ transition: transform 0.3s ease-in-out; 
+}
+.hero-image:hover {
+  transform: rotate(5deg); 
 }
 
 .expand_btn:hover{
@@ -51,8 +103,6 @@ section{
 }
 
 
-
-
 ul {
   margin: 0;
   padding: 0;
@@ -60,8 +110,6 @@ ul {
 ul li {
   list-style: none;
 }
-
-
 
 a {
   font-weight: normal;
@@ -76,19 +124,6 @@ a:hover {
   text-decoration: underline ;
 }
 
-@keyframes floating {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.hero-image {
-  width: 200px; 
- animation: floating 2s ease-in-out infinite; 
-}
 
 
 h1, h2, h3, h4, h5, h6 {
@@ -150,9 +185,6 @@ b, strong {
 }
 
 
-
-
-
 .timeline-wrapper {
   position: relative;
   
@@ -201,8 +233,6 @@ b, strong {
   vertical-align: middle;
   margin-left: 4em;
 }
-
-
 
 .contact-form {
   position: relative;
@@ -261,7 +291,6 @@ b, strong {
     width:100% !important ;
   }
 }
-
 
 
 @media (max-width: 320px) {

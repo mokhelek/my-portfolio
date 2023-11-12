@@ -91,7 +91,6 @@
         <div class="col-md-4 d-none d-md-block">
 
           <div>
-
             <img style="border: 2px #dadada solid; width:67% ;margin-left:80px;box-shadow: 10px 5px 0px #ffffffef;" height="30"
               src="{% static 'images/profile.jpg' %}" class="img-fluid hero-image" alt="svg image">
           </div>
@@ -115,57 +114,59 @@
 
   <!-- ###################################################### MORE ABOUT ME ################################################################ -->
   <section style="margin: 0cm !important;" class="more-about-me " id="about">
-    <div id="about-container" class="container-fluid" style="padding-top: 1cm;width:90%">
+    <div id="about-container" class="container-fluid" style="padding-top: 1cm; width:90%; ">
+      <div style="position: relative;" >
+        <span id="tag1" class="about-tags" > <span class="text-warning">#</span>open_source </span>
+        <span id="tag2" class="about-tags" > <span class="text-warning">#</span>web_dev </span>
+        <span id="tag3" class="about-tags" > <span class="text-warning">#</span>softwareSolutions </span>
+        <span id="tag4" class="about-tags" > <span class="text-warning">#</span>web_design</span>
 
-      <div class="row">
-        <div class="col-md-5 d-none d-md-block about-illustration">
-          <br>
-          <br>
-          <br>
-          <br>
-          <img src="{% static 'images\undraw\undraw_programming_re_kg9v.svg' %}" class="img-fluid" alt="svg image">
-        </div>
-
-        <div class="col-md-7">
-
-          <h2 id="sections" style="margin-left: 5px;color: white;margin-top: 0cm;margin-bottom: 0cm;">About me</h2>
-
-          <div id="sections" style="width:100px;overflow:hidden">
-            <hr style="color: #ffec42 ;border: 2px #ffec42 solid ; opacity: 1;margin:5px ">
-
-          </div>
-          <p style="margin-left: 5px;color:rgb(226, 226, 226);margin-top: 0cm;margin-bottom: 3px;font-size:1.1rem;">
-            A closer look at my journey in tech</p>
-          <br>
-
-          <div>
-            <center>
-              <img style="width: 70%;" src="{% static 'images/profile.png' %}" class="img-fluid d-block d-md-none"
-                alt="svg image">
-                <br>
-            </center>
-          </div>
-
-          <div style="background-color: #2c484d  !important;font-size:1.1rem;color:#b7b7b7;border:none"
-            class="card card-body ">
-
-            <div>
-              {% for text in texts %}
-              <p id="about-text">
-                {{text.about_text}}
-              </p>
-              {% endfor %}
+        <div class="justify-content-center d-flex" >
+          <div class="col-md-8 col-11">
+  
+            <div class="d-flex justify-content-center">     
+                <div>
+                  <center>
+                    <h2 id="sections" style="margin-left: 5px;color: white;margin-top: 0cm;margin-bottom: 0cm;">About me</h2>
+                    <div id="sections" style="width:100px;overflow:hidden">
+                      <hr style="color: #ffec42 ;border: 2px #ffec42 solid ; opacity: 1;margin:5px ">
+                    </div>
+                    <p style="margin-left: 5px;color:rgb(226, 226, 226);margin-top: 0cm;margin-bottom: 3px;font-size:1.1rem;">
+                      A closer look at my journey in tech
+                    </p>
+                  </center>
+                </div>
             </div>
-
-          </div>
-
-
+  
+            <div class="d-none" >
+                <center>
+                    <div>
+                      <img style="border: 2px #dadada solid; width:67% ;margin-left:80px;box-shadow: 10px 5px 0px #ffffffef;" height="30"
+                        src="{% static 'images/profile.jpg' %}" class="img-fluid hero-image" alt="svg image">
+                    </div>
+                    <br>
+                </center>
+            </div>
+  
+            <div style="background-color: #2c484d  !important;font-size:1.1rem;color:#b7b7b7;border:none;padding: 2rem;margin-top: 1.5rem;" class="card card-body ">
+  
+              <div>
+                {% for text in texts %}
+                <p id="about-text">
+                  {{text.about_text}}
+                </p>
+                {% endfor %}
+              </div>
+  
+            </div>
+  
+  
+          </div>     
         </div>
+  
       </div>
-      <br>
-      <br>
-      <br>
     </div>
+    
   </section>
 
   <!-- ###################################################### SKILLS ######################################################################## -->
