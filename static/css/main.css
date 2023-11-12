@@ -21,7 +21,8 @@ section{
   src: url("fonts/Gemsbuck01Black-axn2g.ttf");
 }
 #about{
-  height: 100vh;
+  min-height: 100vh;
+  padding-bottom: 1rem;
 }
 #hero_name{
   font-family: "Titles";
@@ -473,6 +474,11 @@ b, strong {
   margin-bottom: 5px;
 }
 
+@media screen and (max-width: 767px){
+  .about-tags{
+    display: none;
+  }
+}
 @media screen and (max-width: 550px) {
   .img-wrapper img{
     width:100%;
