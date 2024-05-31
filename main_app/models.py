@@ -8,7 +8,6 @@ class Skill(models.Model):
     description = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True, blank=True,null=True)
 
-    
     def __str__(self):
         return self.name
     

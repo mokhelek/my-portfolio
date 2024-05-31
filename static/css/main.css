@@ -291,12 +291,19 @@ b, strong {
   #about-container{
     width:100% !important ;
   }
+  .about-card{
+    padding: 0.8rem !important;
+    font-size: 1rem !important;
+  
 }
 
 
 @media (max-width: 320px) {
+  .about-card{
+    padding: 0.5rem !important;
+  }
   #hero_name{
-    font-size: 1.9rem !important;
+    font-size: 1.7rem !important;
    
   }
   #hero_intro{
@@ -326,14 +333,14 @@ b, strong {
 
 @media (min-width: 321px) {
   #hero_name{
-    font-size: 2.2rem !important;
+    font-size: 1.5rem !important;
   
   }
   #hero_intro{
-    font-size: 1.3rem !important;
+    font-size: 1rem !important;
   }
   #hero_slogan{
-    font-size: 0.9rem !important;
+    font-size: 0.7rem !important;
   }
   .full-screen {
     padding: 7rem 0 !important;
