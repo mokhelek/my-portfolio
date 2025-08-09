@@ -35,28 +35,7 @@ function myFunction(id) {
   toggleProject(id);
 }
 
-function skillsFunction(id) {
-  let more_skill_description = document.getElementById("more" + id)
-  let less_skill_description = document.getElementById("less" + id)
-
-  let read_more_btn = document.getElementById("read_more_skill" + id)
-  let read_less_btn = document.getElementById("read_less_skill" + id)
-
-  // Check if the "more" content is currently hidden (either style.display is "none" or empty/undefined)
-  if (more_skill_description.style.display === "none" || more_skill_description.style.display === "") {
-    // Show expanded content
-    more_skill_description.style.display = "block";
-    less_skill_description.style.display = "none";
-    read_more_btn.style.display = "none";
-    read_less_btn.style.display = "block";
-  } else {
-    // Show collapsed content
-    more_skill_description.style.display = "none";
-    less_skill_description.style.display = "block";
-    read_less_btn.style.display = "none";
-    read_more_btn.style.display = "block";
-  }
-}
+// Skills function removed - no longer needed with new group-based design
 
 var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
 var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
@@ -168,6 +147,9 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Add keyboard navigation for accessibility
   setupKeyboardNavigation();
+
+  // Initialize Brutalist cursor (disabled on touch devices)
+  initializeBrutalistCursor();
 });
 
 // Keyboard navigation for accessibility
@@ -180,5 +162,109 @@ function setupKeyboardNavigation() {
       });
     }
   });
+}
+
+// Brutalist custom cursor
+function initializeBrutalistCursor() {
+  if (window.__brutalCursorInit) return;
+  window.__brutalCursorInit = true;
+  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  if (isTouchDevice) return; // Do not enable on touch to avoid UX issues
+
+  const cursorEl = document.getElementById('brutalCursor');
+  if (!cursorEl) return;
+
+  document.body.classList.add('brutal-cursor-enabled');
+
+  // Build SVG arrow cursor once (smaller, real arrow shape)
+  if (!cursorEl.querySelector('svg.cursor-svg')) {
+    const svgNS = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(svgNS, 'svg');
+    svg.setAttribute('class', 'cursor-svg');
+    svg.setAttribute('width', '24');
+    svg.setAttribute('height', '32');
+    svg.setAttribute('viewBox', '0 0 24 32');
+    svg.setAttribute('shape-rendering', 'crispEdges');
+
+    // Shadow layer (same path, offset by CSS)
+    const shadow = document.createElementNS(svgNS, 'polygon');
+    shadow.setAttribute('class', 'cursor-shadow');
+    shadow.setAttribute('points', '0,0 0,24 6,18 9,30 14,29 10,18 22,18');
+
+    // Body layer
+    const body = document.createElementNS(svgNS, 'polygon');
+    body.setAttribute('class', 'cursor-body');
+    body.setAttribute('points', '0,0 0,24 6,18 9,30 14,29 10,18 22,18');
+
+    svg.appendChild(shadow);
+    svg.appendChild(body);
+    cursorEl.appendChild(svg);
+  }
+
+  let mouseX = 0;
+  let mouseY = 0;
+  let rafId = null;
+
+  function onMouseMove(e) {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    if (!rafId) rafId = requestAnimationFrame(updatePosition);
+  }
+
+  function updatePosition() {
+    const step = 4; // stronger pixel snapping for a more pixelated feel
+    const qx = Math.round(mouseX / step) * step;
+    const qy = Math.round(mouseY / step) * step;
+    cursorEl.style.left = `${qx}px`;
+    cursorEl.style.top = `${qy}px`;
+    rafId = null;
+  }
+
+  function onMouseEnter() {
+    cursorEl.classList.remove('is-hidden');
+  }
+
+  function onMouseLeave() {
+    cursorEl.classList.add('is-hidden');
+  }
+
+  function onMouseDown() {
+    cursorEl.classList.add('is-active');
+  }
+
+  function onMouseUp() {
+    cursorEl.classList.remove('is-active');
+  }
+
+  // Hover states for interactive elements
+  const hoverSelectors = [
+    'a', 'button', '.brutal-btn', '.brutal-nav-link', '.brutal-raw-block', '.brutal-social-link',
+    '.brutal-skill-card', '.brutal-project-item', '.brutal-contact-method', '.brutal-social-item'
+  ];
+  document.addEventListener('mouseover', (e) => {
+    if (e.target.closest(hoverSelectors.join(','))) {
+      cursorEl.classList.add('is-hovering');
+    } else {
+      cursorEl.classList.remove('is-hovering');
+    }
+  });
+
+  // Disable custom cursor when hovering inputs and textareas
+  document.addEventListener('mouseover', (e) => {
+    if (e.target.closest('input, textarea, [contenteditable="true"], .cursor-native')) {
+      document.body.classList.remove('brutal-cursor-enabled');
+      cursorEl.style.display = 'none';
+    } else {
+      document.body.classList.add('brutal-cursor-enabled');
+      cursorEl.style.display = '';
+    }
+  });
+
+  // Attach mouse listeners
+  document.addEventListener('mousemove', onMouseMove);
+  document.addEventListener('mouseenter', onMouseEnter);
+  document.addEventListener('mouseleave', onMouseLeave);
+  document.addEventListener('mousedown', onMouseDown);
+  document.addEventListener('mouseup', onMouseUp);
 }
 

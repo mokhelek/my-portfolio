@@ -33,6 +33,40 @@ body {
   overflow-x: hidden;
 }
 
+/* BRUTALIST CUSTOM CURSOR (PIXEL ART) */
+body.brutal-cursor-enabled { cursor: none; }
+
+.brutal-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 32px;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 60ms ease;
+}
+
+.brutal-cursor.is-hidden { opacity: 0; }
+.brutal-cursor.is-active { transform: scale(0.95); }
+
+.cursor-svg { display: block; image-rendering: pixelated; shape-rendering: crispEdges; }
+.cursor-body { fill: var(--brutal-electric); stroke: var(--brutal-black); stroke-width: 1.25; }
+.cursor-shadow { fill: var(--brutal-warning); opacity: 0.95; transform: translate(2px, 2px); filter: contrast(150%); }
+
+.brutal-cursor.is-hovering .cursor-body { fill: var(--brutal-warning); }
+.brutal-cursor.is-hovering .cursor-shadow { fill: var(--brutal-electric); }
+
+/* Elements that should not hide the native cursor (inputs, textareas, contenteditable) */
+input, textarea, [contenteditable="true"] {
+  cursor: text;
+}
+
+/* Utility to opt-out of custom cursor on specific elements */
+.cursor-native {
+  cursor: auto !important;
+}
+
 /* BRUTAL COMPONENTS */
 .brutal-text-electric {
   color: var(--brutal-electric) !important;
@@ -89,16 +123,7 @@ section {
   position: relative;
 }
 
-section:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--brutal-electric), var(--brutal-warning), var(--brutal-primary));
-  z-index: 1;
-}
+
 
 #about {
   min-height: 100vh;
@@ -156,28 +181,153 @@ section:before {
   box-shadow: 9px 9px 0 var(--brutal-primary);
 }
 
-#tag1 {
-  left: 5%;
-  top: 15%;
-  transform: rotate(-8deg);
+/* BRUTAL HASHTAG STICKERS ON 4 SIDES */
+.brutal-sticker {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 700;
+  font-size: 1rem;
+  background: var(--brutal-black);
+  color: var(--brutal-electric);
+  padding: 1rem 1.5rem;
+  position: absolute;
+  border: 4px solid var(--brutal-electric);
+  box-shadow: 8px 8px 0 var(--brutal-electric);
+  text-transform: lowercase;
+  letter-spacing: 0.05em;
+  z-index: 15;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-#tag2 {
-  right: 5%;
-  top: 20%;
-  transform: rotate(12deg);
+.brutal-sticker:hover {
+  transform: scale(1.1) !important;
+  box-shadow: 12px 12px 0 currentColor;
+  animation: sticker-pulse 0.6s ease-in-out;
 }
 
-#tag3 {
-  right: 10%;
-  top: 85%;
-  transform: rotate(-5deg);
+.brutal-sticker-electric {
+  color: var(--brutal-electric);
+  border-color: var(--brutal-electric);
+  box-shadow: 8px 8px 0 var(--brutal-electric);
 }
 
-#tag4 {
-  left: 8%;
-  top: 80%;
-  transform: rotate(7deg);
+.brutal-sticker-warning {
+  color: var(--brutal-warning);
+  border-color: var(--brutal-warning);
+  box-shadow: 8px 8px 0 var(--brutal-warning);
+}
+
+.brutal-sticker-primary {
+  color: var(--brutal-primary);
+  border-color: var(--brutal-primary);
+  box-shadow: 8px 8px 0 var(--brutal-primary);
+}
+
+/* TOP STICKER */
+#sticker-top {
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-12deg);
+  border-radius: 0 0 15px 0;
+}
+
+/* RIGHT STICKER */
+#sticker-right {
+  top: 40%;
+  right: -30px;
+  transform: translateY(-50%) rotate(25deg);
+  border-radius: 15px 0 0 15px;
+}
+
+/* BOTTOM STICKER */
+#sticker-bottom {
+  bottom: -20px;
+  left: 30%;
+  transform: translateX(-50%) rotate(8deg);
+  border-radius: 15px 15px 0 0;
+}
+
+/* LEFT STICKER */
+#sticker-left {
+  top: 30%;
+  left: -35px;
+  transform: translateY(-50%) rotate(-20deg);
+  border-radius: 0 15px 15px 0;
+}
+
+@keyframes sticker-pulse {
+  0%, 100% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+/* ADD FLOATING ANIMATION TO STICKERS */
+#sticker-top {
+  animation: float-gentle 3s ease-in-out infinite;
+}
+
+#sticker-right {
+  animation: float-gentle 3s ease-in-out infinite 0.5s;
+}
+
+#sticker-bottom {
+  animation: float-gentle 3s ease-in-out infinite 1s;
+}
+
+#sticker-left {
+  animation: float-gentle 3s ease-in-out infinite 1.5s;
+}
+
+@keyframes float-gentle {
+  0%, 100% {
+    transform: translateX(-50%) rotate(-12deg) translateY(0px);
+  }
+  50% {
+    transform: translateX(-50%) rotate(-12deg) translateY(-8px);
+  }
+}
+
+/* INDIVIDUAL TRANSFORMS FOR EACH STICKER */
+@keyframes float-right {
+  0%, 100% {
+    transform: translateY(-50%) rotate(25deg) translateX(0px);
+  }
+  50% {
+    transform: translateY(-50%) rotate(25deg) translateX(-8px);
+  }
+}
+
+@keyframes float-bottom {
+  0%, 100% {
+    transform: translateX(-50%) rotate(8deg) translateY(0px);
+  }
+  50% {
+    transform: translateX(-50%) rotate(8deg) translateY(-8px);
+  }
+}
+
+@keyframes float-left {
+  0%, 100% {
+    transform: translateY(-50%) rotate(-20deg) translateX(0px);
+  }
+  50% {
+    transform: translateY(-50%) rotate(-20deg) translateX(8px);
+  }
+}
+
+#sticker-right {
+  animation: float-right 3s ease-in-out infinite 0.5s;
+}
+
+#sticker-bottom {
+  animation: float-bottom 3s ease-in-out infinite 1s;
+}
+
+#sticker-left {
+  animation: float-left 3s ease-in-out infinite 1.5s;
 }
 
 .brutal-section-title {
@@ -417,6 +567,72 @@ section:before {
   z-index: 1;
 }
 
+/* 2D OUTLINE GEOMETRIC SHAPES UNDER HERO PICTURE */
+.brutal-hero-geometry {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.brutal-geo-shape {
+  position: absolute;
+  background: transparent;
+  opacity: 0.9;
+  animation: float-shape 6s ease-in-out infinite;
+}
+
+/* BIG CIRCLE OUTLINE */
+.brutal-geo-hexagon {
+  width: 300px;
+  height: 300px;
+  top: 10%;
+  left: -60px;
+  border: 8px solid var(--brutal-warning);
+  border-radius: 50%;
+  border-style: dashed;
+  border-spacing: 10px;
+  animation-delay: 0s;
+}
+
+/* BIG SQUARE OUTLINE */
+.brutal-geo-triangle {
+  width: 280px;
+  height: 280px;
+  bottom: 5%;
+  right: -70px;
+  border: 8px solid var(--brutal-primary);
+  border-style: solid;
+  transform: rotate(15deg);
+  animation-delay: 1.5s;
+}
+
+@keyframes float-shape {
+  0%, 100% {
+    transform: translateY(0px) rotate(15deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(20deg);
+  }
+}
+
+/* CIRCLE SPECIFIC ANIMATION */
+.brutal-geo-hexagon {
+  animation: float-circle 6s ease-in-out infinite;
+}
+
+@keyframes float-circle {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-15px) scale(1.05);
+  }
+}
+
 /* GEOMETRIC SHAPES */
 .brutal-geometric-shapes {
   position: absolute;
@@ -545,6 +761,20 @@ section:before {
     width: 250px;
     height: 250px;
   }
+
+  .brutal-geo-hexagon {
+    width: 200px;
+    height: 200px;
+    left: -40px;
+    border-width: 6px;
+  }
+
+  .brutal-geo-triangle {
+    width: 180px;
+    height: 180px;
+    right: -45px;
+    border-width: 6px;
+  }
 }
 
 /* BRUTAL ABOUT SECTION */
@@ -552,6 +782,46 @@ section:before {
   padding: 6rem 0;
   position: relative;
   background: var(--brutal-bg-dark);
+  border-top: 8px solid var(--brutal-electric);
+  border-bottom: 8px solid var(--brutal-warning);
+}
+
+.brutal-about-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--brutal-electric) 0,
+    var(--brutal-electric) 20px,
+    var(--brutal-warning) 20px,
+    var(--brutal-warning) 40px,
+    var(--brutal-primary) 40px,
+    var(--brutal-primary) 60px
+  );
+  z-index: 10;
+}
+
+.brutal-about-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--brutal-warning) 0,
+    var(--brutal-warning) 20px,
+    var(--brutal-primary) 20px,
+    var(--brutal-primary) 40px,
+    var(--brutal-electric) 40px,
+    var(--brutal-electric) 60px
+  );
+  z-index: 10;
 }
 
 .brutal-about-container {
@@ -587,29 +857,51 @@ section:before {
 
 .brutal-text-card {
   background: var(--brutal-bg-medium);
-  border: 3px solid var(--brutal-electric);
-  box-shadow: 8px 8px 0 var(--brutal-warning);
-  padding: 2.5rem;
+  border: 5px solid var(--brutal-electric);
+  box-shadow: 15px 15px 0 var(--brutal-warning);
+  padding: 3rem;
   position: relative;
+  transform: rotate(-1deg);
+  transition: all 0.3s ease;
+}
+
+.brutal-text-card:hover {
+  transform: rotate(0deg) translate(-5px, -5px);
+  box-shadow: 20px 20px 0 var(--brutal-warning);
+  border-color: var(--brutal-warning);
 }
 
 .brutal-text-card:before {
   content: '';
   position: absolute;
-  top: -10px;
-  left: -10px;
-  width: 30px;
-  height: 30px;
+  top: -15px;
+  left: -15px;
+  width: 40px;
+  height: 40px;
   background: var(--brutal-primary);
+  border: 3px solid var(--brutal-black);
+  transform: rotate(45deg);
+}
+
+.brutal-text-card:after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  width: 25px;
+  height: 25px;
+  background: var(--brutal-electric);
   border: 2px solid var(--brutal-black);
 }
 
 .brutal-about-description {
-  font-family: "Inter", sans-serif;
-  font-size: 1.1rem;
-  line-height: 1.7;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.6;
   color: var(--brutal-text-primary);
   margin-bottom: 2rem;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
 }
 
 .brutal-stats {
@@ -668,6 +960,120 @@ section:before {
   filter: grayscale(100%) contrast(1.2);
 }
 
+/* BRUTAL DECORATIVE ELEMENTS */
+.brutal-about-decorations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.brutal-shape-accent {
+  position: absolute;
+  background: var(--brutal-electric);
+  opacity: 0.15;
+  animation: float 4s ease-in-out infinite;
+}
+
+.brutal-accent-1 {
+  width: 120px;
+  height: 120px;
+  top: 15%;
+  right: 5%;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  animation-delay: 0s;
+  background: var(--brutal-warning);
+}
+
+.brutal-accent-2 {
+  width: 80px;
+  height: 200px;
+  bottom: 20%;
+  left: 3%;
+  transform: rotate(25deg);
+  animation-delay: 1s;
+  background: var(--brutal-primary);
+}
+
+.brutal-accent-3 {
+  width: 90px;
+  height: 90px;
+  top: 60%;
+  right: 15%;
+  transform: rotate(45deg);
+  animation-delay: 2s;
+}
+
+.brutal-accent-4 {
+  width: 150px;
+  height: 30px;
+  bottom: 40%;
+  left: 20%;
+  transform: rotate(-15deg);
+  animation-delay: 3s;
+  background: var(--brutal-warning);
+}
+
+.brutal-glitch-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.03;
+}
+
+.brutal-glitch-line {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: var(--brutal-electric);
+  animation: glitch-scan 8s linear infinite;
+}
+
+.brutal-glitch-line:nth-child(1) {
+  top: 20%;
+  animation-delay: 0s;
+}
+
+.brutal-glitch-line:nth-child(2) {
+  top: 50%;
+  animation-delay: 2s;
+  background: var(--brutal-warning);
+}
+
+.brutal-glitch-line:nth-child(3) {
+  top: 80%;
+  animation-delay: 4s;
+  background: var(--brutal-primary);
+}
+
+@keyframes glitch-scan {
+  0%, 90%, 100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  5%, 85% {
+    opacity: 1;
+    transform: translateX(100%);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
 @media (max-width: 768px) {
   .brutal-about-section {
     padding: 4rem 0;
@@ -684,196 +1090,351 @@ section:before {
   .brutal-stats {
     grid-template-columns: 1fr;
   }
+
+  .brutal-shape-accent {
+    opacity: 0.08;
+  }
+  
+  .brutal-accent-1 {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .brutal-accent-2 {
+    width: 50px;
+    height: 120px;
+  }
+  
+  .brutal-accent-3 {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .brutal-accent-4 {
+    width: 100px;
+    height: 20px;
+  }
+
+  /* RESPONSIVE STICKERS */
+  .brutal-sticker {
+    font-size: 0.8rem;
+    padding: 0.8rem 1rem;
+    border-width: 3px;
+    box-shadow: 6px 6px 0 currentColor;
+  }
+
+  #sticker-top {
+    top: -15px;
+  }
+
+  #sticker-right {
+    right: -25px;
+  }
+
+  #sticker-bottom {
+    bottom: -15px;
+  }
+
+  #sticker-left {
+    left: -30px;
+  }
 }
 
-/* BRUTAL SKILLS SECTION */
+/* CLEAN SKILLS SECTION */
 .brutal-skills-section {
   padding: 6rem 0;
-  background: var(--brutal-bg-medium);
-  position: relative;
-}
-
-.brutal-skills-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-.brutal-skills-header {
-  text-align: center;
-  margin-bottom: 4rem;
-}
-
-.brutal-skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  align-items: start;
-}
-
-.brutal-skill-card {
   background: var(--brutal-bg-dark);
-  border: 3px solid var(--brutal-border);
-  padding: 2rem;
   position: relative;
-  transition: all 0.3s ease;
   overflow: hidden;
 }
 
-.brutal-skill-card:hover {
-  border-color: var(--brutal-electric);
-  transform: translate(-4px, -4px);
-  box-shadow: 8px 8px 0 var(--brutal-electric);
+.brutal-skills-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--brutal-electric), var(--brutal-warning));
 }
 
-.brutal-skill-card:nth-child(odd) {
-  border-color: var(--brutal-warning);
-}
-
-.brutal-skill-card:nth-child(odd):hover {
-  border-color: var(--brutal-warning);
-  box-shadow: 8px 8px 0 var(--brutal-warning);
-}
-
-.brutal-skill-card:nth-child(3n) {
-  border-color: var(--brutal-primary);
-}
-
-.brutal-skill-card:nth-child(3n):hover {
-  border-color: var(--brutal-primary);
-  box-shadow: 8px 8px 0 var(--brutal-primary);
-}
-
-.brutal-skill-icon {
-  width: 60px;
-  height: 60px;
-  background: var(--brutal-black);
-  border: 2px solid var(--brutal-electric);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.5rem;
+.brutal-skills-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
   position: relative;
 }
 
-.brutal-skill-icon:after {
-  content: '';
-  position: absolute;
-  top: -5px;
-  right: -5px;
-  width: 15px;
-  height: 15px;
-  background: var(--brutal-warning);
-  border: 1px solid var(--brutal-black);
+/* Clean Header - Matching projects section style */
+.brutal-skills-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
 }
 
-.brutal-skill-image {
-  width: 35px;
-  height: 35px;
-  object-fit: contain;
-  filter: brightness(1.2) contrast(1.1);
+.brutal-section-intro {
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-.brutal-skill-content {
-  flex: 1;
-}
-
-.brutal-skill-name {
-  font-family: "Space Grotesk", sans-serif;
-  font-weight: 700;
-  font-size: 1.4rem;
-  color: var(--brutal-text-primary);
+.brutal-section-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--brutal-electric);
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.15em;
+  display: block;
   margin-bottom: 1rem;
 }
 
-.brutal-skill-description {
-  margin-bottom: 1.5rem;
+.brutal-section-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: var(--brutal-text-primary);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.5rem 0;
+  position: relative;
 }
 
-.brutal-skill-text {
+.brutal-section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--brutal-electric);
+}
+
+.brutal-section-description {
   font-family: "Inter", sans-serif;
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   line-height: 1.6;
   color: var(--brutal-text-secondary);
   margin: 0;
 }
 
-.brutal-skill-actions {
+/* Skills Showcase */
+.brutal-skills-showcase {
   display: flex;
-  justify-content: flex-start;
+  flex-direction: column;
+  gap: 3rem;
+  margin-bottom: 4rem;
 }
 
-.brutal-skill-btn {
-  font-family: "JetBrains Mono", monospace;
-  font-weight: 600;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  background: transparent;
-  border: 2px solid var(--brutal-electric);
-  color: var(--brutal-electric);
-  padding: 0.8rem 1.2rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
+.brutal-skill-category {
+  background: var(--brutal-bg-medium);
+  border: 3px solid var(--brutal-border);
+  padding: 2.5rem;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.brutal-skill-category:hover {
+  border-color: var(--brutal-electric);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--brutal-electric);
+}
+
+.brutal-skill-category:nth-child(odd):hover {
+  border-color: var(--brutal-warning);
+  box-shadow: 6px 6px 0 var(--brutal-warning);
+}
+
+.brutal-skill-category:nth-child(3n):hover {
+  border-color: var(--brutal-primary);
+  box-shadow: 6px 6px 0 var(--brutal-primary);
+}
+
+/* Category Header */
+.brutal-category-header {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid var(--brutal-border);
 }
 
-.brutal-skill-btn:hover {
+.brutal-category-icon {
+  width: 50px;
+  height: 50px;
   background: var(--brutal-electric);
   color: var(--brutal-black);
-  transform: translate(-2px, -2px);
-  box-shadow: 4px 4px 0 var(--brutal-warning);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--brutal-electric);
+  flex-shrink: 0;
 }
 
-.brutal-skill-btn:active {
-  transform: translate(0, 0);
-  box-shadow: 2px 2px 0 var(--brutal-warning);
+.brutal-skill-category:nth-child(odd) .brutal-category-icon {
+  background: var(--brutal-warning);
+  border-color: var(--brutal-warning);
 }
 
-.brutal-skill-decoration {
-  position: absolute;
-  bottom: -10px;
-  right: -10px;
-  width: 40px;
-  height: 40px;
+.brutal-skill-category:nth-child(3n) .brutal-category-icon {
+  background: var(--brutal-primary);
+  border-color: var(--brutal-primary);
+}
+
+.brutal-category-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--brutal-text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin: 0;
+  flex: 1;
+}
+
+.brutal-category-line {
+  flex: 1;
+  height: 3px;
   background: var(--brutal-electric);
-  opacity: 0.1;
-  clip-path: polygon(0 0, 100% 0, 100% 100%);
-  pointer-events: none;
+  margin-left: 1rem;
 }
 
-.brutal-skill-card:nth-child(odd) .brutal-skill-decoration {
+.brutal-skill-category:nth-child(odd) .brutal-category-line {
   background: var(--brutal-warning);
 }
 
-.brutal-skill-card:nth-child(3n) .brutal-skill-decoration {
+.brutal-skill-category:nth-child(3n) .brutal-category-line {
   background: var(--brutal-primary);
 }
 
-/* SKILL CARD ANIMATIONS */
-.brutal-skill-card:nth-child(1) { animation-delay: 0.1s; }
-.brutal-skill-card:nth-child(2) { animation-delay: 0.2s; }
-.brutal-skill-card:nth-child(3) { animation-delay: 0.3s; }
-.brutal-skill-card:nth-child(4) { animation-delay: 0.4s; }
-.brutal-skill-card:nth-child(5) { animation-delay: 0.5s; }
-.brutal-skill-card:nth-child(6) { animation-delay: 0.6s; }
-
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Skills Grid */
+.brutal-skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1.5rem;
 }
 
-/* RESPONSIVE SKILLS */
+.brutal-skill-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 1rem;
+  background: var(--brutal-bg-dark);
+  border: 2px solid var(--brutal-border);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.brutal-skill-card:hover {
+  border-color: var(--brutal-electric);
+  background: rgba(0, 255, 65, 0.05);
+  transform: translateY(-3px);
+}
+
+.brutal-skill-category:nth-child(odd) .brutal-skill-card:hover {
+  border-color: var(--brutal-warning);
+  background: rgba(255, 107, 53, 0.05);
+}
+
+.brutal-skill-category:nth-child(3n) .brutal-skill-card:hover {
+  border-color: var(--brutal-primary);
+  background: rgba(99, 102, 241, 0.05);
+}
+
+.brutal-skill-icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--brutal-bg-medium);
+  border: 2px solid var(--brutal-border);
+  transition: all 0.3s ease;
+}
+
+.brutal-skill-icon img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  filter: brightness(1.2) contrast(1.1);
+  transition: all 0.3s ease;
+}
+
+.brutal-skill-card:hover .brutal-skill-icon {
+  border-color: var(--brutal-electric);
+  transform: scale(1.1);
+}
+
+.brutal-skill-category:nth-child(odd) .brutal-skill-card:hover .brutal-skill-icon {
+  border-color: var(--brutal-warning);
+}
+
+.brutal-skill-category:nth-child(3n) .brutal-skill-card:hover .brutal-skill-icon {
+  border-color: var(--brutal-primary);
+}
+
+.brutal-skill-card:hover .brutal-skill-icon img {
+  filter: brightness(1.4) contrast(1.2);
+  transform: scale(1.05);
+}
+
+.brutal-skill-name {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--brutal-text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Simple Geometric Decorations */
+.brutal-skills-decorations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.1;
+}
+
+.brutal-decoration {
+  position: absolute;
+  background: var(--brutal-electric);
+  opacity: 0.1;
+}
+
+.brutal-decoration-1 {
+  width: 100px;
+  height: 100px;
+  top: 15%;
+  right: 10%;
+  transform: rotate(45deg);
+  background: var(--brutal-electric);
+}
+
+.brutal-decoration-2 {
+  width: 80px;
+  height: 80px;
+  bottom: 20%;
+  left: 8%;
+  background: var(--brutal-warning);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.brutal-decoration-3 {
+  width: 60px;
+  height: 120px;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+  background: var(--brutal-primary);
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
   .brutal-skills-section {
     padding: 4rem 0;
@@ -883,23 +1444,32 @@ section:before {
     padding: 0 1rem;
   }
   
-  .brutal-skills-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  .brutal-skills-showcase {
+    gap: 2rem;
   }
   
-  .brutal-skill-card {
+  .brutal-skill-category {
     padding: 1.5rem;
   }
   
-  .brutal-skill-name {
-    font-size: 1.2rem;
+  .brutal-category-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
   }
-}
-
-@media (max-width: 480px) {
+  
+  .brutal-category-line {
+    width: 100%;
+    margin-left: 0;
+  }
+  
+  .brutal-skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1rem;
+  }
+  
   .brutal-skill-card {
-    padding: 1rem;
+    padding: 1rem 0.5rem;
   }
   
   .brutal-skill-icon {
@@ -907,9 +1477,51 @@ section:before {
     height: 50px;
   }
   
-  .brutal-skill-image {
+  .brutal-skill-icon img {
     width: 30px;
     height: 30px;
+  }
+  
+  .brutal-skill-name {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .brutal-skills-showcase {
+    gap: 1.5rem;
+  }
+  
+  .brutal-skill-category {
+    padding: 1rem;
+    margin: 0 -1rem;
+  }
+  
+  .brutal-skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 0.75rem;
+  }
+  
+  .brutal-skill-card {
+    padding: 0.75rem 0.25rem;
+  }
+  
+  .brutal-skill-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .brutal-skill-icon img {
+    width: 25px;
+    height: 25px;
+  }
+  
+  .brutal-skill-name {
+    font-size: 0.7rem;
+  }
+  
+  .brutal-category-title {
+    font-size: 1.2rem;
   }
 }
 
@@ -2819,6 +3431,405 @@ section:before {
   transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* ========================= SKILLS REDESIGN (Overrides) ========================= */
+/* Cleaner brutalism: flat section background, bold cards, simple accents */
+.brutal-skills-section {
+  background: transparent !important;
+  position: relative;
+}
+
+.brutal-skills-section::before,
+.brutal-skills-section::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--brutal-electric) 0 28px,
+    var(--brutal-warning) 28px 56px,
+    var(--brutal-primary) 56px 84px
+  );
+  opacity: 0.15;
+}
+.brutal-skills-section::before { top: 0; }
+.brutal-skills-section::after { bottom: 0; }
+
+.brutal-skills-container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
+.brutal-skills-header { text-align: center; margin-bottom: 3rem; }
+
+/* New brutalist board layout */
+.brutal-skills-board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 3rem;
+  margin: 5rem 0;
+  padding: 3rem 2rem;
+}
+
+.brutal-skill-block {
+  position: relative;
+  background: var(--brutal-bg-medium);
+  border: 4px solid var(--brutal-border);
+  box-shadow: 10px 10px 0 var(--brutal-black);
+  padding: 1.5rem 1.5rem 1.25rem;
+  /* Removed clip-path to prevent tag cropping */
+}
+
+/* remove duplicate corner stickers */
+
+/* animated segmented meter */
+.brutal-block-header { display: flex; align-items: center; justify-content: flex-start; gap: 1rem; }
+
+/* hover micro-interaction: jitter */
+.brutal-skill-block:hover { animation: block-jitter 0.12s 2; }
+@keyframes block-jitter {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-2px, -2px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* big diagonal watermark per block */
+.brutal-skill-block::before {
+  content: attr(data-watermark);
+  position: absolute;
+  inset: 0;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 900;
+  font-size: clamp(3rem, 12vw, 10rem);
+  color: rgba(255,255,255,0.03);
+  letter-spacing: 0.15em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-8deg);
+  pointer-events: none;
+}
+
+/* accent stripe at the bottom for each block */
+.brutal-skill-block.is-electric { border-color: var(--brutal-electric); }
+.brutal-skill-block.is-warning { border-color: var(--brutal-warning); }
+.brutal-skill-block.is-primary  { border-color: var(--brutal-primary); }
+
+.brutal-skill-block.is-electric .brutal-block-title { color: var(--brutal-electric); }
+.brutal-skill-block.is-warning .brutal-block-title { color: var(--brutal-warning); }
+.brutal-skill-block.is-primary  .brutal-block-title { color: var(--brutal-primary); }
+
+.brutal-skill-block { 
+  overflow: visible;
+  z-index: 1;
+  position: relative;
+}
+.brutal-skill-block .accent-bar {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 10px;
+}
+.brutal-skill-block.is-electric .accent-bar { background: var(--brutal-electric); }
+.brutal-skill-block.is-warning .accent-bar { background: var(--brutal-warning); }
+.brutal-skill-block.is-primary  .accent-bar { background: var(--brutal-primary); }
+
+.brutal-block-label {
+  position: absolute;
+  top: -35px;
+  left: -35px;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 900;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  padding: 6px 18px;
+  border: 4px solid var(--brutal-black);
+  color: var(--brutal-black);
+  transform: rotate(-30deg);
+  transform-origin: bottom right;
+  z-index: 25;
+  text-transform: uppercase;
+  overflow: visible;
+}
+
+/* Specific positioning adjustments for different labels */
+.label-electric {
+  top: -40px;
+  left: -40px;
+}
+.label-warning {
+  top: -40px;
+  left: -40px;
+}
+.label-electric { 
+  background: var(--brutal-electric); 
+  box-shadow: 6px 6px 0 var(--brutal-warning);
+}
+.label-warning { 
+  background: var(--brutal-warning); 
+  box-shadow: 6px 6px 0 var(--brutal-electric);
+}
+.label-primary { 
+  background: var(--brutal-primary); 
+  box-shadow: 6px 6px 0 var(--brutal-warning);
+}
+
+.brutal-block-header { margin-bottom: 1rem; }
+.brutal-block-title { margin: 0; font-family: "Space Grotesk", sans-serif; font-weight: 900; letter-spacing: 0.06em; }
+
+.brutal-skill-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.brutal-skill-sticker {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.7rem;
+  background: var(--brutal-bg-dark);
+  border: 2px solid var(--brutal-border);
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--brutal-text-primary);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  position: relative;
+  box-shadow: 3px 3px 0 var(--brutal-black);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.brutal-skill-sticker:hover { 
+  transform: translate(-2px, -2px); 
+  border-color: var(--brutal-electric); 
+  box-shadow: 5px 5px 0 var(--brutal-electric);
+  background: rgba(0, 255, 65, 0.1);
+}
+
+.brutal-skill-sticker:nth-child(odd):hover { 
+  border-color: var(--brutal-warning); 
+  box-shadow: 5px 5px 0 var(--brutal-warning);
+  background: rgba(255, 107, 53, 0.1);
+}
+
+.brutal-skill-sticker:nth-child(3n):hover { 
+  border-color: var(--brutal-primary); 
+  box-shadow: 5px 5px 0 var(--brutal-primary);
+  background: rgba(99, 102, 241, 0.1);
+}
+
+.brutal-skill-sticker-icon {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--brutal-black);
+  background: #1a1a1a;
+  box-shadow: 2px 2px 0 var(--brutal-black);
+  flex-shrink: 0;
+}
+.brutal-skill-sticker-icon img {
+  width: 18px;
+  /* Remove filter to show original colors */
+}
+
+@media (max-width: 1200px) {
+  .brutal-skills-container { max-width: 1200px; padding: 0 1.5rem; }
+  .brutal-skills-board { gap: 2.5rem; padding: 3rem 1.5rem; }
+}
+@media (max-width: 1024px) {
+  .brutal-skills-board { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .brutal-skills-container { padding: 0 1rem; }
+}
+@media (max-width: 640px) {
+  .brutal-skills-board { grid-template-columns: 1fr; gap: 1.5rem; padding: 2rem 1rem; }
+  .brutal-skill-list { grid-template-columns: 1fr 1fr; }
+  .brutal-skills-container { padding: 0 0.5rem; }
+}
+/* Remove sticker label and noisy styling from categories */
+.brutal-skill-category::before { content: none !important; }
+
+.brutal-skill-category {
+  background: var(--brutal-bg-secondary) !important;
+  border: 4px solid var(--brutal-border) !important;
+  box-shadow: 8px 8px 0 var(--brutal-black) !important;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+}
+
+.brutal-category-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; }
+
+.brutal-category-icon {
+  width: 56px !important;
+  height: 56px !important;
+  border: 3px solid var(--brutal-black) !important;
+  border-radius: 10px !important;
+  background: var(--brutal-electric) !important;
+  color: var(--brutal-black) !important;
+  display: inline-flex; align-items: center; justify-content: center;
+  box-shadow: 6px 6px 0 var(--brutal-warning) !important;
+}
+
+.brutal-category-title { margin: 0; text-transform: uppercase; letter-spacing: 0.06em; }
+.brutal-category-line { height: 4px !important; background: var(--brutal-border) !important; }
+
+.brutal-skills-grid { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)) !important; gap: 0.85rem !important; }
+
+.brutal-skill-card {
+  border: 3px solid var(--brutal-border) !important;
+  background: var(--brutal-bg-dark) !important;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+  padding: 1rem 0.75rem !important;
+  justify-content: center !important;
+}
+
+.brutal-skill-card:hover { border-color: var(--brutal-electric) !important; box-shadow: 6px 6px 0 var(--brutal-electric) !important; transform: translate(-3px, -3px); }
+.brutal-skill-icon { width: 54px !important; height: 54px !important; border: 3px solid var(--brutal-border) !important; }
+.brutal-skill-icon img { width: 36px !important; filter: saturate(1.1) contrast(1.05); }
+.brutal-skill-name { font-family: "JetBrains Mono", monospace; text-transform: uppercase; letter-spacing: 0.08em; }
+
+@media (max-width: 768px) {
+  .brutal-skills-header { margin-bottom: 2rem; }
+  .brutal-category-icon { width: 48px !important; height: 48px !important; box-shadow: 4px 4px 0 var(--brutal-warning) !important; }
+  .brutal-skill-icon { width: 48px !important; height: 48px !important; }
+  .brutal-skill-icon img { width: 30px !important; }
+}
+/* ========================= BRUTAL REFRESH: Skills & Projects (Overrides) ========================= */
+/* Research-inspired brutalism: thick borders, sticker labels, offset shadows, high-contrast blocks,
+   raw geometry, grid rigidity, and hover inversions. These rules intentionally override earlier styles. */
+
+/* Skills: gritty backdrop and stronger card personality */
+.brutal-skills-section {
+  position: relative;
+  background:
+    radial-gradient(circle at 20px 20px, rgba(255,255,255,0.04) 2px, transparent 2px) 0 0 / 40px 40px,
+    linear-gradient(135deg, rgba(255, 236, 66, 0.05), transparent 40%),
+    linear-gradient(225deg, rgba(0, 255, 65, 0.05), transparent 40%);
+}
+
+.brutal-skill-category {
+  border-width: 4px !important;
+  box-shadow: 10px 10px 0 var(--brutal-electric) !important;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+  position: relative;
+}
+
+.brutal-skill-category::before {
+  content: 'SKILL';
+  position: absolute;
+  top: -12px;
+  left: 12px;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 900;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  background: var(--brutal-warning);
+  color: var(--brutal-black);
+  padding: 2px 8px;
+  border: 2px solid var(--brutal-black);
+}
+
+.brutal-skill-card {
+  border-width: 3px !important;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.brutal-skill-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 8px 8px 0 var(--brutal-electric);
+}
+
+.brutal-skill-icon { border-width: 3px !important; }
+.brutal-skill-name { text-transform: uppercase; letter-spacing: 0.08em; }
+
+/* Projects: enforce a rigid two-column card grid */
+.brutal-projects-showcase {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem !important;
+}
+
+.brutal-project-item {
+  display: flex !important;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+  border: 4px solid var(--brutal-border);
+  background: var(--brutal-bg-medium);
+  box-shadow: 10px 10px 0 var(--brutal-warning);
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.brutal-project-item:hover {
+  transform: translate(-4px, -4px);
+  border-color: var(--brutal-electric);
+  box-shadow: 14px 14px 0 var(--brutal-electric);
+}
+
+/* reset alternation since cards are vertical */
+.brutal-project-item:nth-child(even) .brutal-project-visual,
+.brutal-project-item:nth-child(even) .brutal-project-info { order: unset; }
+
+.brutal-project-visual .brutal-image-container {
+  height: auto !important;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-bottom: 3px solid var(--brutal-border);
+}
+
+.brutal-project-image {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  filter: grayscale(20%) contrast(0.95);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.brutal-project-item:hover .brutal-project-image {
+  filter: grayscale(0%) contrast(1.1);
+  transform: scale(1.03);
+}
+
+.brutal-project-index {
+  top: 10px !important;
+  left: 10px !important;
+  width: auto !important;
+  height: auto !important;
+  padding: 6px 10px;
+  border: 2px solid var(--brutal-black);
+  background: var(--brutal-electric);
+  color: var(--brutal-black);
+  box-shadow: 5px 5px 0 var(--brutal-black);
+}
+
+.brutal-project-info { padding: 1.25rem 1.25rem 1.5rem !important; }
+.brutal-project-name a { font-size: 1.4rem !important; }
+
+.brutal-tech-tag {
+  border: 2px solid var(--brutal-border);
+  background: var(--brutal-bg-dark);
+  padding: 4px 8px;
+  font-family: "JetBrains Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.brutal-action-link {
+  border: 3px solid var(--brutal-electric);
+  background: var(--brutal-black);
+  color: var(--brutal-electric);
+  box-shadow: 6px 6px 0 var(--brutal-electric);
+}
+
+.brutal-action-link.brutal-code { border-color: var(--brutal-warning); color: var(--brutal-warning); box-shadow: 6px 6px 0 var(--brutal-warning); }
+.brutal-action-link:hover { transform: translate(-3px, -3px); }
+
+/* Responsive: collapse projects to single column on medium screens */
+@media (max-width: 992px) {
+  .brutal-projects-showcase { grid-template-columns: 1fr !important; gap: 2rem !important; }
+}
+
 /* Reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -4393,6 +5404,8 @@ width: 85% !important ;
   color:#ffa8ad;
 
 }
+
+
 
 
 

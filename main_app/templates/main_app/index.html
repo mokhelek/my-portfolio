@@ -386,6 +386,12 @@
   }
 </style>
 
+<!-- Brutalist Custom Cursor (page-level fallback) -->
+<div class="brutal-cursor" id="brutalCursor" aria-hidden="true"></div>
+
+<!-- BRUTALIST DIVIDER -->
+<div class="brutal-divider"></div>
+
 <!-- BRUTAL HERO SECTION -->
 <section id="brutal-hero" class="brutal-hero-section">
   <br><br>
@@ -400,7 +406,7 @@
       
       <h1 id="hero_name" class="brutal-hero-name">
         <span class="brutal-name-first">MOKHELE</span>
-        <span class="brutal-name-last">KATLEHO</span>
+        <span class="brutal-name-first">KATLEHO</span>
       </h1>
       
       <div class="brutal-hero-role">
@@ -430,6 +436,12 @@
     <!-- Right Image Area -->
     <div class="brutal-hero-visual">
       <div class="brutal-image-container">
+        <!-- Background Geometric Shapes -->
+        <div class="brutal-hero-geometry">
+          <div class="brutal-geo-shape brutal-geo-hexagon"></div>
+          <div class="brutal-geo-shape brutal-geo-triangle"></div>
+        </div>
+        
         <div class="brutal-image-frame">
           <img src="{% static 'images/profile.jpg' %}" alt="Mokhele Katleho" class="brutal-profile-image">
         </div>
@@ -461,16 +473,21 @@
 <!-- BRUTAL ABOUT SECTION -->
 <section id="about" class="brutal-about-section">
   <div class="brutal-about-container">
-    <!-- Floating Tags -->
-    <span id="tag1" class="brutal-tag">open_source</span>
-    <span id="tag2" class="brutal-tag warning">web_dev</span>
-    <span id="tag3" class="brutal-tag primary">solutions</span>
-    <span id="tag4" class="brutal-tag warning">design</span>
+    <!-- Floating Hashtag Stickers -->
+    <span id="sticker-top" class="brutal-sticker brutal-sticker-electric">#opensource</span>
+    <span id="sticker-right" class="brutal-sticker brutal-sticker-warning">#fullstack</span>
+    <span id="sticker-bottom" class="brutal-sticker brutal-sticker-primary">#innovation</span>
+    <span id="sticker-left" class="brutal-sticker brutal-sticker-warning">#webdev</span>
 
     <div class="brutal-about-content">
       <div class="brutal-about-header">
-        <h2 class="brutal-section-title">About Me</h2>
-        <p class="brutal-section-subtitle">A closer look at my journey in tech</p>
+        <h2 class="brutal-section-title">
+          <span class="brutal-section-number">01.</span>
+          WHO AM I?
+          <span class="brutal-section-highlight">DEVELOPER</span>
+        </h2>
+        <div class="brutal-section-underline"></div>
+        <p class="brutal-section-subtitle">Building digital experiences with purpose and passion</p>
       </div>
 
       <div class="brutal-about-grid">
@@ -480,20 +497,7 @@
             <p class="brutal-about-description">{{text.about_text}}</p>
             {% endfor %}
             
-            <div class="brutal-stats">
-              <div class="brutal-stat-item">
-                <span class="brutal-stat-number">3+</span>
-                <span class="brutal-stat-label">Years Experience</span>
-              </div>
-              <div class="brutal-stat-item">
-                <span class="brutal-stat-number">50+</span>
-                <span class="brutal-stat-label">Projects Built</span>
-              </div>
-              <div class="brutal-stat-item">
-                <span class="brutal-stat-number">100%</span>
-                <span class="brutal-stat-label">Client Satisfaction</span>
-              </div>
-            </div>
+
           </div>
         </div>
         
@@ -504,61 +508,116 @@
         </div>
       </div>
     </div>
+
+    <!-- Brutal Decorative Elements -->
+    <div class="brutal-about-decorations">
+      <div class="brutal-shape-accent brutal-accent-1"></div>
+      <div class="brutal-shape-accent brutal-accent-2"></div>
+      <div class="brutal-shape-accent brutal-accent-3"></div>
+      <div class="brutal-shape-accent brutal-accent-4"></div>
+    </div>
+
+    <!-- Glitch Effect Background -->
+    <div class="brutal-glitch-bg">
+      <div class="brutal-glitch-line"></div>
+      <div class="brutal-glitch-line"></div>
+      <div class="brutal-glitch-line"></div>
+    </div>
   </div>
 </section>
 
-<!-- BRUTAL SKILLS SECTION -->
+<!-- CLEAN SKILLS SECTION -->
 <section id="skills" class="brutal-skills-section">
   <div class="brutal-skills-container">
+    <!-- Clean Header -->
     <div class="brutal-skills-header">
-      <h2 class="brutal-section-title">Expertise</h2>
-      <p class="brutal-section-subtitle">Technologies and tools I master</p>
+      <div class="brutal-section-intro">
+        <span class="brutal-section-label">MY EXPERTISE</span>
+        <h2 class="brutal-section-title"><span class="brutal-section-number">02.</span> Technical Skills</h2>
+        <p class="brutal-section-description">
+          Technologies and tools I use to bring ideas to life
+        </p>
+      </div>
     </div>
 
-    <div class="brutal-skills-grid">
-      {% for skill in skills %}
-      <div class="brutal-skill-card" data-skill-id="{{skill.id}}">
-        <div class="brutal-skill-icon">
-          <img src="{{skill.thumbnail.url}}" alt="{{skill.name}}" class="brutal-skill-image">
-        </div>
-        
-        <div class="brutal-skill-content">
-          <h3 class="brutal-skill-name">{{skill.name}}</h3>
-          
-          <div class="brutal-skill-description">
-            <p id="less{{skill.id}}" class="brutal-skill-text brutal-skill-preview">
-              {{skill.description|truncatechars:80}}
-            </p>
-            <p id="more{{skill.id}}" class="brutal-skill-text brutal-skill-full" style="display: none;">
-              {{skill.description}}
-            </p>
+    <!-- Brutalist Skills Board -->
+    <div class="brutal-skills-board">
+      <!-- Frontend Block -->
+      <article class="brutal-skill-block is-electric" data-title="FRONTEND" data-watermark="UI">
+        <div class="brutal-block-label label-electric">FRONTEND</div>
+        <header class="brutal-block-header">
+          <h3 class="brutal-block-title">UI ENGINEERING</h3>
+        </header>
+        <div class="brutal-skill-list">
+          <div class="brutal-skill-sticker">
+            <span class="brutal-skill-sticker-icon"><img src="{% static 'images/skills/html-5.png' %}" alt="HTML5"></span>
+            <span>HTML5</span>
           </div>
-          
-          <div class="brutal-skill-actions">
-            <button id="read_more_skill{{skill.id}}" 
-                    class="brutal-skill-btn brutal-skill-expand" 
-                    onclick="skillsFunction('{{skill.id}}')">
-              <span class="brutal-btn-text">Expand</span>
-              <svg class="brutal-btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
-                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-            
-            <button id="read_less_skill{{skill.id}}" 
-                    class="brutal-skill-btn brutal-skill-collapse" 
-                    onclick="skillsFunction('{{skill.id}}')" 
-                    style="display: none;">
-              <span class="brutal-btn-text">Collapse</span>
-              <svg class="brutal-btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
-                <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
+          <div class="brutal-skill-sticker">
+            <span class="brutal-skill-sticker-icon"><img src="{% static 'images/skills/css-3.png' %}" alt="CSS3"></span>
+            <span>CSS3</span>
+          </div>
+          <div class="brutal-skill-sticker">
+            <span class="brutal-skill-sticker-icon"><img src="{% static 'images/skills/js.png' %}" alt="JavaScript"></span>
+            <span>JavaScript</span>
+          </div>
+          <div class="brutal-skill-sticker">
+            <span class="brutal-skill-sticker-icon"><img src="{% static 'images/skills/bootstrap.png' %}" alt="Bootstrap"></span>
+            <span>Bootstrap</span>
+          </div>
+          <div class="brutal-skill-sticker">
+            <span class="brutal-skill-sticker-icon"><img src="{% static 'images/skills/Tailwind_CSS_Logo.svg.png' %}" alt="Tailwind"></span>
+            <span>Tailwind</span>
           </div>
         </div>
-        
-        <div class="brutal-skill-decoration"></div>
-      </div>
-      {% endfor %}
+        <div class="accent-bar"></div>
+      </article>
+
+      <!-- Backend Block -->
+      <article class="brutal-skill-block is-warning" data-title="BACKEND" data-watermark="API">
+        <div class="brutal-block-label label-warning">BACKEND</div>
+        <header class="brutal-block-header">
+          <h3 class="brutal-block-title">APIs & SERVICES</h3>
+        </header>
+        <div class="brutal-skill-list">
+          <div class="brutal-skill-sticker">
+            <span class="brutal-skill-sticker-icon"><img src="{% static 'images/skills/python.png' %}" alt="Python"></span>
+            <span>Python</span>
+          </div>
+          <div class="brutal-skill-sticker">
+            <span class="brutal-skill-sticker-icon"><img src="{% static 'images/skills/django.png' %}" alt="Django"></span>
+            <span>Django</span>
+          </div>
+        </div>
+        <div class="accent-bar"></div>
+      </article>
+
+      <!-- Tools & DevOps Block -->
+      <article class="brutal-skill-block is-primary" data-title="TOOLS" data-watermark="OPS">
+        <div class="brutal-block-label label-primary">TOOLS</div>
+        <header class="brutal-block-header">
+          <h3 class="brutal-block-title">PLATFORMS & CI</h3>
+        </header>
+        <div class="brutal-skill-list">
+          <div class="brutal-skill-sticker">
+            <span class="brutal-skill-sticker-icon"><img src="{% static 'images/skills/docker.png' %}" alt="Docker"></span>
+            <span>Docker</span>
+          </div>
+          <div class="brutal-skill-sticker">
+            <span class="brutal-skill-sticker-icon"><img src="{% static 'images/skills/heroku.png' %}" alt="Heroku"></span>
+            <span>Heroku</span>
+          </div>
+          <div class="brutal-skill-sticker">
+            <span class="brutal-skill-sticker-icon"><img src="{% static 'images/skills/github-sign.png' %}" alt="GitHub"></span>
+            <span>GitHub</span>
+          </div>
+          <div class="brutal-skill-sticker">
+            <span class="brutal-skill-sticker-icon"><img src="{% static 'images/skills/atom.png' %}" alt="Atom"></span>
+            <span>Atom</span>
+          </div>
+        </div>
+        <div class="accent-bar"></div>
+      </article>
     </div>
   </div>
 </section>
@@ -570,7 +629,7 @@
     <div class="brutal-projects-header">
       <div class="brutal-section-intro">
         <span class="brutal-section-label">PORTFOLIO</span>
-        <h2 class="brutal-section-title">Featured Projects</h2>
+        <h2 class="brutal-section-title"><span class="brutal-section-number">03.</span> Featured Projects</h2>
         <p class="brutal-section-description">
           A selection of my recent work that showcases technical skills and creative problem-solving
         </p>
@@ -690,7 +749,7 @@
     <!-- Section Header -->
     <div class="brutal-section-header">
       <h2 class="brutal-section-title">
-        <span class="brutal-section-number">03.</span>
+        <span class="brutal-section-number">04.</span>
         LET'S BUILD SOMETHING
         <span class="brutal-section-highlight">TOGETHER</span>
       </h2>
