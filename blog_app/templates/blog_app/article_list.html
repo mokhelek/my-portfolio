@@ -1,100 +1,175 @@
 {% extends 'main_app/base.html' %}
 {% load static %}
-
 {% load read-time %}
 
 {% block content %}
- 
-<section class="py-5" id="blog" >
-  <div class="container">
-    <h2 id="sections" style="margin-left: 5px;color: white;margin-top: 0cm;margin-bottom: 0cm;">My Blog </h2>
-    <div style="width:100px;overflow:hidden">
-      <hr style="color: #ffec42;border: 2px #ffec42 solid ; opacity: 1;margin:5px ">
 
+<!-- BRUTAL BLOG SECTION -->
+<section class="brutal-blog-section" id="blog">
+  <div class="brutal-blog-container">
+    <!-- Section Header -->
+    <div class="brutal-blog-header">
+      <h2 class="brutal-section-title">
+        <span class="brutal-section-number">ALL</span>
+        TECH ARTICLES
+      </h2>
+      <div class="brutal-section-underline"></div>
+      <p class="brutal-section-description">
+        Deep dives into development, tutorials, and tech insights
+      </p>
     </div>
 
-
-    <p style="margin-left: 5px;color:rgb(215, 215, 215);margin-top: 0cm;margin-bottom: 3px;font-size:1.1rem;"> Some
-      articles from my tech blog </p>
-
-  </div>
-
-  <br><br>
-
-
-  <div class="container-fluid blog-container">
-    <div class="row d-flex justify-content-center">
-      {% for article in articles %}
-      <div class=" col-12 col-md-10 col-lg-9">
-        {% if forloop.counter == 1 %}
-        <div class="d-flex"
-          style="border-top:1px  solid rgba(200, 200, 200, 0.126);border-bottom:1px  solid rgba(200, 200, 200, 0.126);">
-          {% else %}
-          <div class="d-flex" style="border-bottom:1px  solid rgba(200, 200, 200, 0.126);">
+    <!-- Blog Articles Grid -->
+    <div class="brutal-blog-grid">
+      {% if articles %}
+        {% for article in articles %}
+        <article class="brutal-blog-card">
+          <div class="brutal-blog-image">
+            {% if article.thumbnail %}
+              <img src="{{article.thumbnail.url}}" alt="{{article.title}}" class="brutal-blog-img">
+            {% else %}
+              <div class="brutal-blog-placeholder">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                  <circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="2"/>
+                  <polyline points="21,15 16,10 5,21" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <span>No Image</span>
+              </div>
             {% endif %}
-
-            <div class="blog-img" style="margin: 20px;">
-              <img height="150" src="{{article.thumbnail.url}}" alt="">
-            </div>
-            <div class="">
-              <a href="{% url 'blog_app:article' article.slug %}" class="article-link">
-                <h3 class="blog-title" style="margin-left: 2px;margin-top:10px;color:white">{{article.title}}</h3>
+            <div class="brutal-blog-overlay">
+              <a href="{% url 'blog_app:article' article.slug %}" class="brutal-read-btn">
+                <span>READ MORE</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
               </a>
-              <p style="margin-left: 2px;margin-right: 20px;margin-bottom: 8px;color:rgb(225, 225, 225); font-size: 1.1rem;"
-                class="blog-subtitle">
-                {{article.subtitle|truncatechars:160}}
-              </p>
-
-
-                <div class="d-flex">
-                  {% for tag in article.tags.all %}
-                  <div >
-                    <div  style="background-color: #8b8b8b53 ; border-radius: 8px;">
-                      <p class="d-flex justify-content-center" style="padding:5px 8px;font-size: 0.85rem;color: {% cycle '#ffb43c' '#ff8de8' '#9eaeff' '#dc97ff' '#94ffb4' '#b0f5ff' '#ffa8ad' %};">{{tag.name}}</p> 
-                    </div>
-                  </div> &nbsp;&nbsp;
-                {% endfor %}
-              </div>
-
-              <div class="row">
-                <div class="col">
-                  <p style="font-size: 0.7rem;color:rgb(206, 206, 206);margin-left: 2px;margin-top: 3px;">
-                    {{article.date_posted|date:" d M Y"}} <span style="font-weight:700;font-size:larger"> &centerdot;
-                    </span> {{article.body.html|readtime}}</p>
-                </div>
-              </div>
-
             </div>
           </div>
 
-        </div>
+          <div class="brutal-blog-content">
+            <div class="brutal-blog-meta">
+              <div class="brutal-blog-date">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2"/>
+                  <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2"/>
+                  <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <span>{{article.date_posted|date:"d M Y"}}</span>
+              </div>
+              <div class="brutal-blog-read-time">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                  <polyline points="12,6 12,12 16,14" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <span>{{article.body.html|readtime}}</span>
+              </div>
+            </div>
+
+            <h3 class="brutal-blog-title">
+              <a href="{% url 'blog_app:article' article.slug %}">{{article.title}}</a>
+            </h3>
+
+            <p class="brutal-blog-excerpt">
+              {{article.subtitle|truncatechars:120}}
+            </p>
+
+            {% if article.tags.all %}
+            <div class="brutal-blog-tags">
+              {% for tag in article.tags.all %}
+              <span class="brutal-blog-tag">{{tag.name}}</span>
+              {% endfor %}
+            </div>
+            {% endif %}
+
+            <div class="brutal-blog-actions">
+              <a href="{% url 'blog_app:article' article.slug %}" class="brutal-blog-link">
+                <span class="brutal-link-text">Continue Reading</span>
+                <svg class="brutal-link-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="brutal-blog-decoration">
+            <div class="brutal-decoration-corner"></div>
+            <div class="brutal-decoration-line"></div>
+          </div>
+        </article>
         {% endfor %}
-      </div>
-
-
-    
-
+      {% else %}
+        <div class="brutal-blog-empty">
+          <div class="brutal-empty-icon">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
+              <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="2"/>
+              <line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="2"/>
+              <line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="2"/>
+              <polyline points="10,9 9,9 8,9" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <h3 class="brutal-empty-title">No Articles Yet</h3>
+          <p class="brutal-empty-description">Check back soon for exciting tech insights and tutorials!</p>
+        </div>
+      {% endif %}
     </div>
+
+    <!-- Pagination -->
+    {% if articles.has_other_pages %}
+    <div class="brutal-pagination">
+      <div class="brutal-pagination-container">
+        {% if articles.has_previous %}
+          <a href="?page=1" class="brutal-pagination-btn brutal-pagination-first">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <polyline points="11,17 6,12 11,7" stroke="currentColor" stroke-width="2"/>
+              <polyline points="18,17 13,12 18,7" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <span>First</span>
+          </a>
+          <a href="?page={{ articles.previous_page_number }}" class="brutal-pagination-btn brutal-pagination-prev">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <polyline points="15,18 9,12 15,6" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <span>Prev</span>
+          </a>
+        {% endif %}
+
+        <div class="brutal-pagination-info">
+          <span class="brutal-page-current">{{ articles.number }}</span>
+          <span class="brutal-page-separator">of</span>
+          <span class="brutal-page-total">{{ articles.paginator.num_pages }}</span>
+        </div>
+
+        {% if articles.has_next %}
+          <a href="?page={{ articles.next_page_number }}" class="brutal-pagination-btn brutal-pagination-next">
+            <span>Next</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <polyline points="9,18 15,12 9,6" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </a>
+          <a href="?page={{ articles.paginator.num_pages }}" class="brutal-pagination-btn brutal-pagination-last">
+            <span>Last</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <polyline points="13,17 18,12 13,7" stroke="currentColor" stroke-width="2"/>
+              <polyline points="6,17 11,12 6,7" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
   </div>
-
-
-
-
 </section>
 
-<footer style="height: 6rem; bottom: 0; position: fixed; width: 100%; margin-top: 2rem; ">
-  <div style="width:93%" class="container-fluid">
-      <div class="d-flex justify-content-end">
-          <a style="color: #292929 !important;" href="{% url 'main_app:homePage' %}">
-            <button style="height: 60px;width: 60px;background-color: #fff175;box-shadow: 0 2px 6px rgb(28, 40, 37);" class="btn rounded-circle" >
-              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
-                <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146ZM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5Z"/>
-              </svg>
-            </button>
-          </a>
-      </div>
-  </div>
-</footer>
+<!-- Floating Home Button -->
+<a href="{% url 'main_app:homePage' %}" class="brutal-floating-home">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <path d="M3 12L5 10M5 10L12 3L19 10M5 10V20C5 20.5523 5.44772 21 6 21H9M19 10L21 12M19 10V20C19 20.5523 18.5523 21 18 21H15M9 21C9.55228 21 10 20.5523 10 20V16C10 15.4477 10.4477 15 11 15H13C13.5523 15 14 15.4477 14 16V20C14 20.5523 14.4477 21 15 21M9 21H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <span>HOME</span>
+</a>
 
 
 {% endblock content %}

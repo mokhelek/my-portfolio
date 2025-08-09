@@ -20,6 +20,9 @@
 
         <!-- MAIN STYLE -->
         <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+        
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
         <!-- Include your favorite highlight.js stylesheet -->
 
@@ -244,9 +247,7 @@
                     <a href="{% url 'main_app:homePage' %}#project" class="brutal-nav-link">
                         <span class="brutal-nav-indicator"></span>Work
                     </a>
-                    <a href="{% url 'main_app:homePage' %}#blog" class="brutal-nav-link">
-                        <span class="brutal-nav-indicator"></span>Blog
-                    </a>
+
                     <a href="{% url 'main_app:homePage' %}#contact" class="brutal-nav-link">
                         <span class="brutal-nav-indicator"></span>Contact
                     </a>
@@ -310,12 +311,7 @@
                         <div class="brutal-mobile-description">what has he built?</div>
                     </a>
                 </div>
-                <div class="brutal-mobile-nav-item">
-                    <a href="{% url 'main_app:homePage' %}#blog" class="brutal-mobile-nav-link">
-                        Blog
-                        <div class="brutal-mobile-description">read his thoughts</div>
-                    </a>
-                </div>
+
                 <div class="brutal-mobile-nav-item">
                     <a href="{% url 'main_app:homePage' %}#contact" class="brutal-mobile-nav-link">
                         Contact
