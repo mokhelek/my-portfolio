@@ -12,432 +12,654 @@
     background-size: cover;
     background-position: center;
   }
+
+  /* BRUTAL CONTACT SECTION STYLES */
+  .brutal-contact-section {
+    padding: 6rem 0;
+    background: var(--brutal-bg-dark);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .brutal-contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--brutal-electric), var(--brutal-warning), var(--brutal-electric));
+  }
+
+  .brutal-section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .brutal-section-title {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    color: var(--brutal-text-primary);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
+
+  .brutal-section-number {
+    color: var(--brutal-electric);
+    font-size: 0.8em;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .brutal-section-highlight {
+    color: var(--brutal-warning);
+  }
+
+  .brutal-section-underline {
+    width: 100px;
+    height: 4px;
+    background: var(--brutal-electric);
+    margin: 0 auto 1.5rem;
+    position: relative;
+  }
+
+  .brutal-section-underline::after {
+    content: '';
+    position: absolute;
+    right: -20px;
+    top: 0;
+    width: 15px;
+    height: 4px;
+    background: var(--brutal-warning);
+  }
+
+  .brutal-section-description {
+    font-size: 1.2rem;
+    color: var(--brutal-text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .brutal-contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  @media (max-width: 768px) {
+    .brutal-contact-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  /* Contact Info Styles */
+  .brutal-contact-card {
+    background: var(--brutal-bg-secondary);
+    border: 3px solid var(--brutal-electric);
+    padding: 2.5rem;
+    position: relative;
+    box-shadow: 8px 8px 0 var(--brutal-warning);
+  }
+
+  .brutal-contact-header {
+    margin-bottom: 2rem;
+  }
+
+  .brutal-contact-title {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--brutal-electric);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .brutal-contact-decoration {
+    width: 60px;
+    height: 3px;
+    background: var(--brutal-warning);
+  }
+
+  .brutal-contact-text {
+    color: var(--brutal-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+  }
+
+  .brutal-contact-methods {
+    margin-bottom: 2.5rem;
+  }
+
+  .brutal-contact-method {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(255, 236, 66, 0.05);
+    border-left: 3px solid var(--brutal-electric);
+  }
+
+  .brutal-method-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--brutal-electric);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .brutal-method-icon svg {
+    color: var(--brutal-bg-dark);
+  }
+
+  .brutal-method-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .brutal-method-label {
+    font-size: 0.9rem;
+    color: var(--brutal-electric);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .brutal-method-value {
+    font-size: 1.1rem;
+    color: var(--brutal-text-primary);
+    font-weight: 500;
+  }
+
+  .brutal-social-connect {
+    border-top: 2px solid rgba(255, 236, 66, 0.2);
+    padding-top: 2rem;
+  }
+
+  .brutal-social-title {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--brutal-text-primary);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .brutal-social-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .brutal-social-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: var(--brutal-bg-dark);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    color: var(--brutal-text-secondary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+  }
+
+  .brutal-social-item:hover {
+    border-color: var(--brutal-electric);
+    background: rgba(255, 236, 66, 0.1);
+    color: var(--brutal-electric);
+    transform: translateY(-2px);
+  }
+
+  /* Contact Form Styles */
+  .brutal-contact-form-card {
+    background: var(--brutal-bg-secondary);
+    border: 3px solid var(--brutal-warning);
+    padding: 2.5rem;
+    position: relative;
+    box-shadow: 8px 8px 0 var(--brutal-electric);
+  }
+
+  .brutal-form-header {
+    margin-bottom: 2rem;
+  }
+
+  .brutal-form-title {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--brutal-warning);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .brutal-form-decoration {
+    width: 60px;
+    height: 3px;
+    background: var(--brutal-electric);
+  }
+
+  .brutal-alert-wrapper {
+    margin-bottom: 2rem;
+  }
+
+  .brutal-alert {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(255, 99, 99, 0.1);
+    border: 2px solid #ff6363;
+    border-radius: 8px;
+    color: #ff6363;
+    margin-bottom: 1rem;
+  }
+
+  .brutal-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .brutal-form-group {
+    position: relative;
+  }
+
+  .brutal-form-group-full {
+    grid-column: 1 / -1;
+  }
+
+  .brutal-form-label {
+    display: block;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--brutal-electric);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+
+  .brutal-form-input,
+  .brutal-form-textarea {
+    width: 100%;
+    padding: 1rem;
+    background: var(--brutal-bg-dark);
+    border: 2px solid rgba(255, 236, 66, 0.3);
+    border-radius: 8px;
+    color: var(--brutal-text-primary);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    resize: vertical;
+  }
+
+  .brutal-form-input:focus,
+  .brutal-form-textarea:focus {
+    outline: none;
+    border-color: var(--brutal-electric);
+    box-shadow: 0 0 0 3px rgba(255, 236, 66, 0.2);
+  }
+
+  .brutal-form-input::placeholder,
+  .brutal-form-textarea::placeholder {
+    color: var(--brutal-text-tertiary);
+  }
+
+  .brutal-form-border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--brutal-warning);
+    transition: width 0.3s ease;
+  }
+
+  .brutal-form-input:focus + .brutal-form-border,
+  .brutal-form-textarea:focus + .brutal-form-border {
+    width: 100%;
+  }
+
+  .brutal-form-submit-wrapper {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .brutal-submit-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.25rem 2.5rem;
+    background: var(--brutal-electric);
+    color: var(--brutal-bg-dark);
+    border: 3px solid var(--brutal-electric);
+    border-radius: 8px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 4px 4px 0 var(--brutal-warning);
+  }
+
+  .brutal-submit-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--brutal-warning);
+    background: var(--brutal-warning);
+    border-color: var(--brutal-warning);
+  }
+
+  .brutal-submit-btn:active {
+    transform: translate(0, 0);
+    box-shadow: 2px 2px 0 var(--brutal-warning);
+  }
+
+  @media (max-width: 768px) {
+    .brutal-contact-section {
+      padding: 4rem 0;
+    }
+    
+    .brutal-form-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .brutal-social-links {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>
 
-<!-- ###################################################### Hero Section ################################################################ -->
-<section id="hero" style="margin: 0 !important;" class="about full-screen d-lg-flex justify-content-center ">
-
-  <div class="container-fluid " style="width: 92%;">
-
-    <br>
-
-    <div class="row">
-
-      <div class="col-md-8 col-12 ">
-
-        <div class="about-text">
-
-          {% for text in texts %}
-          <p style="color:#fffef0be;font-size: 0.9rem !important;margin:0cm"> {{text.greetings_text}} </p>
-          {% endfor %}
-          <h3 id="hero_name"> Mokhele Katleho</h3>
-
-
-          <h2 id="hero_intro">
-            I'm a <span id="animation" style="color:#ffec42 ;"> </span>
-          </h2>
-
-
-
-          {% for text in texts %}
-          <p id="hero_slogan" style="color: rgb(207, 207, 207);font-size: 1.08rem;"> {{text.intro_text}}</p>
-          {% endfor %}
-
-
-          <div class="d-none d-sm-block">
-
-            <div class="mt-4 d-flex ">
-              <a style="color: #232323 !important ;background-color: #fde92f !important;font-size: 1.1rem;"
-                href="#project" class="btn mr-lg-2 btn-warning btn-md  ">&nbsp; &nbsp; My Work &nbsp;&nbsp;
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
-                  class="bi bi-arrow-right" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd"
-                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
-                </svg>
-              </a>
-              &nbsp;&nbsp;
-              <a style="font-size: 1.1rem;color:rgb(211, 211, 211) !important" href="#contact"
-                class="btn btn-outline-secondary btn-md"> Get in touch </a>
-            </div>
-
-          </div>
-
-          <div class="d-block d-sm-none">
-            <div style="margin-bottom: 10px;" class="row">
-              <a style="color: #232323 !important ;background-color: #fde92f !important;font-size: 1.1rem;width: 100%;border-radius: 10px !important;"
-                href="#project" class="btn mr-lg-2 btn-warning btn-md  ">&nbsp; &nbsp; My Work &nbsp;&nbsp;
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
-                  class="bi bi-arrow-right" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd"
-                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
-                </svg>
-              </a>
-            </div>
-
-            <div class="row">
-              <a style="font-size: 1.1rem;color:rgb(211, 211, 211) !important;width: 100%;border-radius: 10px !important;"
-                href="#contact" class="btn btn-outline-secondary btn-md"> Get in touch </a>
-            </div>
-          </div>
-
-
-
-        </div>
-
-
-      </div>
-
-
-      <div class="col-md-4 d-none d-md-block">
-
-        <div>
-          <img style="border: 2px #dadada solid; width:67% ;margin-left:80px;box-shadow: 10px 5px 0px #ffffffef;"
-            height="30" src="{% static 'images/profile.jpg' %}" class="img-fluid hero-image" alt="svg image">
-        </div>
-
-      </div>
-
-    </div>
-    <div id="scroller" style="margin-bottom: 0cm;" class="row">
-      <div style="margin-bottom: 0cm" class="col">
-        <center>
-          <a href="#about">
-            <img style="height: 50px;margin-top: 40px;" src="{% static 'images/scroll3.gif' %}" alt="">
-          </a>
-
-        </center>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ###################################################### MORE ABOUT ME ################################################################ -->
-<section style="margin: 0cm !important;" class="more-about-me " id="about">
-  <div id="about-container" class="container-fluid" style="padding-top: 1cm; width:90%; ">
-    <div style="position: relative;">
-      <span id="tag1" class="about-tags"> <span class="text-warning">#</span>open_source </span>
-      <span id="tag2" class="about-tags"> <span class="text-warning">#</span>web_dev </span>
-      <span id="tag3" class="about-tags"> <span class="text-warning">#</span>softwareSolutions </span>
-      <span id="tag4" class="about-tags"> <span class="text-warning">#</span>web_design</span>
-
-      <div class="justify-content-center d-flex">
-        <div class="col-md-8 col-12">
-
-          <div class="d-flex justify-content-center">
-            <div>
-              <center>
-                <h2 id="sections" style="margin-left: 5px;color: white;margin-top: 0cm;margin-bottom: 0cm;">About me
-                </h2>
-                <div id="sections" style="width:100px;overflow:hidden">
-                  <hr style="color: #ffec42 ;border: 2px #ffec42 solid ; opacity: 1;margin:5px ">
-                </div>
-                <p
-                  style="margin-left: 5px;color:rgb(226, 226, 226);margin-top: 0cm;margin-bottom: 3px;font-size:1.1rem;">
-                  A closer look at my journey in tech
-                </p>
-              </center>
-            </div>
-          </div>
-
-          <div class="d-block d-md-none">
-            <center>
-              <br>
-              <div>
-                <img style="border: 2px #dadada solid; width:67% ;box-shadow: 10px 5px 0px #ffffffef;" height="30"
-                  src="{% static 'images/profile.jpg' %}" class="img-fluid hero-image" alt="svg image">
-              </div>
-            </center>
-          </div>
-
-          <div
-            style="background-color: #2c484d  !important;font-size:1.1rem;color:#b7b7b7;border:none;padding: 2rem;margin-top: 1.5rem;"
-            class="card card-body about-card">
-
-            <div>
-              {% for text in texts %}
-              <p id="about-text">
-                {{text.about_text}}
-              </p>
-              {% endfor %}
-            </div>
-
-          </div>
-
-
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-</section>
-
-<!-- ###################################################### SKILLS ######################################################################## -->
-<section class="resume d-lg-flex py-5 justify-content-center align-items-center" id="skills">
-  <div class="container">
-
-    <h2 id="sections" style="margin-left: 5px;color: white;margin-top: 0cm;margin-bottom: 0cm;">Expertise</h2>
-    <div style="width:100px;overflow:hidden">
-      <hr style="color: #ffec42;border: 2px #ffec42 solid ; opacity: 1;margin:5px ">
-
-    </div>
-
-    <p style="margin-left: 5px;color:rgb(215, 215, 215);margin-top: 0cm;margin-bottom: 3px;font-size:1.1rem;">A list
-      of my core skills & tools</p>
-
-
-
-    <br><br>
-
-    <div class="row">
-
-      <div class="col-lg-6 col-12">
-        <div class="timeline">
-          {% for skill in skills %}
-          {% if forloop.counter|modulo:2 == 1 %}
-          <div class="timeline-wrapper">
-            <div class="timeline-yr">
-              <span><img height="25" src="{{skill.thumbnail.url}}" alt="" class=""></span>
-            </div>
-            <div class="timeline-info">
-              <h3><span>{{skill.name}}</h3>
-              <p id="less{{skill.id}}" style="color: rgb(186, 186, 186);margin-bottom: 0cm;">
-                {{skill.description|truncatechars:120}}</p>
-              <p id="more{{skill.id}}" style="color: rgb(186, 186, 186);display: none;margin-bottom: 0cm;">
-                {{skill.description}}</p>
-
-              <a id="read_less_skill{{skill.id}}" onclick="skillsFunction('{{skill.id}}')"
-                style="display: none;color: #ffffff;margin-bottom: 0.5rem;margin-top:0.5rem;font-size: 0.9rem;cursor: pointer;text-decoration:underline !important">
-                view less <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor"
-                  class="bi bi-arrow-up" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd"
-                    d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
-                </svg>
-
-              </a>
-
-              <a id="read_more_skill{{skill.id}}"
-                style="color: rgba(134, 134, 255, 0.945);font-size: 0.85rem;cursor: pointer;margin-bottom: 0.5rem;margin-top:0.5rem;"
-                onclick="skillsFunction('{{skill.id}}')">
-                view more <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor"
-                  class="bi bi-arrow-down" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd"
-                    d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
-                </svg>
-
-              </a>
-
-            </div>
-          </div>
-          {% endif %}
-          {% endfor %}
-        </div>
-      </div>
-
-
-      <div class="col-lg-6 col-12">
-        <div class="timeline">
-          {% for skill in skills %}
-          {% if forloop.counter|modulo:2 == 0 %}
-          <div class="timeline-wrapper">
-            <div class="timeline-yr">
-              <span><img height="25" src="{{skill.thumbnail.url}}" alt="" class=""></span>
-            </div>
-            <div class="timeline-info">
-              <h3><span>{{skill.name}}</h3>
-              <p id="less{{skill.id}}" style="color: rgb(186, 186, 186);margin-bottom: 0cm;">
-                {{skill.description|truncatechars:120}}</p>
-              <p id="more{{skill.id}}" style="color: rgb(186, 186, 186);display: none;margin-bottom: 0cm;">
-                {{skill.description}}</p>
-
-              <a id="read_less_skill{{skill.id}}" onclick="skillsFunction('{{skill.id}}')"
-                style="display: none;margin-bottom: 0.5rem;margin-top:0.5rem;text-decoration:underline !important;color:white;font-size:0.9rem;cursor:pointer">
-                view less <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor"
-                  class="bi bi-arrow-up" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd"
-                    d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
-                </svg>
-
-              </a>
-
-              <a id="read_more_skill{{skill.id}}"
-                style="color: rgba(134, 134, 255, 0.945);font-size: 0.9rem;cursor: pointer;margin-bottom: 0.5rem;margin-top:0.5rem;"
-                onclick="skillsFunction('{{skill.id}}')">
-                view more <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor"
-                  class="bi bi-arrow-down" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd"
-                    d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
-                </svg>
-
-              </a>
-
-
-            </div>
-
-          </div>
-
-          {% endif %}
-          {% endfor %}
-        </div>
-      </div>
-
-    </div>
-
-
-
-
-</section>
-
-<!-- ###################################################### PROJECTS ######################################################################## -->
-
-<section class="project py-5" id="project">
-  <div class="container-fluid project-container">
-    <div>
-      <h2 id="sections" style="margin-left: 5px;color: white;margin-top: 0cm;margin-bottom: 0cm;">Projects </h2>
-      <div style="width:100px;overflow:hidden">
-        <hr style="color: #ffec42 ;border: 2px #ffec42 solid ; opacity: 1;margin:5px ">
-
-      </div>
-
-      <p style="margin-left: 5px;color:rgb(215, 215, 215);margin-top: 0cm;margin-bottom: 3px;font-size:1.1rem;">Some
-        of my past projects</p>
-
-      <br><br>
-
-      <div class="row">
-        {% for project in projects %}
-        <div class="col-md-6">
-          <div class="img-wrapper">
-            <img style="border-radius: 10px ;" src="{{project.thumbnail.url}}" class="img-fluid"
-              alt="project image | cape town freelancer">
-          </div>
-          <div class="justify-content-center d-flex" style="position: relative;top: -20px;">
-            <div class="card" style="width:93% !important; background-color: #29494e ; border-radius: 4px;border:none">
-              <div style="min-height: 200px;overflow: hidden;"><br>
-                <a style="color:rgb(248, 248, 248);margin-left: 20px;margin-right: 20px;font-size: 1.6rem;font-weight: 600;"
-                  href="{{project.live}}">
-                  {{project.title}}
-                </a>
-
-                <div style="width:25%;overflow:hidden;margin-left: 20px;margin-bottom: 10px ; ">
-                  <hr style="color: #ffef64 ;border: 2px #fff06c solid ; opacity: 1;margin:5px ">
-                </div>
-
-
-                <div class="d-flex tags" style="margin-left: 20px;margin-bottom: 6px; flex-wrap: wrap; ">
-                  {% for tag in project.tags.all %}
-                  <div style="margin:0">
-                    <div style="background-color: #8b8b8b53 ; border-radius: 8px;margin-right: 5px;">
-                      <p class="d-flex justify-content-center"
-                        style="margin-bottom: 5px;padding:5px 8px;font-size: 0.75rem; color: {% cycle '#ffb43c' '#ff8de8' '#9eaeff' '#dc97ff' '#94ffb4' '#b0f5ff' '#ffa8ad' %};">
-                        {{tag.name}}</p>
-                    </div>
-                  </div>
-                  {% endfor %}
-                </div>
-
-
-                <p id="less-description{{project.id}}"
-                  style="margin-left: 20px;margin-right: 20px;margin-bottom: 8px;color:rgb(206, 206, 206); font-size: 1rem;"
-                  class="lead">
-                  {{project.description|safe|truncatechars:"150"}}
-                </p>
-
-                <div id="more-description{{project.id}}"
-                  style=" display: none !important; margin-left: 20px !important;margin-right: 20px;margin-bottom: 8px;color:rgb(206, 206, 206); font-size: 1rem;"
-                  class="lead">
-                  {{project.description|safe}}
-                  <span>
-                    {% if project.demoUsername != None %}
-                    <div style="margin-bottom: 8px;color:rgb(206, 206, 206);margin-bottom: 0.95rem;font-size: 0.8rem;">
-                      <hr>
-                      <p style="margin-bottom: 0; color:pink;font-style: italic; ">username <span style="color:white">:
-                          {{project.demoUsername}}</span>
-                      </p>
-                      <p style="margin-top: 0;color:pink;font-style: italic;">password <span style="color:white">:
-                          {{project.demoPassword}}</span></p>
-                    </div>
-                    {% endif %}
-                  </span>
-                </div>
-
-
-              </div>
-
-              <div class="d-flex" style="margin-top: 0cm;width: 100% !important;">
-                <button id="less_btn{{project.id}}" onclick="myFunction('{{project.id}}')"
-                  style="border-width: 1px !important;display: none; margin-left: 20px;margin-bottom: 8px;width:152px;height: 30px;background-color: #8b8b8b53;border: none"
-                  class="btn-outline-light expand_btn rounded ">
-                  <small> Read Less </small>
-                </button>
-
-                <button id="more_btn{{project.id}}" onclick="myFunction('{{project.id}}')"
-                  style="margin-left: 20px;margin-bottom: 8px;width:152px;height: 30px; border-width: 1px !important; background-color: #8b8b8b53;border: none;color: #ffec42ec;"
-                  class="btn-outline-warning expand_btn rounded ">
-                  <small> Read More </small>
-                </button>
-
-                <div class="d-flex justify-content-end" style="width: 100% !important; padding-bottom: 20px;">
-
-
-                  <div class="col-1">
-                    <div class="rounded-circle" style="background-color: #3c45ff17;">
-                      <a style="color:#cecece" href="{{project.github}}">
-                        <div type="button" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true"
-                          title="View Code on <b>Github</b>">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor"
-                            class="bi bi-github " viewBox="0 0 16 16">
-                            <path
-                              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-                          </svg>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                  &nbsp;&nbsp;&nbsp;&nbsp;
-                  <div class="col-1" style="margin-right:40px">
-                    <div class="rounded-circle" style="background-color: rgba(186, 251, 182, 0.15);">
-
-                      <a style="color: #cecece;font-weight:700;text-decoration: none;" href="{{project.live}}">
-                        <div type="button" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true"
-                          title="View Live Website ">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                            class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                              d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
-                            <path fill-rule="evenodd"
-                              d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
-                          </svg>
-                        </div>
-                      </a>
-
-                    </div>
-                  </div>
-
-                </div>
-
-              </div>
-
-
-            </div>
-          </div>
-        </div>
+<!-- BRUTAL HERO SECTION -->
+<section id="brutal-hero" class="brutal-hero-section">
+  <div class="brutal-hero-grid">
+    <!-- Left Content Area -->
+    <div class="brutal-hero-content">
+      <div class="brutal-greeting">
+        {% for text in texts %}
+        <span class="brutal-greeting-text">{{text.greetings_text}}</span>
         {% endfor %}
       </div>
-
-
-      <div class="container-fluid" style="margin-top: 30px;">
-        <a href="{% url 'projects_app:all_projects' %}" style="color:#141414 !important;background-color:#fff066 "
-          class="btn btn-warning ">See More Projects
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" fill="currentColor" class="bi bi-arrow-right"
-            viewBox="0 0 16 16">
-            <path fill-rule="evenodd"
-              d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+      
+      <h1 id="hero_name" class="brutal-hero-name">
+        <span class="brutal-name-first">MOKHELE</span>
+        <span class="brutal-name-last">KATLEHO</span>
+      </h1>
+      
+      <div class="brutal-hero-role">
+        <span class="brutal-role-prefix">I'M A</span>
+        <span id="animation" class="brutal-role-animated"></span>
+      </div>
+      
+      <div class="brutal-hero-description">
+        {% for text in texts %}
+        <p class="brutal-description-text">{{text.intro_text}}</p>
+        {% endfor %}
+      </div>
+      
+      <div class="brutal-hero-actions">
+        <a href="#project" class="brutal-btn brutal-btn-primary">
+          <span class="brutal-btn-text">VIEW WORK</span>
+          <svg class="brutal-btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
+        <a href="#contact" class="brutal-btn brutal-btn-secondary">
+          <span class="brutal-btn-text">CONTACT</span>
+        </a>
+      </div>
+    </div>
+    
+    <!-- Right Image Area -->
+    <div class="brutal-hero-visual">
+      <div class="brutal-image-container">
+        <div class="brutal-image-frame">
+          <img src="{% static 'images/profile.jpg' %}" alt="Mokhele Katleho" class="brutal-profile-image">
+        </div>
+        <div class="brutal-image-decoration brutal-decoration-1"></div>
+        <div class="brutal-image-decoration brutal-decoration-2"></div>
+        <div class="brutal-image-decoration brutal-decoration-3"></div>
+      </div>
+    </div>
+    
+    <!-- Geometric Decorations -->
+    <div class="brutal-geometric-shapes">
+      <div class="brutal-shape brutal-shape-1"></div>
+      <div class="brutal-shape brutal-shape-2"></div>
+      <div class="brutal-shape brutal-shape-3"></div>
+    </div>
+  </div>
+  
+  <!-- Scroll Indicator -->
+  <div class="brutal-scroll-indicator">
+    <a href="#about" class="brutal-scroll-link">
+      <div class="brutal-scroll-text">SCROLL</div>
+      <svg class="brutal-scroll-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
+</section>
+
+<!-- BRUTAL ABOUT SECTION -->
+<section id="about" class="brutal-about-section">
+  <div class="brutal-about-container">
+    <!-- Floating Tags -->
+    <span id="tag1" class="brutal-tag">open_source</span>
+    <span id="tag2" class="brutal-tag warning">web_dev</span>
+    <span id="tag3" class="brutal-tag primary">solutions</span>
+    <span id="tag4" class="brutal-tag warning">design</span>
+
+    <div class="brutal-about-content">
+      <div class="brutal-about-header">
+        <h2 class="brutal-section-title">About Me</h2>
+        <p class="brutal-section-subtitle">A closer look at my journey in tech</p>
       </div>
 
+      <div class="brutal-about-grid">
+        <div class="brutal-about-text">
+          <div class="brutal-text-card">
+            {% for text in texts %}
+            <p class="brutal-about-description">{{text.about_text}}</p>
+            {% endfor %}
+            
+            <div class="brutal-stats">
+              <div class="brutal-stat-item">
+                <span class="brutal-stat-number">3+</span>
+                <span class="brutal-stat-label">Years Experience</span>
+              </div>
+              <div class="brutal-stat-item">
+                <span class="brutal-stat-number">50+</span>
+                <span class="brutal-stat-label">Projects Built</span>
+              </div>
+              <div class="brutal-stat-item">
+                <span class="brutal-stat-number">100%</span>
+                <span class="brutal-stat-label">Client Satisfaction</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="brutal-about-visual d-block d-md-none">
+          <div class="brutal-mobile-image">
+            <img src="{% static 'images/profile.jpg' %}" alt="Mokhele Katleho" class="brutal-mobile-profile">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRUTAL SKILLS SECTION -->
+<section id="skills" class="brutal-skills-section">
+  <div class="brutal-skills-container">
+    <div class="brutal-skills-header">
+      <h2 class="brutal-section-title">Expertise</h2>
+      <p class="brutal-section-subtitle">Technologies and tools I master</p>
+    </div>
+
+    <div class="brutal-skills-grid">
+      {% for skill in skills %}
+      <div class="brutal-skill-card" data-skill-id="{{skill.id}}">
+        <div class="brutal-skill-icon">
+          <img src="{{skill.thumbnail.url}}" alt="{{skill.name}}" class="brutal-skill-image">
+        </div>
+        
+        <div class="brutal-skill-content">
+          <h3 class="brutal-skill-name">{{skill.name}}</h3>
+          
+          <div class="brutal-skill-description">
+            <p id="less{{skill.id}}" class="brutal-skill-text brutal-skill-preview">
+              {{skill.description|truncatechars:80}}
+            </p>
+            <p id="more{{skill.id}}" class="brutal-skill-text brutal-skill-full" style="display: none;">
+              {{skill.description}}
+            </p>
+          </div>
+          
+          <div class="brutal-skill-actions">
+            <button id="read_more_skill{{skill.id}}" 
+                    class="brutal-skill-btn brutal-skill-expand" 
+                    onclick="skillsFunction('{{skill.id}}')">
+              <span class="brutal-btn-text">Expand</span>
+              <svg class="brutal-btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            
+            <button id="read_less_skill{{skill.id}}" 
+                    class="brutal-skill-btn brutal-skill-collapse" 
+                    onclick="skillsFunction('{{skill.id}}')}" 
+                    style="display: none;">
+              <span class="brutal-btn-text">Collapse</span>
+              <svg class="brutal-btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+        <div class="brutal-skill-decoration"></div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- BRUTAL PROJECTS SECTION -->
+<section id="project" class="brutal-projects-section">
+  <div class="brutal-projects-container">
+    <div class="brutal-projects-header">
+      <h2 class="brutal-section-title">Selected Work</h2>
+      <p class="brutal-section-subtitle">Projects that showcase my technical expertise</p>
+    </div>
+
+    <div class="brutal-projects-grid">
+      {% for project in projects %}
+      <div class="brutal-project-card" data-project-id="{{project.id}}">
+        <div class="brutal-project-image">
+          <img src="{{project.thumbnail.url}}" alt="{{project.title}}" class="brutal-project-img">
+          <div class="brutal-project-overlay">
+            <div class="brutal-overlay-content">
+              <a href="{{project.live}}" target="_blank" class="brutal-overlay-btn brutal-view-live">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M18 13V19C18 20.1046 17.1046 21 16 21H5C3.89543 21 3 20.1046 3 19V8C3 6.89543 3.89543 6 5 6H11M15 3H21V9M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Live Site</span>
+              </a>
+              <a href="{{project.github}}" target="_blank" class="brutal-overlay-btn brutal-view-code">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M16 22.0268V19.1568C16.0375 18.68 15.9731 18.2006 15.811 17.7506C15.6489 17.3006 15.3929 16.8902 15.06 16.5468C18.2 16.1968 21.5 15.0068 21.5 9.54679C21.4997 8.15062 20.9627 6.80799 20 5.79679C20.4558 4.5753 20.4236 3.22514 19.91 2.02679C19.91 2.02679 18.73 1.67679 16 3.50679C13.708 2.88561 11.292 2.88561 9 3.50679C6.27 1.67679 5.09 2.02679 5.09 2.02679C4.57638 3.22514 4.54414 4.5753 5 5.79679C4.03013 6.81549 3.49252 8.17026 3.5 9.57679C3.5 14.9968 6.8 16.1868 9.94 16.5768C9.611 16.9168 9.35726 17.3222 9.19531 17.7667C9.03335 18.2112 8.96681 18.6849 9.00001 19.1568V22.0268" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M9 20.0267C6 20.9999 6 16.0267 4 16.0267" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Source</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="brutal-project-content">
+          <div class="brutal-project-meta">
+            <h3 class="brutal-project-title">
+              <a href="{{project.live}}" target="_blank">{{project.title}}</a>
+            </h3>
+            
+            <div class="brutal-project-tags">
+              {% for tag in project.tags.all %}
+              <span class="brutal-project-tag">{{tag.name}}</span>
+              {% endfor %}
+            </div>
+          </div>
+
+          <div class="brutal-project-description">
+            <p id="less-description{{project.id}}" class="brutal-description-preview">
+              {{project.description|safe|truncatechars:"120"}}
+            </p>
+            <div id="more-description{{project.id}}" class="brutal-description-full" style="display: none;">
+              {{project.description|safe}}
+              {% if project.demoUsername %}
+              <div class="brutal-demo-credentials">
+                <h4>Demo Credentials:</h4>
+                <p><strong>Username:</strong> {{project.demoUsername}}</p>
+                <p><strong>Password:</strong> {{project.demoPassword}}</p>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="brutal-project-actions">
+            <button id="more_btn{{project.id}}" 
+                    class="brutal-expand-btn" 
+                    onclick="myFunction('{{project.id}}')">
+              <span>Expand</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            
+            <button id="less_btn{{project.id}}" 
+                    class="brutal-collapse-btn" 
+                    onclick="myFunction('{{project.id}}'))" 
+                    style="display: none;">
+              <span>Collapse</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="brutal-project-decoration">
+          <div class="brutal-decoration-shape brutal-shape-corner"></div>
+          <div class="brutal-decoration-shape brutal-shape-line"></div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="brutal-projects-cta">
+      <a href="{% url 'projects_app:all_projects' %}" class="brutal-btn brutal-btn-secondary">
+        <span class="brutal-btn-text">View All Projects</span>
+        <svg class="brutal-btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
     </div>
   </div>
 </section>
@@ -533,100 +755,151 @@
 
 </section>
 
-<!-- ###################################################### CONTACT ######################################################################## -->
-<section class="contact py-5" id="contact">
+<!-- BRUTAL CONTACT SECTION -->
+<section class="brutal-contact-section" id="contact">
   <div class="container">
-    <h2 id="sections" style="margin-left: 5px; margin-top: 0cm;margin-bottom: 0cm;">Contact me</h2>
-    <div style="width:100px;overflow:hidden">
-      <hr style="color: #ffec42  ;border: 2px #ffec42  solid ; opacity: 1;margin:5px ">
+    <!-- Section Header -->
+    <div class="brutal-section-header">
+      <h2 class="brutal-section-title">
+        <span class="brutal-section-number">04.</span>
+        LET'S BUILD SOMETHING
+        <span class="brutal-section-highlight">TOGETHER</span>
+      </h2>
+      <div class="brutal-section-underline"></div>
+      <p class="brutal-section-description">
+        Have a project in mind? Let's connect and create something amazing.
+      </p>
     </div>
 
-    <p style="margin-left: 5px;color:rgb(215, 215, 215);margin-top: 0cm;margin-bottom: 3px;font-size:1.1rem;">Connect
-      with me on social media</p>
+    <div class="brutal-contact-grid">
+      <!-- Contact Info -->
+      <div class="brutal-contact-info">
+        <div class="brutal-contact-card">
+          <div class="brutal-contact-header">
+            <h3 class="brutal-contact-title">GET IN TOUCH</h3>
+            <div class="brutal-contact-decoration"></div>
+          </div>
+          
+          <div class="brutal-contact-content">
+            <p class="brutal-contact-text">
+              Ready to turn your ideas into reality? Whether it's a new project, collaboration, or just a friendly chat about tech, I'm here to help.
+            </p>
+            
+            <div class="brutal-contact-methods">
+              <div class="brutal-contact-method">
+                <div class="brutal-method-icon">
+                  <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                  </svg>
+                </div>
+                <div class="brutal-method-info">
+                  <span class="brutal-method-label">Email</span>
+                  <span class="brutal-method-value">mkatleho191@gmail.com</span>
+                </div>
+              </div>
+              
+              <div class="brutal-contact-method">
+                <div class="brutal-method-icon">
+                  <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                  </svg>
+                </div>
+                <div class="brutal-method-info">
+                  <span class="brutal-method-label">Response Time</span>
+                  <span class="brutal-method-value">Within 24 hours</span>
+                </div>
+              </div>
+            </div>
 
-  </div>
-
-  <br><br>
-  <div class="container-fluid col-11 col-md-10">
-    <div class="row">
-      <div class="col-lg-4 mr-lg-5 col-12">
-        <h1> Find Me On Social Media</h1>
-
-        <div class="row" style="border-top:#535563 1px solid; padding-top:20px">
-          <a style="color:rgba(156, 203, 250, 0.315)" href="https://www.linkedin.com/in/mokhele-katleho" class="col-3">
-            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-linkedin"
-              viewBox="0 0 16 16">
-              <path
-                d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
-            </svg>
-          </a>
-          <a style="color:rgba(156, 203, 250, 0.315)" href="https://twitter.com/Mokhele_k" class="col-3">
-            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-twitter"
-              viewBox="0 0 16 16">
-              <path
-                d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
-            </svg>
-          </a>
-          <a style="color:rgba(156, 203, 250, 0.315)" href="https://github.com/mokhelek" class="col-3">
-            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-github"
-              viewBox="0 0 16 16">
-              <path
-                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-            </svg>
-          </a>
-          <a style="color:rgba(156, 203, 250, 0.315)" href="https://wa.me/27680846150" class="col-3">
-            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-whatsapp"
-              viewBox="0 0 16 16">
-              <path
-                d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
-            </svg>
-          </a>
+            <!-- Social Links -->
+            <div class="brutal-social-connect">
+              <h4 class="brutal-social-title">CONNECT WITH ME</h4>
+              <div class="brutal-social-links">
+                <a href="https://www.linkedin.com/in/mokhele-katleho" class="brutal-social-item" target="_blank">
+                  <svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                  </svg>
+                  <span>LinkedIn</span>
+                </a>
+                <a href="https://twitter.com/Mokhele_k" class="brutal-social-item" target="_blank">
+                  <svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+                  </svg>
+                  <span>Twitter</span>
+                </a>
+                <a href="https://github.com/mokhelek" class="brutal-social-item" target="_blank">
+                  <svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                  </svg>
+                  <span>GitHub</span>
+                </a>
+                <a href="https://wa.me/27680846150" class="brutal-social-item" target="_blank">
+                  <svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+                  </svg>
+                  <span>WhatsApp</span>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-
-
-        <br>
       </div>
 
-      <div class="col-lg-7 col-12">
-        <center>
+      <!-- Contact Form -->
+      <div class="brutal-contact-form-wrapper">
+        <div class="brutal-contact-form-card">
+          <div class="brutal-form-header">
+            <h3 class="brutal-form-title">SEND A MESSAGE</h3>
+            <div class="brutal-form-decoration"></div>
+          </div>
+
+          <!-- Error Messages -->
           {% if messages %}
-          <ul style="background-color: rgb(254, 201, 201);margin-bottom: 2rem;" class="messages card card-body">
+          <div class="brutal-alert-wrapper">
             {% for message in messages %}
-            <li style="color:rgb(84, 84, 84);font-weight: 600;margin:0cm !important;" class="{{message.tags}}">
-              {{message}}</li>
+            <div class="brutal-alert brutal-alert-error">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+              </svg>
+              <span>{{message}}</span>
+            </div>
             {% endfor %}
-          </ul>
+          </div>
           {% endif %}
-        </center>
 
-        <div class="contact-form card card-body "
-          style="background-color:#00000fc7;border: 1px solid #fffb0036 !important;">
-
-
-          <form class="form" action="{% url 'main_app:sendEmail' %}" method="POST">
+          <form class="brutal-form" action="{% url 'main_app:sendEmail' %}" method="POST">
             {% csrf_token %}
-            <div class="row">
-              <div class="col-lg-6 col-12">
-                <input type="text" class="form-control" name="name" placeholder="Your Name" id="name">
+            <div class="brutal-form-grid">
+              <div class="brutal-form-group">
+                <label class="brutal-form-label">YOUR NAME</label>
+                <input type="text" class="brutal-form-input" name="name" placeholder="Enter your full name" id="name" required>
+                <div class="brutal-form-border"></div>
               </div>
 
-              <div class="col-lg-6 col-12">
-                <input type="email" class="form-control" name="email" placeholder="Email" id="email">
+              <div class="brutal-form-group">
+                <label class="brutal-form-label">EMAIL ADDRESS</label>
+                <input type="email" class="brutal-form-input" name="email" placeholder="Enter your email" id="email" required>
+                <div class="brutal-form-border"></div>
               </div>
 
-              <div class="col-12">
-                <textarea name="message" rows="6" class="form-control" id="message" placeholder="Message"></textarea>
+              <div class="brutal-form-group brutal-form-group-full">
+                <label class="brutal-form-label">YOUR MESSAGE</label>
+                <textarea name="message" rows="6" class="brutal-form-textarea" id="message" placeholder="Tell me about your project or just say hello..." required></textarea>
+                <div class="brutal-form-border"></div>
               </div>
 
-              <div class="ml-lg-auto col-lg-5 col-12">
-                <input type="submit" class="form-control submit-btn text-dark" value="Send Email">
+              <div class="brutal-form-submit-wrapper">
+                <button type="submit" class="brutal-submit-btn">
+                  <span class="brutal-btn-text">SEND MESSAGE</span>
+                  <svg class="brutal-btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
               </div>
             </div>
           </form>
-
         </div>
       </div>
-
     </div>
   </div>
 </section>

@@ -1,78 +1,1405 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
 
+/* BRUTAL DESIGN SYSTEM - MODERNIZED PORTFOLIO */
+:root {
+  --brutal-black: #0a0a0a;
+  --brutal-white: #ffffff;
+  --brutal-electric: #00ff41;
+  --brutal-warning: #ff6b35;
+  --brutal-primary: #6366f1;
+  --brutal-bg-dark: #111111;
+  --brutal-bg-medium: #1a1a1a;
+  --brutal-text-primary: #ffffff;
+  --brutal-text-secondary: #a1a1aa;
+  --brutal-border: #333333;
+  --brutal-shadow: 8px 8px 0px;
+  --brutal-hover-shadow: 12px 12px 0px;
+}
+
+* {
+  box-sizing: border-box;
+}
 
 body {
-  font-family: "Montserrat", sans-serif;
-  padding-top: 70px;
-  background-color: #233d41;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  padding-top: 0;
+  background: linear-gradient(135deg, var(--brutal-bg-dark) 0%, var(--brutal-bg-medium) 100%);
   font-weight: 500;
+  color: var(--brutal-text-primary);
+  line-height: 1.6;
+  margin: 0;
+  overflow-x: hidden;
 }
 
-.text-warning{
-  color: #ffdc6a !important;
-  margin-right: 5px;
+/* BRUTAL COMPONENTS */
+.brutal-text-electric {
+  color: var(--brutal-electric) !important;
+  font-weight: 700;
+  text-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
 }
 
-section{
-  background-color: #233d41;
-}
-@font-face {
-  font-family: "Titles";
-  src: url("fonts/Gemsbuck01Black-axn2g.ttf");
-}
-#about{
-  min-height: 100vh;
-  padding-bottom: 1rem;
-}
-#hero_name{
-  font-family: "Titles";
-  margin:0cm
+.brutal-text-warning {
+  color: var(--brutal-warning) !important;
+  font-weight: 700;
 }
 
-.about-tags{
-  background-color: #2c5c4c;
-  padding: 7px 8px;color: #d4d4d4;
+.brutal-text-primary {
+  color: var(--brutal-primary) !important;
+  font-weight: 700;
+}
+
+.brutal-btn {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 3px solid var(--brutal-electric);
+  background: var(--brutal-black);
+  color: var(--brutal-electric);
+  padding: 1rem 2rem;
+  box-shadow: var(--brutal-shadow) var(--brutal-electric);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-decoration: none !important;
+}
+
+.brutal-btn:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: var(--brutal-hover-shadow) var(--brutal-electric);
+  background: var(--brutal-electric);
+  color: var(--brutal-black);
+}
+
+.brutal-btn-secondary {
+  border-color: var(--brutal-warning);
+  color: var(--brutal-warning);
+  box-shadow: var(--brutal-shadow) var(--brutal-warning);
+}
+
+.brutal-btn-secondary:hover {
+  background: var(--brutal-warning);
+  color: var(--brutal-black);
+  box-shadow: var(--brutal-hover-shadow) var(--brutal-warning);
+}
+
+section {
+  background: transparent;
+  position: relative;
+}
+
+section:before {
+  content: '';
   position: absolute;
-  border: 1px #ebc95c solid;
-  box-shadow: 5px 3px 0 #dbe7de;
-}
-
-#tag1{
+  top: 0;
   left: 0;
-  top: 20%;
-  transform: rotate(-10deg);
-}
-#tag2{
   right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--brutal-electric), var(--brutal-warning), var(--brutal-primary));
+  z-index: 1;
+}
+
+#about {
+  min-height: 100vh;
+  padding: 4rem 0;
+}
+
+#hero_name {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 900;
+  margin: 0;
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  line-height: 0.9;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.brutal-tag {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 700;
+  background: var(--brutal-black);
+  color: var(--brutal-electric);
+  padding: 0.8rem 1.2rem;
+  position: absolute;
+  border: 3px solid var(--brutal-electric);
+  box-shadow: 6px 6px 0 var(--brutal-electric);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.brutal-tag:hover {
+  transform: translate(-3px, -3px) !important;
+  box-shadow: 9px 9px 0 var(--brutal-electric);
+}
+
+.brutal-tag.warning {
+  color: var(--brutal-warning);
+  border-color: var(--brutal-warning);
+  box-shadow: 6px 6px 0 var(--brutal-warning);
+}
+
+.brutal-tag.warning:hover {
+  box-shadow: 9px 9px 0 var(--brutal-warning);
+}
+
+.brutal-tag.primary {
+  color: var(--brutal-primary);
+  border-color: var(--brutal-primary);
+  box-shadow: 6px 6px 0 var(--brutal-primary);
+}
+
+.brutal-tag.primary:hover {
+  box-shadow: 9px 9px 0 var(--brutal-primary);
+}
+
+#tag1 {
+  left: 5%;
+  top: 15%;
+  transform: rotate(-8deg);
+}
+
+#tag2 {
+  right: 5%;
   top: 20%;
-  transform: rotate(10deg);
+  transform: rotate(12deg);
 }
-#tag3{
+
+#tag3 {
+  right: 10%;
+  top: 85%;
+  transform: rotate(-5deg);
+}
+
+#tag4 {
+  left: 8%;
+  top: 80%;
+  transform: rotate(7deg);
+}
+
+.brutal-section-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 6vw, 4rem);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.brutal-section-title:after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  width: 100px;
+  height: 4px;
+  background: var(--brutal-electric);
+  box-shadow: 4px 4px 0 var(--brutal-warning);
+}
+
+/* BRUTAL HERO SECTION */
+.brutal-hero-section {
+  min-height: 100vh;
+  padding: 6rem 0 4rem;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--brutal-bg-dark) 0%, var(--brutal-bg-medium) 50%, var(--brutal-bg-dark) 100%);
+}
+
+.brutal-hero-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  min-height: calc(100vh - 10rem);
+  position: relative;
+}
+
+.brutal-hero-content {
+  z-index: 10;
+}
+
+.brutal-greeting {
+  margin-bottom: 1rem;
+}
+
+.brutal-greeting-text {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.9rem;
+  color: var(--brutal-electric);
+  background: var(--brutal-black);
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--brutal-electric);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+
+.brutal-hero-name {
+  margin: 2rem 0;
+  line-height: 0.8;
+}
+
+.brutal-name-first,
+.brutal-name-last {
+  display: block;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+}
+
+.brutal-name-first {
+  font-size: clamp(3rem, 10vw, 8rem);
+  color: var(--brutal-text-primary);
+  text-shadow: 4px 4px 0 var(--brutal-electric);
+}
+
+.brutal-name-last {
+  font-size: clamp(2.5rem, 8vw, 6.5rem);
+  color: var(--brutal-electric);
+  margin-left: 1rem;
+  text-shadow: 4px 4px 0 var(--brutal-warning);
+}
+
+.brutal-hero-role {
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.brutal-role-prefix {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  color: var(--brutal-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.brutal-role-animated {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  color: var(--brutal-warning);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 3px solid var(--brutal-warning);
+  padding-bottom: 0.2rem;
+  min-height: 2.5rem;
+}
+
+.brutal-hero-description {
+  margin: 2rem 0;
+}
+
+.brutal-description-text {
+  font-family: "Inter", sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--brutal-text-secondary);
+  max-width: 500px;
+}
+
+.brutal-hero-actions {
+  margin-top: 3rem;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.brutal-btn-primary {
+  background: var(--brutal-electric);
+  color: var(--brutal-black);
+  border-color: var(--brutal-electric);
+  box-shadow: var(--brutal-shadow) var(--brutal-black);
+}
+
+.brutal-btn-primary:hover {
+  background: var(--brutal-black);
+  color: var(--brutal-electric);
+  box-shadow: var(--brutal-hover-shadow) var(--brutal-electric);
+}
+
+.brutal-btn-text {
+  margin-right: 0.5rem;
+}
+
+.brutal-btn-icon {
+  transition: transform 0.2s ease;
+}
+
+.brutal-btn:hover .brutal-btn-icon {
+  transform: translate(2px, -2px);
+}
+
+/* BRUTAL HERO VISUAL */
+.brutal-hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
+
+.brutal-image-container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+}
+
+.brutal-image-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 4px solid var(--brutal-electric);
+  background: var(--brutal-black);
+  box-shadow: 12px 12px 0 var(--brutal-warning);
+  overflow: hidden;
+  transform: rotate(-3deg);
+  z-index: 3;
+}
+
+.brutal-profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.2);
+  transition: all 0.3s ease;
+}
+
+.brutal-image-frame:hover .brutal-profile-image {
+  filter: grayscale(0%) contrast(1);
+  transform: scale(1.05);
+}
+
+.brutal-image-decoration {
+  position: absolute;
+  border: 3px solid;
+  background: transparent;
+}
+
+.brutal-decoration-1 {
+  width: 80px;
+  height: 80px;
+  border-color: var(--brutal-primary);
+  top: -20px;
+  right: -20px;
+  transform: rotate(45deg);
+  z-index: 1;
+}
+
+.brutal-decoration-2 {
+  width: 60px;
+  height: 60px;
+  border-color: var(--brutal-warning);
+  bottom: -15px;
+  left: -15px;
+  z-index: 1;
+}
+
+.brutal-decoration-3 {
+  width: 40px;
+  height: 120px;
+  border-color: var(--brutal-electric);
+  top: 50%;
+  right: -30px;
+  transform: translateY(-50%) rotate(15deg);
+  z-index: 1;
+}
+
+/* GEOMETRIC SHAPES */
+.brutal-geometric-shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.brutal-shape {
+  position: absolute;
+  background: var(--brutal-electric);
+  opacity: 0.1;
+}
+
+.brutal-shape-1 {
+  width: 200px;
+  height: 200px;
+  top: 10%;
+  left: -50px;
+  transform: rotate(45deg);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.brutal-shape-2 {
+  width: 150px;
+  height: 150px;
+  bottom: 20%;
+  right: -30px;
+  background: var(--brutal-warning);
+}
+
+.brutal-shape-3 {
+  width: 100px;
+  height: 300px;
+  top: 30%;
+  right: 20%;
+  background: var(--brutal-primary);
+  transform: rotate(-15deg);
+}
+
+/* SCROLL INDICATOR */
+.brutal-scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.brutal-scroll-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--brutal-text-secondary);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.brutal-scroll-link:hover {
+  color: var(--brutal-electric);
+  transform: translateY(-5px);
+}
+
+.brutal-scroll-text {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.brutal-scroll-arrow {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-5px);
+  }
+  60% {
+    transform: translateY(-3px);
+  }
+}
+
+/* RESPONSIVE HERO */
+@media (max-width: 1024px) {
+  .brutal-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+  
+  .brutal-image-container {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .brutal-hero-section {
+    padding: 4rem 0 2rem;
+  }
+  
+  .brutal-hero-grid {
+    padding: 0 1rem;
+  }
+  
+  .brutal-hero-actions {
+    justify-content: center;
+  }
+  
+  .brutal-btn {
+    padding: 1rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .brutal-image-container {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+/* BRUTAL ABOUT SECTION */
+.brutal-about-section {
+  padding: 6rem 0;
+  position: relative;
+  background: var(--brutal-bg-dark);
+}
+
+.brutal-about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+}
+
+.brutal-about-content {
+  position: relative;
+  z-index: 10;
+}
+
+.brutal-about-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.brutal-section-subtitle {
+  font-family: "Inter", sans-serif;
+  font-size: 1.1rem;
+  color: var(--brutal-text-secondary);
+  margin-top: 1rem;
+}
+
+.brutal-about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.brutal-text-card {
+  background: var(--brutal-bg-medium);
+  border: 3px solid var(--brutal-electric);
+  box-shadow: 8px 8px 0 var(--brutal-warning);
+  padding: 2.5rem;
+  position: relative;
+}
+
+.brutal-text-card:before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 30px;
+  height: 30px;
+  background: var(--brutal-primary);
+  border: 2px solid var(--brutal-black);
+}
+
+.brutal-about-description {
+  font-family: "Inter", sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--brutal-text-primary);
+  margin-bottom: 2rem;
+}
+
+.brutal-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 2px solid var(--brutal-border);
+}
+
+.brutal-stat-item {
+  text-align: center;
+  padding: 1rem;
+  border: 2px solid var(--brutal-border);
+  background: var(--brutal-bg-dark);
+  transition: all 0.3s ease;
+}
+
+.brutal-stat-item:hover {
+  border-color: var(--brutal-electric);
+  transform: translate(-3px, -3px);
+  box-shadow: 6px 6px 0 var(--brutal-electric);
+}
+
+.brutal-stat-number {
+  display: block;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 900;
+  font-size: 2rem;
+  color: var(--brutal-electric);
+  text-transform: uppercase;
+}
+
+.brutal-stat-label {
+  display: block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8rem;
+  color: var(--brutal-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.5rem;
+}
+
+.brutal-mobile-image {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.brutal-mobile-profile {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border: 3px solid var(--brutal-electric);
+  box-shadow: 6px 6px 0 var(--brutal-warning);
+  filter: grayscale(100%) contrast(1.2);
+}
+
+@media (max-width: 768px) {
+  .brutal-about-section {
+    padding: 4rem 0;
+  }
+  
+  .brutal-about-container {
+    padding: 0 1rem;
+  }
+  
+  .brutal-text-card {
+    padding: 1.5rem;
+  }
+  
+  .brutal-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* BRUTAL SKILLS SECTION */
+.brutal-skills-section {
+  padding: 6rem 0;
+  background: var(--brutal-bg-medium);
+  position: relative;
+}
+
+.brutal-skills-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.brutal-skills-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.brutal-skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  align-items: start;
+}
+
+.brutal-skill-card {
+  background: var(--brutal-bg-dark);
+  border: 3px solid var(--brutal-border);
+  padding: 2rem;
+  position: relative;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.brutal-skill-card:hover {
+  border-color: var(--brutal-electric);
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0 var(--brutal-electric);
+}
+
+.brutal-skill-card:nth-child(odd) {
+  border-color: var(--brutal-warning);
+}
+
+.brutal-skill-card:nth-child(odd):hover {
+  border-color: var(--brutal-warning);
+  box-shadow: 8px 8px 0 var(--brutal-warning);
+}
+
+.brutal-skill-card:nth-child(3n) {
+  border-color: var(--brutal-primary);
+}
+
+.brutal-skill-card:nth-child(3n):hover {
+  border-color: var(--brutal-primary);
+  box-shadow: 8px 8px 0 var(--brutal-primary);
+}
+
+.brutal-skill-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--brutal-black);
+  border: 2px solid var(--brutal-electric);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.brutal-skill-icon:after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 15px;
+  height: 15px;
+  background: var(--brutal-warning);
+  border: 1px solid var(--brutal-black);
+}
+
+.brutal-skill-image {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+  filter: brightness(1.2) contrast(1.1);
+}
+
+.brutal-skill-content {
+  flex: 1;
+}
+
+.brutal-skill-name {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--brutal-text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.brutal-skill-description {
+  margin-bottom: 1.5rem;
+}
+
+.brutal-skill-text {
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--brutal-text-secondary);
+  margin: 0;
+}
+
+.brutal-skill-actions {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.brutal-skill-btn {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: transparent;
+  border: 2px solid var(--brutal-electric);
+  color: var(--brutal-electric);
+  padding: 0.8rem 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brutal-skill-btn:hover {
+  background: var(--brutal-electric);
+  color: var(--brutal-black);
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--brutal-warning);
+}
+
+.brutal-skill-btn:active {
+  transform: translate(0, 0);
+  box-shadow: 2px 2px 0 var(--brutal-warning);
+}
+
+.brutal-skill-decoration {
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  width: 40px;
+  height: 40px;
+  background: var(--brutal-electric);
+  opacity: 0.1;
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
+  pointer-events: none;
+}
+
+.brutal-skill-card:nth-child(odd) .brutal-skill-decoration {
+  background: var(--brutal-warning);
+}
+
+.brutal-skill-card:nth-child(3n) .brutal-skill-decoration {
+  background: var(--brutal-primary);
+}
+
+/* SKILL CARD ANIMATIONS */
+.brutal-skill-card:nth-child(1) { animation-delay: 0.1s; }
+.brutal-skill-card:nth-child(2) { animation-delay: 0.2s; }
+.brutal-skill-card:nth-child(3) { animation-delay: 0.3s; }
+.brutal-skill-card:nth-child(4) { animation-delay: 0.4s; }
+.brutal-skill-card:nth-child(5) { animation-delay: 0.5s; }
+.brutal-skill-card:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE SKILLS */
+@media (max-width: 768px) {
+  .brutal-skills-section {
+    padding: 4rem 0;
+  }
+  
+  .brutal-skills-container {
+    padding: 0 1rem;
+  }
+  
+  .brutal-skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .brutal-skill-card {
+    padding: 1.5rem;
+  }
+  
+  .brutal-skill-name {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .brutal-skill-card {
+    padding: 1rem;
+  }
+  
+  .brutal-skill-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .brutal-skill-image {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* BRUTAL PROJECTS SECTION */
+.brutal-projects-section {
+  padding: 6rem 0;
+  background: var(--brutal-bg-dark);
+  position: relative;
+}
+
+.brutal-projects-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.brutal-projects-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.brutal-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.brutal-project-card {
+  background: var(--brutal-bg-medium);
+  border: 3px solid var(--brutal-border);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.brutal-project-card:hover {
+  border-color: var(--brutal-electric);
+  transform: translate(-4px, -4px);
+  box-shadow: 12px 12px 0 var(--brutal-electric);
+}
+
+.brutal-project-card:nth-child(odd):hover {
+  border-color: var(--brutal-warning);
+  box-shadow: 12px 12px 0 var(--brutal-warning);
+}
+
+.brutal-project-card:nth-child(3n):hover {
+  border-color: var(--brutal-primary);
+  box-shadow: 12px 12px 0 var(--brutal-primary);
+}
+
+.brutal-project-image {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+  border-bottom: 3px solid var(--brutal-border);
+}
+
+.brutal-project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+  filter: grayscale(50%) contrast(1.1);
+}
+
+.brutal-project-card:hover .brutal-project-img {
+  filter: grayscale(0%) contrast(1);
+  transform: scale(1.05);
+}
+
+.brutal-project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
   right: 0;
-  top: 90%;
-  transform: rotate(-6deg);
-}
-#tag4{
-  left: 0%;
-  top: 90%;
-  transform: rotate(6deg);
-}
-
-
-
-
-#sections{
-  font-family: "Titles";
-  font-size: 2.5rem;
-  letter-spacing: 7px;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease;
 }
 
+.brutal-project-card:hover .brutal-project-overlay {
+  opacity: 1;
+}
+
+.brutal-overlay-content {
+  display: flex;
+  gap: 1rem;
+}
+
+.brutal-overlay-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  background: var(--brutal-electric);
+  color: var(--brutal-black);
+  text-decoration: none;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: 2px solid var(--brutal-electric);
+  transition: all 0.2s ease;
+}
+
+.brutal-overlay-btn:hover {
+  background: var(--brutal-black);
+  color: var(--brutal-electric);
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--brutal-warning);
+}
+
+.brutal-view-code {
+  background: transparent;
+  color: var(--brutal-electric);
+  border-color: var(--brutal-electric);
+}
+
+.brutal-view-code:hover {
+  background: var(--brutal-electric);
+  color: var(--brutal-black);
+}
+
+.brutal-project-content {
+  padding: 2rem;
+}
+
+.brutal-project-meta {
+  margin-bottom: 1.5rem;
+}
+
+.brutal-project-title {
+  margin: 0 0 1rem 0;
+}
+
+.brutal-project-title a {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--brutal-text-primary);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.brutal-project-title a:hover {
+  color: var(--brutal-electric);
+}
+
+.brutal-project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.brutal-project-tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: var(--brutal-black);
+  color: var(--brutal-electric);
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--brutal-electric);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.brutal-project-tag:nth-child(odd) {
+  color: var(--brutal-warning);
+  border-color: var(--brutal-warning);
+}
+
+.brutal-project-tag:nth-child(3n) {
+  color: var(--brutal-primary);
+  border-color: var(--brutal-primary);
+}
+
+.brutal-project-description {
+  margin-bottom: 1.5rem;
+}
+
+.brutal-description-preview,
+.brutal-description-full {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--brutal-text-secondary);
+  margin: 0;
+}
+
+.brutal-demo-credentials {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--brutal-bg-dark);
+  border: 2px solid var(--brutal-border);
+}
+
+.brutal-demo-credentials h4 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1rem;
+  color: var(--brutal-electric);
+  margin: 0 0 0.5rem 0;
+  text-transform: uppercase;
+}
+
+.brutal-demo-credentials p {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.9rem;
+  color: var(--brutal-text-primary);
+  margin: 0.2rem 0;
+}
+
+.brutal-project-actions {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.brutal-expand-btn,
+.brutal-collapse-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.2rem;
+  background: transparent;
+  border: 2px solid var(--brutal-electric);
+  color: var(--brutal-electric);
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.brutal-expand-btn:hover,
+.brutal-collapse-btn:hover {
+  background: var(--brutal-electric);
+  color: var(--brutal-black);
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--brutal-warning);
+}
+
+.brutal-project-decoration {
+  position: absolute;
+  top: 0;
+  right: 0;
+  pointer-events: none;
+}
+
+.brutal-decoration-shape {
+  position: absolute;
+}
+
+.brutal-shape-corner {
+  top: -10px;
+  right: -10px;
+  width: 30px;
+  height: 30px;
+  background: var(--brutal-electric);
+  border: 2px solid var(--brutal-black);
+}
+
+.brutal-shape-line {
+  top: 20px;
+  right: -5px;
+  width: 20px;
+  height: 60px;
+  background: var(--brutal-warning);
+  border: 1px solid var(--brutal-black);
+  opacity: 0.7;
+}
+
+.brutal-projects-cta {
+  text-align: center;
+}
+
+/* RESPONSIVE PROJECTS */
+@media (max-width: 768px) {
+  .brutal-projects-section {
+    padding: 4rem 0;
+  }
+  
+  .brutal-projects-container {
+    padding: 0 1rem;
+  }
+  
+  .brutal-projects-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .brutal-project-content {
+    padding: 1.5rem;
+  }
+  
+  .brutal-project-title a {
+    font-size: 1.3rem;
+  }
+  
+  .brutal-overlay-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .brutal-overlay-btn {
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .brutal-project-card {
+    margin: 0 -1rem;
+  }
+  
+  .brutal-project-content {
+    padding: 1rem;
+  }
+  
+  .brutal-project-image {
+    height: 200px;
+  }
+}
+
+/* BRUTAL ANIMATIONS & MICRO-INTERACTIONS */
 @keyframes floating {
   0%, 100% {
     transform: translateY(0);
   }
   50% {
     transform: translateY(-10px);
+  }
+}
+
+@keyframes glitch {
+  0%, 100% {
+    transform: translate(0);
+  }
+  10% {
+    transform: translate(-2px, -2px);
+  }
+  20% {
+    transform: translate(2px, 2px);
+  }
+  30% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(2px, -2px);
+  }
+  50% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  70% {
+    transform: translate(-2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  90% {
+    transform: translate(-2px, -2px);
+  }
+}
+
+@keyframes pulse-electric {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 65, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 20px rgba(0, 255, 65, 0);
+  }
+}
+
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes text-glow {
+  0%, 100% {
+    text-shadow: 0 0 5px var(--brutal-electric);
+  }
+  50% {
+    text-shadow: 0 0 20px var(--brutal-electric), 0 0 30px var(--brutal-electric);
+  }
+}
+
+/* Apply animations to specific elements */
+.brutal-hero-name {
+  animation: slide-in-left 0.8s ease-out;
+}
+
+.brutal-hero-role {
+  animation: slide-in-left 0.8s ease-out 0.2s both;
+}
+
+.brutal-hero-description {
+  animation: slide-in-left 0.8s ease-out 0.4s both;
+}
+
+.brutal-hero-actions {
+  animation: slide-in-left 0.8s ease-out 0.6s both;
+}
+
+.brutal-image-frame {
+  animation: slide-in-right 0.8s ease-out 0.3s both;
+}
+
+.brutal-tag {
+  animation: scale-in 0.6s ease-out both;
+}
+
+.brutal-tag:nth-child(1) { animation-delay: 0.1s; }
+.brutal-tag:nth-child(2) { animation-delay: 0.3s; }
+.brutal-tag:nth-child(3) { animation-delay: 0.5s; }
+.brutal-tag:nth-child(4) { animation-delay: 0.7s; }
+
+.brutal-skill-card {
+  animation: slide-in-left 0.6s ease-out both;
+}
+
+.brutal-project-card {
+  animation: scale-in 0.6s ease-out both;
+}
+
+.brutal-project-card:nth-child(1) { animation-delay: 0.1s; }
+.brutal-project-card:nth-child(2) { animation-delay: 0.2s; }
+.brutal-project-card:nth-child(3) { animation-delay: 0.3s; }
+.brutal-project-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Enhanced hover effects */
+.brutal-btn:hover {
+  animation: pulse-electric 1s infinite;
+}
+
+.brutal-social-link:hover {
+  animation: glitch 0.3s ease-in-out;
+}
+
+.brutal-nav-link:hover {
+  animation: text-glow 0.5s ease-in-out;
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 

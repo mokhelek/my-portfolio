@@ -26,19 +26,169 @@
         <link rel="stylesheet" href="{% static 'css/highlight.css' %}" />
 
         <style>
-            #media-icons a {
-                color: #fcf18b !important;
+            /* BRUTAL NAVIGATION STYLES */
+            .brutal-navbar {
+                background: var(--brutal-bg-dark);
+                border-bottom: 4px solid var(--brutal-electric);
+                box-shadow: 0 4px 0 var(--brutal-warning);
+                position: fixed;
+                top: 0;
+                width: 100%;
+                z-index: 1000;
+                padding: 1rem 0;
             }
 
-            .navbar {
-                background-color: #1a2c2f23;
-
-                backdrop-filter: blur(20px);
-                -webkit-backdrop-filter: blur(10px);
-                border-bottom: 1px rgba(128, 128, 128, 0.468) solid;
+            .brutal-navbar-brand {
+                font-family: "JetBrains Mono", monospace;
+                font-weight: 700;
+                color: var(--brutal-electric);
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                text-decoration: none !important;
             }
-            #nav-menu {
-                background-color: #16282b00;
+
+            .brutal-social-logo {
+                gap: 0.5rem;
+            }
+
+            .brutal-logo-icon {
+                padding: 0.5rem;
+                border: 2px solid transparent;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+                color: var(--brutal-electric) !important;
+            }
+
+            .brutal-logo-icon:hover {
+                border-color: var(--brutal-electric);
+                background: rgba(255, 236, 66, 0.1);
+                transform: translateY(-2px);
+                color: var(--brutal-warning) !important;
+            }
+
+            .brutal-logo-icon svg {
+                display: block;
+            }
+
+            .brutal-nav-link {
+                font-family: "Space Grotesk", sans-serif;
+                font-weight: 600;
+                color: var(--brutal-text-primary) !important;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                padding: 0.8rem 1.5rem !important;
+                border: 2px solid transparent;
+                transition: all 0.2s ease;
+                position: relative;
+                text-decoration: none !important;
+            }
+
+            .brutal-nav-link:hover {
+                color: var(--brutal-black) !important;
+                background: var(--brutal-electric);
+                border-color: var(--brutal-electric);
+                transform: translate(-2px, -2px);
+                box-shadow: 4px 4px 0 var(--brutal-warning);
+            }
+
+            .brutal-nav-indicator {
+                display: inline-block;
+                width: 8px;
+                height: 8px;
+                background: var(--brutal-electric);
+                margin-right: 0.5rem;
+                clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            }
+
+            .brutal-social-link {
+                color: var(--brutal-electric) !important;
+                font-size: 1.2rem;
+                padding: 0.5rem;
+                border: 2px solid transparent;
+                transition: all 0.2s ease;
+                margin: 0 0.2rem;
+            }
+
+            .brutal-social-link:hover {
+                color: var(--brutal-black) !important;
+                background: var(--brutal-electric);
+                border-color: var(--brutal-electric);
+                transform: translate(-2px, -2px);
+                box-shadow: 4px 4px 0 var(--brutal-warning);
+            }
+
+            /* MOBILE MENU BRUTAL STYLING */
+            .brutal-mobile-menu {
+                background: var(--brutal-bg-dark);
+                border-right: 4px solid var(--brutal-electric);
+                box-shadow: 4px 0 0 var(--brutal-warning);
+            }
+
+            .brutal-mobile-header {
+                background: var(--brutal-bg-medium);
+                border-bottom: 3px solid var(--brutal-electric);
+                padding: 1.5rem;
+            }
+
+            .brutal-mobile-body {
+                background: var(--brutal-bg-dark);
+                padding: 2rem;
+            }
+
+            .brutal-mobile-nav-item {
+                margin: 1rem 0;
+                padding: 1rem;
+                border: 2px solid var(--brutal-border);
+                background: var(--brutal-bg-medium);
+                transition: all 0.2s ease;
+            }
+
+            .brutal-mobile-nav-item:hover {
+                border-color: var(--brutal-electric);
+                background: var(--brutal-bg-dark);
+                transform: translate(-3px, -3px);
+                box-shadow: 6px 6px 0 var(--brutal-electric);
+            }
+
+            .brutal-mobile-nav-link {
+                color: var(--brutal-text-primary) !important;
+                font-family: "Space Grotesk", sans-serif;
+                font-weight: 600;
+                text-transform: uppercase;
+                text-decoration: none !important;
+                display: block;
+            }
+
+            .brutal-mobile-description {
+                color: var(--brutal-text-secondary);
+                font-family: "JetBrains Mono", monospace;
+                font-size: 0.8rem;
+                margin-top: 0.5rem;
+            }
+
+            .brutal-cta-btn {
+                background: var(--brutal-electric);
+                color: var(--brutal-black) !important;
+                border: 3px solid var(--brutal-electric);
+                padding: 1rem 2rem;
+                font-family: "Space Grotesk", sans-serif;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                box-shadow: 6px 6px 0 var(--brutal-warning);
+                transition: all 0.2s ease;
+                text-decoration: none !important;
+            }
+
+            .brutal-cta-btn:hover {
+                transform: translate(-3px, -3px);
+                box-shadow: 9px 9px 0 var(--brutal-warning);
+                background: var(--brutal-warning);
+                border-color: var(--brutal-warning);
+            }
+
+            body {
+                padding-top: 80px;
             }
         </style>
 
@@ -48,91 +198,59 @@
 
 
 
-    <nav class="navbar navbar-expand-lg fixed-top" style="height: 75px">
-        <div></div>
-        <div class="container" style="width: 100%">
-            <button style="box-shadow: none" class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-                <svg style="color: #feee5b" width="45px" height="45px" viewBox="0 0 24 24" fill="#feee5b" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5 8H13.75M5 12H19M10.25 16L19 16" stroke="#feee5b" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-            </button>
+    <!-- BRUTAL NAVIGATION -->
+    <nav class="brutal-navbar">
+        <div class="container d-flex justify-content-between align-items-center">
+            <!-- Social Links Logo (Left Side) -->
+            <div class="d-flex align-items-center">
+                <!-- Mobile Menu Toggle -->
+                <button class="d-lg-none brutal-social-link me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#brutalOffcanvas" aria-controls="brutalOffcanvas" style="border: none; background: none;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <rect y="4" width="24" height="3"/>
+                        <rect y="11" width="24" height="3"/>
+                        <rect y="18" width="24" height="3"/>
+                    </svg>
+                </button>
 
-            <div class="navbar-brand" id="media-icons" style="display: flex">
-                <a style="margin-right: 1rem" href="https://github.com/mokhelek">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
-                        <path
-                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
-                        />
-                    </svg>
-                </a>
-                <a style="margin-right: 1rem" href="https://twitter.com/Mokhele_k">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
-                        <path
-                            d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"
-                        />
-                    </svg>
-                </a>
-                <a href="https://www.linkedin.com/in/mokhele-katleho">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
-                        <path
-                            d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"
-                        />
-                    </svg>
-                </a>
+                <!-- Social Links as Logo -->
+                <div class="d-flex align-items-center brutal-social-logo">
+                    <a href="https://github.com/mokhelek" class="brutal-social-link brutal-logo-icon" target="_blank" title="GitHub">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                        </svg>
+                    </a>
+                    <a href="https://twitter.com/Mokhele_k" class="brutal-social-link brutal-logo-icon" target="_blank" title="Twitter">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mokhele-katleho" class="brutal-social-link brutal-logo-icon" target="_blank" title="LinkedIn">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
 
-            <div id="nav-menu" class="d-none d-lg-block">
-                <div style="padding-left: 280px">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a style="color: white" class="nav-link" href="{% url 'main_app:homePage' %}#about">
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="currentColor" class="bi bi-square-fill text-warning" viewBox="0 0 16 16">
-                                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z"/>
-                                  </svg>
-                                </span>
-                                About </a>
-                        </li>
-                        &nbsp;&nbsp;&nbsp;
-                        <li class="nav-item">
-                            <a style="color: white" class="nav-link" href="{% url 'main_app:homePage' %}#skills">
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="currentColor" class="bi bi-square-fill text-warning" viewBox="0 0 16 16">
-                                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z"/>
-                                  </svg>
-                                </span> Expertise</a>
-                        </li>
-                        &nbsp;&nbsp;&nbsp;
-                        <li class="nav-item">
-                            <a style="color: white" class="nav-link" href="{% url 'main_app:homePage' %}#project">
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="currentColor" class="bi bi-square-fill text-warning" viewBox="0 0 16 16">
-                                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z"/>
-                                  </svg>
-                                </span>
-                                Projects</a>
-                        </li>
-                        &nbsp;&nbsp;&nbsp;
-                        <li class="nav-item">
-                            <a style="color: white" class="nav-link" href="{% url 'main_app:homePage' %}#blog">
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="currentColor" class="bi bi-square-fill text-warning" viewBox="0 0 16 16">
-                                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z"/>
-                                  </svg>
-                                </span> Blog
-                            </a>
-                        </li>
-                        &nbsp;&nbsp;&nbsp;
-                        <li class="nav-item">
-                            <a style="color: white" class="nav-link" href="{% url 'main_app:homePage' %}#contact">
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="currentColor" class="bi bi-square-fill text-warning" viewBox="0 0 16 16">
-                                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z"/>
-                                  </svg>
-                                </span> Contact</a>
-                        </li>
-                    </ul>
-                </div>
+            <!-- Desktop Navigation -->
+            <div class="d-none d-lg-flex align-items-center">
+                <nav class="d-flex align-items-center">
+                    <a href="{% url 'main_app:homePage' %}#about" class="brutal-nav-link">
+                        <span class="brutal-nav-indicator"></span>About
+                    </a>
+                    <a href="{% url 'main_app:homePage' %}#skills" class="brutal-nav-link">
+                        <span class="brutal-nav-indicator"></span>Skills
+                    </a>
+                    <a href="{% url 'main_app:homePage' %}#project" class="brutal-nav-link">
+                        <span class="brutal-nav-indicator"></span>Work
+                    </a>
+                    <a href="{% url 'main_app:homePage' %}#blog" class="brutal-nav-link">
+                        <span class="brutal-nav-indicator"></span>Blog
+                    </a>
+                    <a href="{% url 'main_app:homePage' %}#contact" class="brutal-nav-link">
+                        <span class="brutal-nav-indicator"></span>Contact
+                    </a>
+                </nav>
             </div>
         </div>
     </nav>
@@ -159,64 +277,76 @@
         }
     </script>
     
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-        <div style="background-color: #1f3538;height: 60px;" class="offcanvas-header">
-         
+    <!-- BRUTAL MOBILE MENU -->
+    <div class="offcanvas offcanvas-start brutal-mobile-menu" tabindex="-1" id="brutalOffcanvas" aria-labelledby="brutalOffcanvasLabel">
+        <div class="brutal-mobile-header">
+            <div class="d-flex justify-content-between align-items-center">
+                <h5 class="brutal-navbar-brand mb-0" id="brutalOffcanvasLabel">&lt;menu /&gt;</h5>
+                <button type="button" class="brutal-social-link" data-bs-dismiss="offcanvas" aria-label="Close" style="border: none; background: none;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
 
-            <div id="media-icons" class="offcanvas-title d-flex" id="offcanvasExampleLabel">
-                <a style="margin-right: 1rem" href="https://github.com/mokhelek">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
-                        <path
-                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
-                        />
-                    </svg>
-                </a>
-                <a style="margin-right: 1rem" href="https://twitter.com/Mokhele_k">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
-                        <path
-                            d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"
-                        />
-                    </svg>
-                </a>
-                <a href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
-                        <path
-                            d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"
-                        />
-                    </svg>
+        <div class="brutal-mobile-body">
+            <div data-bs-dismiss="offcanvas">
+                <div class="brutal-mobile-nav-item">
+                    <a href="{% url 'main_app:homePage' %}#about" class="brutal-mobile-nav-link">
+                        About
+                        <div class="brutal-mobile-description">who is Katleho?</div>
+                    </a>
+                </div>
+                <div class="brutal-mobile-nav-item">
+                    <a href="{% url 'main_app:homePage' %}#skills" class="brutal-mobile-nav-link">
+                        Skills
+                        <div class="brutal-mobile-description">what can he do?</div>
+                    </a>
+                </div>
+                <div class="brutal-mobile-nav-item">
+                    <a href="{% url 'main_app:homePage' %}#project" class="brutal-mobile-nav-link">
+                        Projects
+                        <div class="brutal-mobile-description">what has he built?</div>
+                    </a>
+                </div>
+                <div class="brutal-mobile-nav-item">
+                    <a href="{% url 'main_app:homePage' %}#blog" class="brutal-mobile-nav-link">
+                        Blog
+                        <div class="brutal-mobile-description">read his thoughts</div>
+                    </a>
+                </div>
+                <div class="brutal-mobile-nav-item">
+                    <a href="{% url 'main_app:homePage' %}#contact" class="brutal-mobile-nav-link">
+                        Contact
+                        <div class="brutal-mobile-description">let's connect</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <a href="{% url 'main_app:homePage' %}#contact" class="brutal-cta-btn" data-bs-dismiss="offcanvas">
+                    Let's Work Together
                 </a>
             </div>
 
-            <button type="button" class="btn text-reset" data-bs-dismiss="offcanvas" aria-label="Close">
-                <img height="40" width="40" src="{% static 'images/icons8-close-80.png' %}" alt="">
-            </button>
-        </div>
-
-        <div style="background-color: #142224" class="offcanvas-body d-flex justify-content-center align-items-center">
-            <div style="padding: 2rem; border: 2px rgb(68, 105, 88) dashed">
-                <ul data-bs-dismiss="offcanvas" >
-                    <li class="nav-item">
-                        <a onclick="delayNavigation('/#about')" style="color: white" class="nav-link" > About <span style="color: rgb(176, 176, 176); font-size: 0.8rem"> ________ who is Katleho? </span> </a>
-                    </li>
-                    <li class="nav-item">
-                        <a onclick="delayNavigation('/#skills')" style="color: white" class="nav-link" > Skills <span style="color: rgb(176, 176, 176); font-size: 0.8rem"> ________ What can he do?</span> </a>
-                    </li>
-                    <li class="nav-item">
-                        <a onclick="delayNavigation('/#project')" style="color: white" class="nav-link" > Projects <span style="color: rgb(176, 176, 176); font-size: 0.8rem">________ What has he done?</span> </a>
-                    </li>
-                    <li class="nav-item">
-                        <a onclick="delayNavigation('/#blog')" style="color: white" class="nav-link" > Blog <span style="color: rgb(176, 176, 176); font-size: 0.8rem">________ Check his writings?</span> </a>
-                    </li>
-                    <li class="nav-item">
-                        <a onclick="delayNavigation('/#contact')" style="color: white" class="nav-link"> Contact <span style="color: rgb(176, 176, 176); font-size: 0.8rem">________ Want to connect?</span> </a>
-                    </li>
-                </ul>
-                <br />
-                <br />
-                <br />
-                <center>
-                    <a data-bs-dismiss="offcanvas" onclick="delayNavigation('/#contact')" class="btn btn-md" style="background-color: #fff278; color: #282828;border-radius: 0;">Let's Work</a>
-                </center>
+            <!-- Social Links in Mobile -->
+            <div class="d-flex justify-content-center mt-4">
+                <a href="https://github.com/mokhelek" class="brutal-social-link" target="_blank">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                    </svg>
+                </a>
+                <a href="https://twitter.com/Mokhele_k" class="brutal-social-link" target="_blank">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/mokhele-katleho" class="brutal-social-link" target="_blank">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                    </svg>
+                </a>
             </div>
         </div>
     </div>
@@ -245,33 +375,36 @@
             hljs.highlightAll();
 
             hljs.configure({
-                languages: ["python", "javascript", "html", "css"],
+                languages: ["python", "javascript", "html", "css"]
             });
 
-            var toolbarOptions = [
-                ["bold", "italic", "underline", "strike"], // toggled buttons
-                ["blockquote", "code-block"], // blocks
-                [{ header: 1 }, { header: 2 }], // custom button values
-                [{ list: "ordered" }, { list: "bullet" }], // lists
-                [{ script: "sub" }, { script: "super" }], // superscript/subscript
-                [{ indent: "-1" }, { indent: "+1" }], // indent/outdent
-                [{ direction: "rtl" }], // text direction
-                [{ size: ["small", false, "large", "huge"] }], // custom dropdown
-                [{ header: [1, 2, 3, 4, 5, 6, false] }], // header dropdown
-                [{ color: [] }, { background: ["white"] }], // dropdown with defaults from theme
-                [{ font: [] }],
-                [{ align: [] }],
-                ["clean"], // remove formatting button
-            ];
-            var quill = new Quill("#editor-container", {
-                modules: {
-                    syntax: {
-                        highlight: (text) => hljs.highlightAuto(text).value,
+            // Only initialize Quill if the editor container exists
+            if (document.getElementById("editor-container")) {
+                var toolbarOptions = [
+                    ["bold", "italic", "underline", "strike"], // toggled buttons
+                    ["blockquote", "code-block"], // blocks
+                    [{ header: 1 }, { header: 2 }], // custom button values
+                    [{ list: "ordered" }, { list: "bullet" }], // lists
+                    [{ script: "sub" }, { script: "super" }], // superscript/subscript
+                    [{ indent: "-1" }, { indent: "+1" }], // indent/outdent
+                    [{ direction: "rtl" }], // text direction
+                    [{ size: ["small", false, "large", "huge"] }], // custom dropdown
+                    [{ header: [1, 2, 3, 4, 5, 6, false] }], // header dropdown
+                    [{ color: [] }, { background: ["white"] }], // dropdown with defaults from theme
+                    [{ font: [] }],
+                    [{ align: [] }],
+                    ["clean"] // remove formatting button
+                ];
+                var quill = new Quill("#editor-container", {
+                    modules: {
+                        syntax: {
+                            highlight: (text) => hljs.highlightAuto(text).value
+                        },
+                        toolbar: [["code-block"]]
                     },
-                    toolbar: [["code-block"]],
-                },
-                theme: "bubble",
-            });
+                    theme: "bubble"
+                });
+            }
         </script>
 
         
