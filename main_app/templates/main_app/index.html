@@ -284,6 +284,18 @@
     text-shadow: none;
   }
 
+  /* Larger outline variant for emphasis */
+  .brutal-skill-watermark.brutal-outline.brutal-big {
+    font-size: clamp(6rem, 16vw, 20rem);
+    -webkit-text-stroke: 4px var(--brutal-electric);
+    opacity: 0.06;
+  }
+
+  /* Disable float/rotation for a specific watermark */
+  .brutal-skill-watermark.brutal-static {
+    animation: none;
+  }
+
   .brutal-skills-pattern-bg {
     position: absolute;
     top: 0;
@@ -302,6 +314,14 @@
   .brutal-skill-1 { top: 8%; left: -5%; transform: rotate(-15deg); animation-delay: 0s; }
   .brutal-skill-2 { top: 35%; right: -8%; transform: rotate(12deg); animation-delay: 7s; }
   .brutal-skill-3 { bottom: 20%; left: 15%; transform: rotate(-8deg); animation-delay: 14s; }
+  /* New bottom watermark placement - horizontal at bottom edge */
+  .brutal-skill-4 {
+    bottom: 1rem; /* tuck slightly below so visible edge is flush */
+    left: 50%;
+    transform: translateX(-50%);
+    line-height: 0.85;
+    animation-delay: 0s;
+  }
 
   /* CONTACT SECTION WATERMARKS */
   .brutal-contact-watermarks {
@@ -1327,7 +1347,9 @@
   <div class="brutal-skills-watermarks">
     <div class="brutal-skill-watermark brutal-skill-1">CODE</div>
     <div class="brutal-skill-watermark brutal-skill-2 brutal-outline">TECH</div>
-    <div class="brutal-skill-watermark brutal-skill-3">STACK</div>
+    <!-- <div class="brutal-skill-watermark brutal-skill-3">STACK</div> -->
+    <div class="brutal-skill-watermark brutal-skill-4 brutal-outline brutal-medium brutal-static">EXPERTISE</div>
+    <br>
     <div class="brutal-skills-pattern-bg"></div>
   </div>
 
