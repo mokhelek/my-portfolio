@@ -359,6 +359,110 @@
                 position: relative;
             }
 
+            /* NEW: BRUTAL COMPACT LOGO */
+            .brutal-logo {
+                position: relative;
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                padding: 0.4rem 0.8rem;
+                text-decoration: none !important;
+                border: 3px solid var(--brutal-electric);
+                background: var(--brutal-bg-dark);
+                color: var(--brutal-electric);
+                box-shadow: 6px 6px 0 var(--brutal-warning);
+                clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+                overflow: hidden;
+                isolation: isolate;
+                transition: all 0.2s ease;
+            }
+
+            .brutal-logo::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: repeating-linear-gradient(90deg, transparent 0 8px, rgba(255,236,66,0.08) 8px 10px, transparent 10px 18px);
+                mix-blend-mode: lighten;
+                opacity: .5;
+                pointer-events: none;
+                transform: translateX(-15%);
+            }
+
+            .brutal-logo::after {
+                content: '';
+                position: absolute;
+                top: -2px; right: -2px;
+                width: 12px; height: 12px;
+                background: var(--brutal-electric);
+                clip-path: polygon(0 0, 100% 0, 100% 100%);
+                transition: background 0.2s ease;
+            }
+
+            .brutal-logo-badge {
+                position: absolute;
+                top: -8px; left: 6px;
+                padding: 1px 4px;
+                font-family: "JetBrains Mono", monospace;
+                font-size: .5rem;
+                font-weight: 900;
+                color: var(--brutal-black);
+                background: var(--brutal-warning);
+                border: 1.5px solid var(--brutal-black);
+                letter-spacing: .1em;
+                clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+            }
+
+            .brutal-logo-text {
+                font-family: "JetBrains Mono", monospace;
+                font-weight: 900;
+                font-size: 1.1rem;
+                letter-spacing: .15em;
+                line-height: 1;
+                color: var(--brutal-electric);
+                text-shadow: 1px 1px 0 var(--brutal-black);
+            }
+
+            .brutal-logo-separator {
+                width: 2px;
+                height: 1.2rem;
+                background: var(--brutal-electric);
+                clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+            }
+
+            .brutal-logo-sub {
+                font-family: "JetBrains Mono", monospace;
+                font-size: .65rem;
+                font-weight: 700;
+                color: var(--brutal-text-primary);
+                text-transform: uppercase;
+                letter-spacing: .2em;
+            }
+
+            .brutal-logo:hover {
+                background: var(--brutal-bg-medium);
+                border-color: var(--brutal-warning);
+                transform: translate(-2px, -2px);
+                box-shadow: 8px 8px 0 var(--brutal-electric);
+            }
+
+            .brutal-logo:hover::after {
+                background: var(--brutal-warning);
+            }
+
+            .brutal-logo:hover .brutal-logo-text {
+                color: var(--brutal-warning);
+                text-shadow: 1px 1px 0 var(--brutal-electric);
+            }
+
+            @media (max-width: 768px) {
+                .brutal-logo {
+                    padding: 0.3rem 0.6rem;
+                    box-shadow: 4px 4px 0 var(--brutal-warning);
+                }
+                .brutal-logo-text { font-size: 1rem; }
+                .brutal-logo-sub { font-size: .6rem; }
+                .brutal-logo-badge { top: -6px; font-size: .45rem; }
+            }
             .brutal-brand-mark {
                 display: inline-flex;
                 align-items: center;
@@ -530,10 +634,10 @@
                 </button>
                     <!-- Brutalist Brand + Micro Icons -->
                     <div class="brutal-brand">
-                        <a href="{% url 'main_app:homePage' %}#brutal-hero" class="brutal-brand-mark" aria-label="Home">
-                            <span class="brutal-brand-initials">MK</span>
-                            <span class="brutal-brand-pipe"></span>
-                            <span class="brutal-brand-text">portfolio</span>
+                        <a href="{% url 'main_app:homePage' %}#brutal-hero" class="brutal-logo" aria-label="Home">
+                            <span class="brutal-logo-badge">DEV</span>
+                            <span class="brutal-logo-text">MK</span>
+                            <span class="brutal-logo-sub">PORTFOLIO</span>
                         </a>
                         <div class="brutal-brand-icons d-none d-md-grid">
                             <a href="https://github.com/mokhelek" class="brutal-brand-icon" target="_blank" title="GitHub" aria-label="GitHub">

@@ -121,37 +121,7 @@
     clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
   }
 
-  /* Vertical Rail */
-  .brutal-project-rail {
-    position: absolute;
-    left: -14px;
-    top: -14px;
-    bottom: -14px;
-    width: 46px;
-    background: var(--brutal-bg-dark);
-    border: 3px solid var(--brutal-electric);
-    box-shadow: 6px 6px 0 var(--brutal-primary);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.4rem;
-    pointer-events: none;
-  }
-  .brutal-rail-index {
-    font-family: "Space Grotesk", sans-serif;
-    font-weight: 900;
-    font-size: 1rem;
-    color: var(--brutal-electric);
-  }
-  .brutal-rail-label {
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.7rem;
-    color: var(--brutal-text-secondary);
-    letter-spacing: 0.08em;
-  }
+
 
   /* Alternate accents */
   .brutal-project-card:nth-child(2n) {
@@ -205,28 +175,348 @@
 
   /* Watermark */
   .brutal-project-body { position: relative; padding-top: 0.25rem; }
-  .brutal-project-watermark { position: absolute; inset: 0 auto auto 0; pointer-events: none; }
-  .brutal-project-watermark .wm-line {
-    display: block;
-    line-height: 0.85;
-    text-transform: uppercase;
+
+  /* =================== BACKGROUND DIMMING =================== */
+  
+  body {
+    background: linear-gradient(135deg, #060606 0%, #0d0d0d 100%) !important;
+  }
+  
+  /* =================== COOL WATERMARKS =================== */
+
+  /* PROJECTS SECTION WATERMARKS */
+  .brutal-projects-watermarks {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .brutal-mega-watermark {
+    position: absolute;
     font-family: "Space Grotesk", sans-serif;
     font-weight: 900;
+    font-size: clamp(3rem, 8vw, 12rem);
+    color: var(--brutal-electric);
+    opacity: 0.04;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    user-select: none;
+    animation: brutalPulseWatermark 18s ease-in-out infinite;
+    text-shadow: 2px 2px 0 var(--brutal-black);
+  }
+
+  .brutal-mega-watermark.brutal-outline {
     color: transparent;
-    -webkit-text-stroke: 2px var(--brutal-electric);
-    opacity: 0.12;
-    white-space: nowrap;
+    -webkit-text-stroke: 2px var(--brutal-warning);
+    opacity: 0.09;
+    text-shadow: none;
   }
-  .wm-index { font-size: clamp(2.8rem, 7vw, 3.6rem); }
-  .wm-glyph { font-size: clamp(2.2rem, 6vw, 3rem); margin-left: 0.25rem; }
-  .brutal-project-card:nth-child(odd) .brutal-project-watermark { transform: rotate(-6deg) translate(-8px, -8px); }
-  .brutal-project-card:nth-child(even) .brutal-project-watermark { transform: rotate(6deg) translate(-8px, -8px); }
-  @supports not (-webkit-text-stroke: 1px black) {
-    .brutal-project-watermark .wm-line { color: rgba(255,255,255,0.06); }
+
+  .brutal-mega-watermark.brutal-large {
+    font-size: clamp(4rem, 12vw, 16rem);
+    opacity: 0.06;
+    font-weight: 800;
   }
+
+  .brutal-mega-watermark.brutal-xlarge {
+    font-size: clamp(5rem, 14vw, 18rem);
+    opacity: 0.07;
+    font-weight: 900;
+  }
+
+  .brutal-pattern-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(circle at 20% 30%, var(--brutal-electric) 1px, transparent 1px),
+      radial-gradient(circle at 80% 70%, var(--brutal-warning) 1px, transparent 1px),
+      radial-gradient(circle at 40% 80%, var(--brutal-primary) 1px, transparent 1px);
+    background-size: 100px 100px, 120px 120px, 80px 80px;
+    opacity: 0.02;
+    animation: brutalPatternMove 30s linear infinite;
+  }
+
+  .brutal-mega-2 { top: 12%; right: -5%; transform: rotate(88deg); animation-delay: 4s; }
+  .brutal-mega-3 { top: 35%; left: -12%; transform: rotate(-62deg); animation-delay: 8s; }
+  .brutal-mega-4 { bottom: 25%; right: 20%; transform: rotate(92deg); animation-delay: 12s; }
+  .brutal-mega-5 { bottom: -3%; left: 40%; transform: rotate(-68deg); animation-delay: 2s; }
+  .brutal-mega-6 { top: 55%; right: -8%; transform: rotate(45deg); animation-delay: 6s; }
+  .brutal-mega-8 { top: -3%; left: -5%; transform: rotate(0deg); animation-delay: 1s; }
+
+  /* SKILLS SECTION WATERMARKS */
+  .brutal-skills-watermarks {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .brutal-skill-watermark {
+    position: absolute;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 900;
+    font-size: clamp(5rem, 12vw, 16rem);
+    color: var(--brutal-warning);
+    opacity: 0.05;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    user-select: none;
+    animation: brutalSkillFloat 20s ease-in-out infinite;
+    text-shadow: 2px 2px 0 var(--brutal-black);
+  }
+
+  .brutal-skill-watermark.brutal-outline {
+    color: transparent;
+    -webkit-text-stroke: 3px var(--brutal-electric);
+    opacity: 0.06;
+    text-shadow: none;
+  }
+
+  .brutal-skills-pattern-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(circle at 25% 25%, var(--brutal-electric) 1px, transparent 1px),
+      radial-gradient(circle at 75% 75%, var(--brutal-warning) 1px, transparent 1px),
+      radial-gradient(circle at 50% 90%, var(--brutal-primary) 1px, transparent 1px);
+    background-size: 90px 90px, 110px 110px, 70px 70px;
+    opacity: 0.015;
+    animation: brutalPatternMove 25s linear infinite;
+  }
+
+  .brutal-skill-1 { top: 8%; left: -5%; transform: rotate(-15deg); animation-delay: 0s; }
+  .brutal-skill-2 { top: 35%; right: -8%; transform: rotate(12deg); animation-delay: 7s; }
+  .brutal-skill-3 { bottom: 20%; left: 15%; transform: rotate(-8deg); animation-delay: 14s; }
+
+  /* CONTACT SECTION WATERMARKS */
+  .brutal-contact-watermarks {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .brutal-collab-watermark {
+    position: absolute;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 900;
+    font-size: clamp(4rem, 10vw, 12rem);
+    color: var(--brutal-primary);
+    opacity: 0.05;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    user-select: none;
+    animation: brutalCollabFloat 18s ease-in-out infinite;
+    text-shadow: 2px 2px 0 var(--brutal-black);
+  }
+
+  .brutal-collab-watermark.brutal-outline {
+    color: transparent;
+    -webkit-text-stroke: 2px var(--brutal-warning);
+    text-stroke: 2px var(--brutal-warning);
+    opacity: 0.07;
+    text-shadow: none;
+  }
+
+  .brutal-collab-1 { top: 10%; left: 5%; transform: rotate(-25deg); animation-delay: 0s; }
+  .brutal-collab-2 { top: 40%; right: 10%; transform: rotate(20deg); animation-delay: 6s; }
+  .brutal-collab-3 { bottom: 15%; left: 30%; transform: rotate(-15deg); animation-delay: 12s; }
+
+  /* WATERMARK ANIMATIONS */
+
+  @keyframes brutalPulseWatermark {
+    0%, 100% { opacity: 0.06; transform: scale(1); }
+    50% { opacity: 0.04; transform: scale(1.05); }
+  }
+
+  @keyframes brutalPatternMove {
+    0% { background-position: 0px 0px, 0px 0px, 0px 0px; }
+    100% { background-position: 100px 100px, -120px 120px, 80px -80px; }
+  }
+
+  @keyframes brutalCollabFloat {
+    0%, 100% { transform: rotate(-25deg) translateY(0px); opacity: 0.03; }
+    50% { transform: rotate(-20deg) translateY(-15px); opacity: 0.05; }
+  }
+
+  @keyframes brutalSkillFloat {
+    0%, 100% { transform: rotate(-15deg) translateY(0px); opacity: 0.04; }
+    50% { transform: rotate(-10deg) translateY(-12px); opacity: 0.06; }
+  }
+
+
+
+  /* RESPONSIVE WATERMARKS */
   @media (max-width: 768px) {
-    .brutal-project-rail { display: none; }
-    .brutal-project-watermark { display: none; }
+    .brutal-mega-watermark { opacity: 0.02; }
+    .brutal-collab-watermark { opacity: 0.015; }
+    .brutal-skill-watermark { opacity: 0.02; }
+    .brutal-pattern-bg { opacity: 0.01; }
+    .brutal-skills-pattern-bg { opacity: 0.008; }
+  }
+
+  /* =================== UI/UX ENHANCEMENTS =================== */
+  
+  /* Enhanced Button Hover Effects */
+  .brutal-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .brutal-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, var(--brutal-electric) 0%, transparent 70%);
+    transition: all 0.6s ease;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: -1;
+  }
+
+  .brutal-btn:hover::before {
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Enhanced Card Hover Effects */
+  .brutal-project-card {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-origin: center;
+  }
+
+  .brutal-project-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 15px 15px 0 var(--brutal-warning), 
+                0 20px 40px rgba(0, 255, 65, 0.1);
+  }
+
+  /* Enhanced Skill Block Interactions */
+  .brutal-skill-block {
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .brutal-skill-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .brutal-skill-block:hover .brutal-block-title {
+    color: var(--brutal-electric);
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+  }
+
+  /* Smooth Scroll Enhancement */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Enhanced Section Transitions */
+  section {
+    transition: all 0.6s ease-in-out;
+  }
+
+  /* Improved Text Selection */
+  ::selection {
+    background: var(--brutal-electric);
+    color: var(--brutal-black);
+    text-shadow: none;
+  }
+
+  ::-moz-selection {
+    background: var(--brutal-electric);
+    color: var(--brutal-black);
+    text-shadow: none;
+  }
+
+  /* Enhanced Loading States */
+  .brutal-loading {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+  }
+
+  .brutal-loading.loaded {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Parallax Enhancement for Hero */
+  .brutal-hero-section {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  /* Enhanced Focus States for Accessibility */
+  .brutal-btn:focus,
+  .brutal-project-card:focus {
+    outline: 3px solid var(--brutal-electric);
+    outline-offset: 2px;
+  }
+
+  /* Enhanced Sticker Interactions */
+  .brutal-sticker-enhanced {
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    cursor: pointer;
+    transform-origin: center;
+  }
+
+  .brutal-sticker-enhanced:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+  }
+
+  .brutal-sticker-enhanced:active {
+    transform: scale(0.95) rotate(-2deg);
+  }
+
+  /* Improved Mobile Touch Targets */
+  @media (max-width: 768px) {
+    .brutal-btn {
+      min-height: 48px;
+      min-width: 48px;
+    }
+    
+    .brutal-skill-block:hover {
+      transform: none; /* Disable hover effects on mobile */
+    }
+    
+    .brutal-sticker-enhanced:hover {
+      transform: scale(1.05) rotate(2deg); /* Reduced effect for mobile */
+    }
+  }
+
+
+
+  @media (max-width: 768px) {
+    /* Mobile adjustments */
   }
 
   .brutal-contact-section::before {
@@ -238,6 +528,43 @@
     height: 4px;
     background: linear-gradient(90deg, var(--brutal-electric), var(--brutal-warning), var(--brutal-electric));
   }
+
+  /* NEW: availability marquee + copy chip */
+  .brutal-availability {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 1rem;
+    padding: .75rem 1rem;
+    border: 3px dashed var(--brutal-electric);
+    background: rgba(255,236,66,.06);
+    margin-bottom: 1.25rem;
+  }
+  .availability-marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    font-family: "JetBrains Mono", monospace;
+    color: var(--brutal-electric);
+    font-weight: 800;
+    letter-spacing: .08em;
+  }
+  .availability-marquee span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scroll-left 12s linear infinite;
+  }
+  @keyframes scroll-left { from { transform: translateX(0); } to { transform: translateX(-100%); } }
+  .copy-chip {
+    display: inline-flex; align-items: center; gap: .5rem;
+    background: var(--brutal-bg-dark);
+    border: 2px solid var(--brutal-warning);
+    color: var(--brutal-warning);
+    padding: .45rem .7rem; border-radius: 8px; cursor: pointer;
+    box-shadow: 4px 4px 0 var(--brutal-electric);
+    user-select: none;
+  }
+  .copy-chip:hover { background: var(--brutal-warning); color: var(--brutal-black); }
 
   .brutal-section-header {
     text-align: center;
@@ -406,29 +733,65 @@
 
   .brutal-social-links {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
   }
 
   .brutal-social-item {
-    display: flex;
+    display: grid;
+    grid-template-columns: 42px 1fr auto;
     align-items: center;
-    gap: 0.75rem;
-    padding: 1rem;
+    gap: 0.85rem;
+    padding: 0.9rem 1rem;
     background: var(--brutal-bg-dark);
-    border: 2px solid transparent;
-    border-radius: 8px;
-    color: var(--brutal-text-secondary);
+    border: 3px solid var(--brutal-electric);
+    border-radius: 0;
+    color: var(--brutal-text-primary);
     text-decoration: none;
-    transition: all 0.3s ease;
-    font-weight: 500;
+    transition: transform .15s ease, box-shadow .15s ease, background .2s ease, color .2s ease, border-color .2s ease;
+    font-weight: 800;
+    position: relative;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+    box-shadow: 6px 6px 0 var(--brutal-warning);
   }
 
   .brutal-social-item:hover {
-    border-color: var(--brutal-electric);
-    background: rgba(255, 236, 66, 0.1);
-    color: var(--brutal-electric);
-    transform: translateY(-2px);
+    border-color: var(--brutal-warning);
+    background: var(--brutal-electric);
+    color: var(--brutal-black);
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px 0 var(--brutal-electric);
+  }
+
+  .brutal-social-item::after {
+    content: '';
+    position: absolute;
+    top: -3px; right: -3px;
+    width: 14px; height: 14px;
+    background: var(--brutal-electric);
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+    transition: background .2s ease;
+  }
+
+  .brutal-social-item:hover::after { background: var(--brutal-warning); }
+
+  .social-icon-wrap {
+    width: 42px; height: 42px;
+    display: grid; place-items: center;
+    background: var(--brutal-bg-medium);
+    border: 2px solid var(--brutal-electric);
+  }
+
+  .social-name { letter-spacing: .06em; }
+
+  .social-badge {
+    font-family: "JetBrains Mono", monospace;
+    font-size: .65rem;
+    color: var(--brutal-black);
+    background: var(--brutal-warning);
+    border: 2px solid var(--brutal-black);
+    padding: .15rem .4rem;
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
   }
 
   /* Contact Form Styles */
@@ -592,6 +955,230 @@
       grid-template-columns: 1fr;
     }
   }
+
+  /* BRUTALIST SECTION DECORATIONS */
+  .brutal-section-decoration {
+    position: absolute;
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  .brutal-left-decoration {
+    left: 2rem;
+    top: 8rem;
+    transform: none;
+  }
+
+  .brutal-right-decoration {
+    right: 2rem;
+    top: 8rem;
+    transform: none;
+  }
+
+  /* Section positioning for decorations */
+  .brutal-skills-section,
+  .brutal-projects-section,
+  .brutal-contact-section {
+    position: relative;
+  }
+
+
+
+  .brutal-floating-shape {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
+  }
+
+  .brutal-code-block {
+    background: var(--brutal-bg-dark);
+    border: 2px solid var(--brutal-electric);
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 4px 4px 0 var(--brutal-warning);
+    transform: rotate(3deg);
+  }
+
+  .brutal-code-header {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .brutal-code-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--brutal-warning);
+  }
+
+  .brutal-code-content {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    color: var(--brutal-electric);
+  }
+
+  .brutal-code-line {
+    display: block;
+    line-height: 1.4;
+  }
+
+  .brutal-arrow-indicator {
+    animation: pulse 2s ease-in-out infinite;
+    transform: rotate(-2deg);
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+
+
+
+
+
+  /* Contact Section Decorations */
+  .brutal-email-stamp {
+    margin-bottom: 2rem;
+  }
+
+  .brutal-stamp-border {
+    background: var(--brutal-electric);
+    color: var(--brutal-black);
+    padding: 0.75rem;
+    border: 3px solid var(--brutal-black);
+    text-align: center;
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 900;
+    font-size: 0.8rem;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+    box-shadow: 5px 5px 0 var(--brutal-warning);
+  }
+
+  .brutal-stamp-icon {
+    font-size: 1.2rem;
+    display: block;
+    margin-top: 0.25rem;
+  }
+
+  .brutal-connection-dots {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .brutal-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--brutal-electric);
+    border-radius: 50%;
+    animation: dotPulse 2s ease-in-out infinite;
+  }
+
+  .brutal-dot:nth-child(2) { animation-delay: 0.3s; }
+  .brutal-dot:nth-child(3) { animation-delay: 0.6s; }
+
+  @keyframes dotPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.7; }
+  }
+
+  .brutal-availability-clock {
+    background: var(--brutal-bg-dark);
+    border: 3px solid var(--brutal-warning);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    box-shadow: 5px 5px 0 var(--brutal-electric);
+  }
+
+  .brutal-clock-face {
+    width: 50px;
+    height: 50px;
+    border: 3px solid var(--brutal-warning);
+    border-radius: 50%;
+    margin: 0 auto 0.5rem;
+    position: relative;
+    background: var(--brutal-bg-secondary);
+  }
+
+  .brutal-clock-hand {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 20px;
+    background: var(--brutal-warning);
+    transform: translate(-50%, -50%) rotate(45deg);
+    transform-origin: bottom center;
+    animation: clockRotate 4s linear infinite;
+  }
+
+  @keyframes clockRotate {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+
+  .brutal-clock-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    background: var(--brutal-warning);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .brutal-clock-text {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    color: var(--brutal-warning);
+    font-weight: 600;
+  }
+
+  .brutal-location-pin {
+    background: var(--brutal-bg-dark);
+    border: 2px solid var(--brutal-electric);
+    padding: 0.75rem;
+    text-align: center;
+    box-shadow: 4px 4px 0 var(--brutal-warning);
+  }
+
+  .brutal-pin-icon {
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .brutal-pin-text {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    color: var(--brutal-electric);
+    font-weight: 600;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 1200px) {
+    .brutal-left-decoration {
+      left: 1rem;
+    }
+    .brutal-right-decoration {
+      right: 1rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .brutal-section-decoration {
+      display: none;
+    }
+  }
+
+
 </style>
 
 <!-- Brutalist Custom Cursor (page-level fallback) -->
@@ -681,11 +1268,11 @@
 <!-- BRUTAL ABOUT SECTION -->
 <section id="about" class="brutal-about-section">
   <div class="brutal-about-container">
-    <!-- Floating Hashtag Stickers -->
-    <span id="sticker-top" class="brutal-sticker brutal-sticker-electric">#opensource</span>
-    <span id="sticker-right" class="brutal-sticker brutal-sticker-warning">#fullstack</span>
-    <span id="sticker-bottom" class="brutal-sticker brutal-sticker-primary">#innovation</span>
-    <span id="sticker-left" class="brutal-sticker brutal-sticker-warning">#webdev</span>
+    <!-- Enhanced Floating Hashtag Stickers -->
+    <span id="sticker-top" class="brutal-sticker brutal-sticker-electric brutal-sticker-enhanced">#opensource</span>
+    <span id="sticker-right" class="brutal-sticker brutal-sticker-warning brutal-sticker-enhanced">#fullstack</span>
+    <span id="sticker-bottom" class="brutal-sticker brutal-sticker-primary brutal-sticker-enhanced">#innovation</span>
+    <span id="sticker-left" class="brutal-sticker brutal-sticker-warning brutal-sticker-enhanced">#webdev</span>
 
     <div class="brutal-about-content">
       <div class="brutal-about-header">
@@ -736,6 +1323,35 @@
 
 <!-- CLEAN SKILLS SECTION -->
 <section id="skills" class="brutal-skills-section">
+  <!-- Skills Section Watermarks -->
+  <div class="brutal-skills-watermarks">
+    <div class="brutal-skill-watermark brutal-skill-1">CODE</div>
+    <div class="brutal-skill-watermark brutal-skill-2 brutal-outline">TECH</div>
+    <div class="brutal-skill-watermark brutal-skill-3">STACK</div>
+    <div class="brutal-skills-pattern-bg"></div>
+  </div>
+
+  <!-- Right Brutalist Element -->
+  <div class="brutal-section-decoration brutal-right-decoration">
+    <div class="brutal-code-block brutal-code-right">
+      <div class="brutal-code-header">
+        <span class="brutal-code-dot"></span>
+        <span class="brutal-code-dot"></span>
+        <span class="brutal-code-dot"></span>
+      </div>
+      <div class="brutal-code-content">
+        <span class="brutal-code-line">const skills = [</span>
+        <span class="brutal-code-line">  'HTML', 'CSS', 'JS'</span>
+        <span class="brutal-code-line">];</span>
+      </div>
+    </div>
+    <div class="brutal-arrow-indicator brutal-arrow-right">
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+        <path d="M5 15h20M15 5l10 10-10 10" stroke="var(--brutal-warning)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+
   <div class="brutal-skills-container">
     <!-- Clean Header -->
     <div class="brutal-skills-header">
@@ -832,6 +1448,17 @@
 
 <!-- BRUTAL PROJECTS SECTION -->
 <section id="project" class="brutal-projects-section">
+  <!-- Epic Brutalist Watermarks -->
+  <div class="brutal-projects-watermarks">
+    <div class="brutal-mega-watermark brutal-mega-2 brutal-outline">BUILD</div>
+    <div class="brutal-mega-watermark brutal-mega-3 brutal-xlarge">CODE</div>
+    <div class="brutal-mega-watermark brutal-mega-4 brutal-outline">PIXEL</div>
+    <div class="brutal-mega-watermark brutal-mega-5 brutal-outline brutal-large">LAUNCH</div>
+    <div class="brutal-mega-watermark brutal-mega-6">DEV</div>
+    <div class="brutal-mega-watermark brutal-mega-8 brutal-xlarge brutal-outline">WORK</div>
+    <div class="brutal-pattern-bg"></div>
+  </div>
+
   <div class="brutal-projects-container">
     <!-- Clean, Focused Header -->
     <div class="brutal-projects-header">
@@ -848,10 +1475,6 @@
     <div class="brutal-projects-grid">
       {% for project in projects %}
       <article class="brutal-project-card" data-project="{{ forloop.counter }}">
-        <div class="brutal-project-rail">
-          <div class="brutal-rail-index">{{ forloop.counter|stringformat:"02d" }}</div>
-          <div class="brutal-rail-label">PROJECT</div>
-        </div>
         <!-- Media -->
         <a class="brutal-project-media" href="{{ project.live }}" target="_blank" aria-label="Open {{ project.title }} live">
           <img src="{{ project.thumbnail.url }}" alt="{{ project.title }}">
@@ -885,10 +1508,6 @@
           </div>
 
           <div class="brutal-project-desc">
-            <div class="brutal-project-watermark" aria-hidden="true">
-              <span class="wm-line wm-index">#{{ forloop.counter|stringformat:"02d" }}</span>
-              <span class="wm-line wm-glyph">{{ project.title|upper|slice:":12" }}</span>
-            </div>
             <div class="brutal-description-preview" id="desc-preview-{{project.id}}">
               <p>{{ project.description|safe|truncatechars:"120" }}</p>
             </div>
@@ -942,6 +1561,13 @@
 
 <!-- BRUTAL CONTACT SECTION -->
 <section class="brutal-contact-section" id="contact">
+  <!-- Collaborative Watermarks -->
+  <div class="brutal-contact-watermarks">
+    <div class="brutal-collab-watermark brutal-collab-1 brutal-outline">COLLAB</div>
+    <div class="brutal-collab-watermark brutal-collab-2">CREATE</div>
+    <div class="brutal-collab-watermark brutal-collab-3 brutal-outline">CONNECT</div>
+  </div>
+  
   <div class="container">
     <!-- Section Header -->
     <div class="brutal-section-header">
@@ -960,6 +1586,15 @@
       <!-- Contact Info -->
       <div class="brutal-contact-info">
         <div class="brutal-contact-card">
+          <div class="brutal-availability">
+            <div class="availability-marquee" aria-live="polite">
+              <span>AVAILABLE FOR FREELANCE • REMOTE-FRIENDLY • LET'S COLLAB • AVAILABLE FOR FREELANCE • REMOTE-FRIENDLY • LET'S COLLAB • </span>
+            </div>
+            <button class="copy-chip" type="button" onclick="copyEmail('mkatleho191@gmail.com')" aria-label="Copy email">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 1H4c-1.1 0-2 .9-2 2v12h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14h13c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+              <span id="copyChipText">COPY EMAIL</span>
+            </button>
+          </div>
           <div class="brutal-contact-header">
             <h3 class="brutal-contact-title">GET IN TOUCH</h3>
             <div class="brutal-contact-decoration"></div>
@@ -969,60 +1604,46 @@
             <p class="brutal-contact-text">
               Ready to turn your ideas into reality? Whether it's a new project, collaboration, or just a friendly chat about tech, I'm here to help.
             </p>
-            
-            <div class="brutal-contact-methods">
-              <div class="brutal-contact-method">
-                <div class="brutal-method-icon">
-                  <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                  </svg>
-                </div>
-                <div class="brutal-method-info">
-                  <span class="brutal-method-label">Email</span>
-                  <span class="brutal-method-value">mkatleho191@gmail.com</span>
-                </div>
-              </div>
-              
-              <div class="brutal-contact-method">
-                <div class="brutal-method-icon">
-                  <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-                  </svg>
-                </div>
-                <div class="brutal-method-info">
-                  <span class="brutal-method-label">Response Time</span>
-                  <span class="brutal-method-value">Within 24 hours</span>
-                </div>
-              </div>
-            </div>
 
             <!-- Social Links -->
             <div class="brutal-social-connect">
               <h4 class="brutal-social-title">CONNECT WITH ME</h4>
               <div class="brutal-social-links">
                 <a href="https://www.linkedin.com/in/mokhele-katleho" class="brutal-social-item" target="_blank">
-                  <svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
-                  </svg>
-                  <span>LinkedIn</span>
+                  <div class="social-icon-wrap">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                      <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                    </svg>
+                  </div>
+                  <span class="social-name">LinkedIn</span>
+                  <span class="social-badge">PRO</span>
                 </a>
                 <a href="https://twitter.com/Mokhele_k" class="brutal-social-item" target="_blank">
-                  <svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
-                  </svg>
-                  <span>Twitter</span>
+                  <div class="social-icon-wrap">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                      <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+                    </svg>
+                  </div>
+                  <span class="social-name">Twitter</span>
+                  <span class="social-badge">POST</span>
                 </a>
                 <a href="https://github.com/mokhelek" class="brutal-social-item" target="_blank">
-                  <svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-                  </svg>
-                  <span>GitHub</span>
+                  <div class="social-icon-wrap">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                      <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                    </svg>
+                  </div>
+                  <span class="social-name">GitHub</span>
+                  <span class="social-badge">CODE</span>
                 </a>
                 <a href="https://wa.me/27680846150" class="brutal-social-item" target="_blank">
-                  <svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
-                  </svg>
-                  <span>WhatsApp</span>
+                  <div class="social-icon-wrap">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                      <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+                    </svg>
+                  </div>
+                  <span class="social-name">WhatsApp</span>
+                  <span class="social-badge">CHAT</span>
                 </a>
               </div>
             </div>
@@ -1142,4 +1763,14 @@
 
 
 <script src="{% static 'js/main.js' %}"></script>
+  <script>
+    function copyEmail(email) {
+      navigator.clipboard.writeText(email).then(function(){
+        const chip = document.getElementById('copyChipText');
+        const original = chip.textContent;
+        chip.textContent = 'COPIED!';
+        setTimeout(function(){ chip.textContent = original; }, 1500);
+      });
+    }
+  </script>
 {% endblock content %}
