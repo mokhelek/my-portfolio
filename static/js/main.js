@@ -150,6 +150,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize Brutalist cursor (disabled on touch devices)
   initializeBrutalistCursor();
+
+  // FAB visibility logic: show after slight scroll
+  const fabLink = document.querySelector('.fab-home');
+  if (fabLink) {
+    const threshold = 120;
+    const setFabVisibility = () => {
+      const show = window.scrollY > threshold;
+      fabLink.style.opacity = show ? '1' : '0';
+      fabLink.style.pointerEvents = show ? 'auto' : 'none';
+      fabLink.style.transition = 'opacity 200ms ease';
+    };
+    setFabVisibility();
+    window.addEventListener('scroll', setFabVisibility, { passive: true });
+  }
 });
 
 // Keyboard navigation for accessibility

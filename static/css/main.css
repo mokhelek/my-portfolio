@@ -1768,7 +1768,7 @@ section {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  padding: 1rem 0;
+  padding: 0rem 0;
 }
 
 .brutal-project-meta {
